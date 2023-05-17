@@ -8,4 +8,21 @@ public enum Permission: Codable, Hashable, Sendable {
    case limited(Int)
    /// The permission is granted without any limits.
    case unlimited
+
+   /// Returns the permission limit if set to ``limited``. Returns `0` if set to ``denied``. Returns ``Int.max`` if set to ``unlimited``.
+   public var limit: Int {
+      switch self {
+      case .denied:
+         return 0
+
+      case .limited(let limit):
+         return limit
+
+      case .unlimited:
+         return Int.max
+      }
+   }
+
+   /// Returns `true` if the user has unlimited permission for the provided unlockable feature. Else, returns `false` (for both ``denied`` and ``limited``).
+   public var isUnlimited: Bool { self == .unlimited }
 }

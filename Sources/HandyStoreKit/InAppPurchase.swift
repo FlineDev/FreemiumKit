@@ -1,8 +1,31 @@
 import Foundation
 import StoreKit
 
+#warning("🧑‍💻 extract code examples in docs to SwiftPM snippets")
 /// A manager that handles fetching, caching, and updating purchases from StoreKit.
-public final class TransactionManager<U: Unlockable> {
+///
+/// Here's a simplified example taken from the app "Twoot it!":
+/// ```
+/// enum ProductID: String, Purchasable {
+///    case proYearly = "dev.fline.TwootIt.Pro.Yearly"
+///    case proMonthly = "dev.fline.TwootIt.Pro.Monthly"
+///    case liteYearly = "dev.fline.TwootIt.Lite.Yearly"
+///    case liteMonthly = "dev.fline.TwootIt.Lite.Monthly"
+/// }
+///
+/// enum LockedFeature: Unlockable {
+///    case twitterPosts
+///    case extendedAttachments
+///    case scheduledPosts
+///
+///    func permission(purchasedProductIDs: Set<ProductID>) -> Permission {
+///       // ...
+///    }
+/// }
+///
+/// let iap = InAppPurchase<ProductID, LockedFeature>
+/// ```
+public final class InAppPurchase<ProductID: Purchasable, LockedFeature: Unlockable> {
    private var updates: Task<Void, Never>?
 
    private let onPurchase: (Transaction) -> Void
@@ -13,33 +36,33 @@ public final class TransactionManager<U: Unlockable> {
    /// The currently active purchased transactions.
    public var purchasedTransactions: Set<Transaction> = []
 
-   /// The IDs of the currently active purchased products.
-   public var purchasedProductIDs: Set<Product.ID> {
-      Set(self.purchasedTransactions.map(\.productID))
+   /// The IDs of the currently active purchased products wrapped in your ``Purchasable`` product enum type.
+   public var purchasedProductIDs: Set<ProductID> {
+      Set(self.purchasedTransactions.map(\.productID).compactMap(ProductID.init(rawValue:)))
    }
 
    /// The expired previously purchased transactions.
    public var expiredTransactions: Set<Transaction> = []
 
-   /// The IDs of the expired previously purchased products.
-   public var expiredProductIDs: Set<Product.ID> {
-      Set(self.expiredTransactions.map(\.productID))
+   /// The IDs of the expired previously purchased products wrapped in your ``Purchasable`` product enum type.
+   public var expiredProductIDs: Set<ProductID> {
+      Set(self.expiredTransactions.map(\.productID).compactMap(ProductID.init(rawValue:)))
    }
 
    /// The revoked previously purchased transactions.
    public var revokedTransactions: Set<Transaction> = []
 
-   /// The IDs of the revoked previously purchased products.
-   public var revokedProductIDs: Set<Product.ID> {
-      Set(self.revokedTransactions.map(\.productID))
+   /// The IDs of the revoked previously purchased products wrapped in your ``Purchasable`` product enum type.
+   public var revokedProductIDs: Set<ProductID> {
+      Set(self.revokedTransactions.map(\.productID).compactMap(ProductID.init(rawValue:)))
    }
 
    /// The upgraded previously purchased transactions.
    public var upgradedTransactions: Set<Transaction> = []
 
-   /// The IDs of the upgraded previously purchased products.
-   public var upgradedProductIDs: Set<Product.ID> {
-      Set(self.upgradedTransactions.map(\.productID))
+   /// The IDs of the upgraded previously purchased products wrapped in your ``Purchasable`` product enum type.
+   public var upgradedProductIDs: Set<ProductID> {
+      Set(self.upgradedTransactions.map(\.productID).compactMap(ProductID.init(rawValue:)))
    }
 
 
@@ -72,27 +95,8 @@ public final class TransactionManager<U: Unlockable> {
    }
 
    /// Returns the users current permission for the provided unlockable feature.
-   public func permission(for unlockable: U) -> Permission {
-      unlockable.permission(purchasedProductIDs: self.purchasedProductIDs)
-   }
-
-   /// Returns `true` if the user has unlimited permission for the provided unlockable feature. Returns `false` if
-   public func permissionIsUnlimited(for unlockable: U) -> Bool {
-      unlockable.permission(purchasedProductIDs: self.purchasedProductIDs) == .unlimited
-   }
-
-   /// Returns the users current permission limit for the provided unlockable feature. Returns `0` for `denied` or `Int.max` for `unlimited`.
-   public func permissionLimit(for unlockable: U) -> Int {
-      switch unlockable.permission(purchasedProductIDs: self.purchasedProductIDs) {
-      case .denied:
-         return 0
-
-      case .limited(let limit):
-         return limit
-
-      case .unlimited:
-         return Int.max
-      }
+   public func permission(for feature: LockedFeature) -> Permission {
+      feature.permission(purchasedProductIDs: self.purchasedProductIDs)
    }
 
    deinit {
