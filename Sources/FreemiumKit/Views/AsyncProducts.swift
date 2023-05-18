@@ -10,16 +10,13 @@ import StoreKit
 //   case
 //}
 
-public struct AsyncProducts<
-   ProductID: RawRepresentableProductID,
-   Products: ProductsView,
-   Placeholder: PlaceholderView,
-   LoadFailed: LoadFailedView
->: View {
+public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncProductsStyle>: View {
    public enum PurchaseFailed {
       case storeKitError(StoreKitError)
       case purchaseError(Product.PurchaseError)
    }
+
+   private let style: Style
 
    private let productIDs: [ProductID]
    private let purchasedTransactions: Set<StoreKit.Transaction>
@@ -28,6 +25,7 @@ public struct AsyncProducts<
    private let onPurchase: (StoreKit.Transaction) -> Void
    private let onPurchaseFailed: (PurchaseFailed) -> Void
    private let onLoadFailed: (StoreKitError) -> Void
+
 
    @State
    private var newPurchases: Set<StoreKit.Transaction> = []
@@ -48,16 +46,16 @@ public struct AsyncProducts<
    private var loadingProductsFailed: Bool = false
 
    public init(
+      style: Style,
       productIDs: [ProductID],
       purchasedTransactions: Set<StoreKit.Transaction>,
       automaticallyFinishTransactions: Bool = true,
       onPurchase: @escaping (StoreKit.Transaction) -> Void = { _ in },
       onPurchaseFailed: @escaping (PurchaseFailed) -> Void = { _ in },
-      onLoadFailed: @escaping (StoreKitError) -> Void = { _ in },
-      productsType: Products.Type,
-      placeholderType: Placeholder.Type,
-      loadFailedType: LoadFailed.Type
+      onLoadFailed: @escaping (StoreKitError) -> Void = { _ in }
    ) {
+      self.style = style
+
       self.productIDs = productIDs
       self.purchasedTransactions = purchasedTransactions
       self.automaticallyFinishTransactions = automaticallyFinishTransactions
@@ -70,14 +68,14 @@ public struct AsyncProducts<
    public var body: some View {
       Group {
          if self.loadingInProgress {
-            Placeholder()
+            self.style.productsLoadingPlaceholder()
          } else if self.loadingProductsFailed {
             #warning("🧑‍💻 localize texts")
-            LoadFailed(reloadButtonTitle: "Reload", loadFailedMessage: "Failed to load products from App Store.") {
+            self.style.productsLoadFailed(reloadButtonTitle: "Reload", loadFailedMessage: "Failed to load products from App Store") {
                self.loadProducts.toggle()
             }
          } else {
-            Products(
+            self.style.products(
                products: self.products,
                purchasedTransactions: self.purchasedTransactions.union(self.newPurchases),
                purchaseInProgressProduct: self.purchaseInProgressProduct
@@ -149,6 +147,6 @@ struct AsyncProductsView_Previews: PreviewProvider {
    }
 
    static var previews: some View {
-      AsyncProducts(productIDs: ProductID.allCases, purchasedTransactions: [], productsType: <#T##ProductsView.Protocol#>, placeholderType: <#T##PlaceholderView.Protocol#>, loadFailedType: <#T##LoadFailedView.Protocol#>)
+      AsyncProducts(style: PlainAsyncProductsStyle(), productIDs: ProductID.allCases, purchasedTransactions: [])
    }
 }
