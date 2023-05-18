@@ -5,8 +5,33 @@ import StoreKit
 /// A manager that handles fetching, caching, and updating purchases from StoreKit.
 ///
 /// Here's a simplified example taken from the app "Twoot it!":
-/// @Snippet(path: "FreemiumKit/Snippets/InAppPurchase/Type")
-public final class InAppPurchase<ProductID: Purchasable, LockedFeature: Unlockable> {
+/// ```
+/// enum ProductID: String, RawRepresentableProductID {
+///    case proYearly = "dev.fline.TwootIt.Pro.Yearly"
+///    case proMonthly = "dev.fline.TwootIt.Pro.Monthly"
+///    case liteYearly = "dev.fline.TwootIt.Lite.Yearly"
+///    case liteMonthly = "dev.fline.TwootIt.Lite.Monthly"
+/// }
+///
+/// enum LockedFeature: Unlockable {
+///    case twitterPostsPerDay
+///    case extendedAttachments
+///    case scheduledPosts
+///
+///    func permission(purchasedProductIDs: Set<ProductID>) -> Permission {
+///       // ...
+///    }
+/// }
+///
+/// // on app start
+/// let iap = InAppPurchase<ProductID, LockedFeature>
+///
+/// // in SwiftUI
+/// Button(...).disabled(iap.permission(for: .twitterPostsPerDay).isGranted(current: 1).isFalse)
+/// Button(...).disabled(iap.permission(for: .extendedAttachments).isAlwaysDenied)
+/// Button(...).disabled(iap.permission(for: .scheduledPosts).isAlwaysDenied)
+/// ```
+public final class InAppPurchase<ProductID: RawRepresentableProductID, LockedFeature: Unlockable> {
    private var updates: Task<Void, Never>?
 
    private let onPurchase: (Transaction) -> Void
@@ -17,7 +42,7 @@ public final class InAppPurchase<ProductID: Purchasable, LockedFeature: Unlockab
    /// The currently active purchased transactions.
    public var purchasedTransactions: Set<Transaction> = []
 
-   /// The IDs of the currently active purchased products wrapped in your ``Purchasable`` product enum type.
+   /// The IDs of the currently active purchased products wrapped in your ``RawRepresentableProductID`` product enum type.
    public var purchasedProductIDs: Set<ProductID> {
       Set(self.purchasedTransactions.map(\.productID).compactMap(ProductID.init(rawValue:)))
    }
@@ -25,7 +50,7 @@ public final class InAppPurchase<ProductID: Purchasable, LockedFeature: Unlockab
    /// The expired previously purchased transactions.
    public var expiredTransactions: Set<Transaction> = []
 
-   /// The IDs of the expired previously purchased products wrapped in your ``Purchasable`` product enum type.
+   /// The IDs of the expired previously purchased products wrapped in your ``RawRepresentableProductID`` product enum type.
    public var expiredProductIDs: Set<ProductID> {
       Set(self.expiredTransactions.map(\.productID).compactMap(ProductID.init(rawValue:)))
    }
@@ -33,7 +58,7 @@ public final class InAppPurchase<ProductID: Purchasable, LockedFeature: Unlockab
    /// The revoked previously purchased transactions.
    public var revokedTransactions: Set<Transaction> = []
 
-   /// The IDs of the revoked previously purchased products wrapped in your ``Purchasable`` product enum type.
+   /// The IDs of the revoked previously purchased products wrapped in your ``RawRepresentableProductID`` product enum type.
    public var revokedProductIDs: Set<ProductID> {
       Set(self.revokedTransactions.map(\.productID).compactMap(ProductID.init(rawValue:)))
    }
@@ -41,7 +66,7 @@ public final class InAppPurchase<ProductID: Purchasable, LockedFeature: Unlockab
    /// The upgraded previously purchased transactions.
    public var upgradedTransactions: Set<Transaction> = []
 
-   /// The IDs of the upgraded previously purchased products wrapped in your ``Purchasable`` product enum type.
+   /// The IDs of the upgraded previously purchased products wrapped in your ``RawRepresentableProductID`` product enum type.
    public var upgradedProductIDs: Set<ProductID> {
       Set(self.upgradedTransactions.map(\.productID).compactMap(ProductID.init(rawValue:)))
    }

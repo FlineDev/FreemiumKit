@@ -5,7 +5,7 @@ import StoreKit
 ///
 /// Here's a real-world example taken from the app "Twoot it!":
 /// ```
-/// enum ProductID: String, Purchasable {
+/// enum ProductID: String, RawRepresentableProductID {
 ///    case proYearly = "dev.fline.TwootIt.Pro.Yearly"
 ///    case proMonthly = "dev.fline.TwootIt.Pro.Monthly"
 ///    case liteYearly = "dev.fline.TwootIt.Lite.Yearly"
@@ -40,7 +40,7 @@ import StoreKit
 /// }
 /// ```
 public protocol Unlockable: Equatable, CaseIterable {
-   func permission<ProductID: Purchasable>(purchasedProductIDs: Set<ProductID>) -> Permission
+   func permission<ProductID: RawRepresentableProductID>(purchasedProductIDs: Set<ProductID>) -> Permission
 }
 
 extension Set where Element: RawRepresentable<String> {

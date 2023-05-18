@@ -4,7 +4,7 @@ import Foundation
 ///
 /// Here's a real-world example taken from the app "Twoot it!":
 /// ```
-/// enum ProductID: String, Purchasable {
+/// enum ProductID: String, RawRepresentableProductID {
 ///    case pro3Yearly = "dev.fline.TwootIt.Pro3.Yearly"
 ///    case pro2Yearly = "dev.fline.TwootIt.Pro2.Yearly"
 ///    case pro1Yearly = "dev.fline.TwootIt.Pro1.Yearly"
@@ -15,4 +15,4 @@ import Foundation
 ///    case liteMonthly = "dev.fline.TwootIt.Lite.Monthly"
 /// }
 /// ```
-public protocol Purchasable: Hashable, CaseIterable, RawRepresentable<String> {}
+public protocol RawRepresentableProductID: Hashable, CaseIterable, RawRepresentable<String> {}
