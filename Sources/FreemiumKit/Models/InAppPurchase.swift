@@ -1,7 +1,6 @@
 import Foundation
 import StoreKit
 
-#warning("🧑‍💻 extract code examples in docs to SwiftPM snippets")
 /// A manager that handles fetching, caching, and updating purchases from StoreKit.
 ///
 /// Here's a simplified example taken from the app "Twoot it!":
