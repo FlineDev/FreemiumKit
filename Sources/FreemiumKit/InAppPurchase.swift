@@ -5,26 +5,7 @@ import StoreKit
 /// A manager that handles fetching, caching, and updating purchases from StoreKit.
 ///
 /// Here's a simplified example taken from the app "Twoot it!":
-/// ```
-/// enum ProductID: String, Purchasable {
-///    case proYearly = "dev.fline.TwootIt.Pro.Yearly"
-///    case proMonthly = "dev.fline.TwootIt.Pro.Monthly"
-///    case liteYearly = "dev.fline.TwootIt.Lite.Yearly"
-///    case liteMonthly = "dev.fline.TwootIt.Lite.Monthly"
-/// }
-///
-/// enum LockedFeature: Unlockable {
-///    case twitterPosts
-///    case extendedAttachments
-///    case scheduledPosts
-///
-///    func permission(purchasedProductIDs: Set<ProductID>) -> Permission {
-///       // ...
-///    }
-/// }
-///
-/// let iap = InAppPurchase<ProductID, LockedFeature>
-/// ```
+/// @Snippet(path: "FreemiumKit/Snippets/InAppPurchase/Type")
 public final class InAppPurchase<ProductID: Purchasable, LockedFeature: Unlockable> {
    private var updates: Task<Void, Never>?
 

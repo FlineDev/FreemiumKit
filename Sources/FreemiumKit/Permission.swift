@@ -23,6 +23,20 @@ public enum Permission: Codable, Hashable, Sendable {
       }
    }
 
+   /// Returns `true` if the user has not reached their limit yet. Else, returns `false`. Always returns `false` for ``denied``, always returns `true` for ``unlimited``.
+   public func isGranted(current: Int) -> Bool {
+      switch self {
+      case .denied:
+         return false
+
+      case .limited(let limit):
+         return limit > current
+
+      case .unlimited:
+         return true
+      }
+   }
+
    /// Returns `true` if the user has unlimited permission for the provided unlockable feature. Else, returns `false` (for both ``denied`` and ``limited``).
    public var isUnlimited: Bool { self == .unlimited }
 }
