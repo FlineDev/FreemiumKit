@@ -82,7 +82,6 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
                         }
 
                         self.onPurchase(transaction)
-                        self.inAppPurchase.handle(verificationResult: .verified(transaction))
 
                      case .pending, .userCancelled, .success(.unverified):
                         break
