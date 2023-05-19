@@ -1,15 +1,6 @@
 import SwiftUI
 import StoreKit
 
-//public enum PlaceholderType {
-//   case plaloadInProgressView
-//   Loadcase custom
-//}
-//
-//public enum InProgressType {
-//   case
-//}
-
 public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncProductsStyle>: View {
    public enum PurchaseFailed {
       case storeKitError(StoreKitError)
@@ -17,18 +8,13 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
    }
 
    private let style: Style
-
    private let productIDs: [ProductID]
-   private let purchasedTransactions: Set<StoreKit.Transaction>
+   private let inAppPurchase: InAppPurchase<ProductID>
    private let automaticallyFinishTransactions: Bool
 
    private let onPurchase: (StoreKit.Transaction) -> Void
    private let onPurchaseFailed: (PurchaseFailed) -> Void
    private let onLoadFailed: (StoreKitError) -> Void
-
-
-   @State
-   private var newPurchases: Set<StoreKit.Transaction> = []
 
    @State
    private var products: [Product] = []
@@ -48,16 +34,15 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
    public init(
       style: Style,
       productIDs: [ProductID],
-      purchasedTransactions: Set<StoreKit.Transaction>,
+      inAppPurchase: InAppPurchase<ProductID>,
       automaticallyFinishTransactions: Bool = true,
       onPurchase: @escaping (StoreKit.Transaction) -> Void = { _ in },
       onPurchaseFailed: @escaping (PurchaseFailed) -> Void = { _ in },
       onLoadFailed: @escaping (StoreKitError) -> Void = { _ in }
    ) {
       self.style = style
-
       self.productIDs = productIDs
-      self.purchasedTransactions = purchasedTransactions
+      self.inAppPurchase = inAppPurchase
       self.automaticallyFinishTransactions = automaticallyFinishTransactions
 
       self.onPurchase = onPurchase
@@ -77,7 +62,7 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
          } else {
             self.style.products(
                products: self.products,
-               purchasedTransactions: self.purchasedTransactions.union(self.newPurchases),
+               purchasedTransactions: self.inAppPurchase.purchasedTransactions,
                purchaseInProgressProduct: self.purchaseInProgressProduct
             ) { product, options in
                Task {
@@ -89,8 +74,6 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
                      switch purchaseResult {
                      case .success(.verified(let transaction)):
                         if self.automaticallyFinishTransactions { await transaction.finish() }
-
-                        self.newPurchases.insert(transaction)
                         self.onPurchase(transaction)
 
                      case .pending, .userCancelled, .success(.unverified):
@@ -147,6 +130,6 @@ struct AsyncProductsView_Previews: PreviewProvider {
    }
 
    static var previews: some View {
-      AsyncProducts(style: PlainAsyncProductsStyle(), productIDs: ProductID.allCases, purchasedTransactions: [])
+      AsyncProducts(style: PlainAsyncProductsStyle(), productIDs: ProductID.allCases, inAppPurchase: InAppPurchase<ProductID>())
    }
 }

@@ -30,7 +30,7 @@ import StoreKit
 /// Button(...).disabled(iap.permission(for: .extendedAttachments).isAlwaysDenied)
 /// Button(...).disabled(iap.permission(for: .scheduledPosts).isAlwaysDenied)
 /// ```
-public final class InAppPurchase<ProductID: RawRepresentableProductID, LockedFeature: Unlockable> where LockedFeature.ProductID == ProductID {
+public final class InAppPurchase<ProductID: RawRepresentableProductID> {
    private var updates: Task<Void, Never>?
 
    private let onPurchase: (Transaction) -> Void
@@ -102,7 +102,7 @@ public final class InAppPurchase<ProductID: RawRepresentableProductID, LockedFea
    }
 
    /// Returns the users current permission for the provided unlockable feature.
-   public func permission(for feature: LockedFeature) -> Permission {
+   public func permission<LockedFeature: Unlockable>(for feature: LockedFeature) -> Permission where LockedFeature.ProductID == ProductID {
       feature.permission(purchasedProductIDs: self.purchasedProductIDs)
    }
 
