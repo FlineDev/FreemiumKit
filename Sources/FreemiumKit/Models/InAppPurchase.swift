@@ -82,19 +82,21 @@ public final class InAppPurchase<ProductID: RawRepresentableProductID, LockedFea
       onExpire: @escaping (Transaction) -> Void = { _ in },
       onRevoke: @escaping (Transaction) -> Void = { _ in },
       onUpgrade: @escaping (Transaction) -> Void = { _ in }
-   ) async {
+   ) {
       self.onPurchase = onPurchase
       self.onExpire = onExpire
       self.onRevoke = onRevoke
       self.onUpgrade = onUpgrade
 
-      for await verificationResult in Transaction.currentEntitlements {
-         self.handle(verificationResult: verificationResult)
-      }
-
-      Task(priority: .background) {
-         for await verificationResult in Transaction.updates {
+      Task {
+         for await verificationResult in Transaction.currentEntitlements {
             self.handle(verificationResult: verificationResult)
+         }
+
+         Task(priority: .background) {
+            for await verificationResult in Transaction.updates {
+               self.handle(verificationResult: verificationResult)
+            }
          }
       }
    }
