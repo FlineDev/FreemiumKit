@@ -31,7 +31,7 @@ import IdentifiedCollections
 /// Button(...).disabled(iap.permission(for: .extendedAttachments).isAlwaysDenied)
 /// Button(...).disabled(iap.permission(for: .scheduledPosts).isAlwaysDenied)
 /// ```
-public final class InAppPurchase<ProductID: RawRepresentableProductID> {
+public final class InAppPurchase<ProductID: RawRepresentableProductID>: ObservableObject {
    public enum Change {
       case purchased
       case expired
@@ -47,6 +47,7 @@ public final class InAppPurchase<ProductID: RawRepresentableProductID> {
    private var upgradeObservers: [String: (Transaction) -> Void] = [:]
 
    /// The currently active purchased transactions with duplicate transactions for same ``productID`` removed.
+   @Published
    public var purchasedTransactions: IdentifiedArray<String, Transaction> = .init(uniqueElements: [], id: \.productID)
 
    /// The IDs of the currently active purchased products wrapped in your ``RawRepresentableProductID`` product enum type.
@@ -55,6 +56,7 @@ public final class InAppPurchase<ProductID: RawRepresentableProductID> {
    }
 
    /// The expired previously purchased transactions with duplicate transactions for same ``productID`` removed.
+   @Published
    public var expiredTransactions: IdentifiedArray<String, Transaction> = .init(uniqueElements: [], id: \.productID)
 
    /// The IDs of the expired previously purchased products wrapped in your ``RawRepresentableProductID`` product enum type.
@@ -63,6 +65,7 @@ public final class InAppPurchase<ProductID: RawRepresentableProductID> {
    }
 
    /// The revoked previously purchased transactions with duplicate transactions for same ``productID`` removed.
+   @Published
    public var revokedTransactions: IdentifiedArray<String, Transaction> = .init(uniqueElements: [], id: \.productID)
 
    /// The IDs of the revoked previously purchased products wrapped in your ``RawRepresentableProductID`` product enum type.
@@ -71,6 +74,7 @@ public final class InAppPurchase<ProductID: RawRepresentableProductID> {
    }
 
    /// The upgraded previously purchased transactions with duplicate transactions for same ``productID`` removed.
+   @Published
    public var upgradedTransactions: IdentifiedArray<String, Transaction> = .init(uniqueElements: [], id: \.productID)
 
    /// The IDs of the upgraded previously purchased products wrapped in your ``RawRepresentableProductID`` product enum type.

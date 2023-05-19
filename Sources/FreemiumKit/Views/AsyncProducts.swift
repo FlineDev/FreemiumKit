@@ -11,7 +11,9 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
 
    private let style: Style
    private let productIDs: [ProductID]
-   private let inAppPurchase: InAppPurchase<ProductID>
+
+   @ObservedObject
+   private var inAppPurchase: InAppPurchase<ProductID>
    private let autoFinishPurchases: Bool
 
    private let onPurchase: (StoreKit.Transaction) -> Void
@@ -23,9 +25,6 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
 
    @State
    private var purchaseInProgressProduct: Product?
-
-   @State
-   private var refreshView: Bool = false
 
    @State
    private var loadProducts: Bool = false
@@ -107,15 +106,6 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
                }
             }
          }
-      }
-      .background(Color.clear.disabled(self.refreshView))
-      .onAppear {
-         self.inAppPurchase.observeChanges(id: self.updateID) { _, _ in
-            self.refreshView.toggle()
-         }
-      }
-      .onDisappear {
-         self.inAppPurchase.removeObserver(id: self.updateID)
       }
       .task(id: self.loadProducts) {
          do {
