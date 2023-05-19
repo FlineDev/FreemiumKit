@@ -30,7 +30,7 @@ import StoreKit
 /// Button(...).disabled(iap.permission(for: .extendedAttachments).isAlwaysDenied)
 /// Button(...).disabled(iap.permission(for: .scheduledPosts).isAlwaysDenied)
 /// ```
-public final class InAppPurchase<ProductID: RawRepresentableProductID, LockedFeature: Unlockable> {
+public final class InAppPurchase<ProductID: RawRepresentableProductID, LockedFeature: Unlockable> where LockedFeature.ProductID == ProductID {
    private var updates: Task<Void, Never>?
 
    private let onPurchase: (Transaction) -> Void

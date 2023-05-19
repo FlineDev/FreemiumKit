@@ -40,7 +40,9 @@ import StoreKit
 /// }
 /// ```
 public protocol Unlockable: Equatable, CaseIterable {
-   func permission<ProductID: RawRepresentableProductID>(purchasedProductIDs: Set<ProductID>) -> Permission
+   associatedtype ProductID: RawRepresentableProductID
+
+   func permission(purchasedProductIDs: Set<ProductID>) -> Permission
 }
 
 extension Set where Element: RawRepresentable<String> {
