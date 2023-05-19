@@ -1,5 +1,4 @@
 import Foundation
-import StoreKit
 
 /// Create an enum with a list of cases for all your different features that can be unlocked and conform it to this type.
 ///
@@ -31,7 +30,7 @@ import StoreKit
 ///          }
 ///
 ///       case .extendedAttachments:
-///          return purchasedProductIDs.containsAny(containingAnyOf: ["TwootIt.Pro", "TwootIt.Lite"]) ? .unlimited : .denied
+///          return purchasedProductIDs.isEmpty ? .denied : .unlimited
 ///
 ///       case .scheduledPosts:
 ///          return purchasedProductIDs.isEmpty ? .limit(1) : .unlimited

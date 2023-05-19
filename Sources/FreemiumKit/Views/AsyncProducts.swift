@@ -81,6 +81,7 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
                            await transaction.finish()
                         }
 
+                        self.inAppPurchase.handle(verificationResult: .verified(transaction))
                         self.onPurchase(transaction)
 
                      case .pending, .userCancelled, .success(.unverified):
