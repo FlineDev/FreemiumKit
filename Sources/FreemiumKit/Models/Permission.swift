@@ -27,13 +27,13 @@ public enum Permission: Codable, Hashable, Sendable {
    public func isDenied(current: Int) -> Bool {
       switch self {
       case .locked:
-         return false
+         return true
 
       case .limited(let limit):
-         return limit > current
+         return current >= limit
 
       case .unlimited:
-         return true
+         return false
       }
    }
 
