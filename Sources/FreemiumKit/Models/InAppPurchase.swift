@@ -152,6 +152,15 @@ public final class InAppPurchase<ProductID: RawRepresentableProductID> {
          self.purchasedTransactions.remove(id: transaction.productID)
          self.upgradeObservers.values.forEach { $0(transaction) }
       } else {
+         // remove any older subscriptions of the same subscription level
+         if let newProductID = ProductID(rawValue: transaction.productID) {
+            for oldProductID in self.purchasedProductIDs {
+               if oldProductID.onSameSubscriptionLevel(as: newProductID) {
+                  self.purchasedTransactions.remove(id: oldProductID.rawValue)
+               }
+            }
+         }
+
          self.purchasedTransactions[id: transaction.productID] = transaction
          self.purchasedTransactions.sort { $0.purchaseDate < $1.purchaseDate }
          self.purchaseObservers.values.forEach { $0(transaction) }

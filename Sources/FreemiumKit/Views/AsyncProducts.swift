@@ -145,6 +145,13 @@ struct AsyncProductsView_Previews: PreviewProvider {
    enum ProductID: String, RawRepresentableProductID {
       case pro
       case lite
+
+      var subscriptionLevel: Int? {
+         switch self {
+         case .pro: return 1
+         case .lite: return 2
+         }
+      }
    }
 
    static var previews: some View {
