@@ -17,6 +17,6 @@ public protocol AsyncProductsStyle {
       products: [Product],
       purchasedTransactions: Set<StoreKit.Transaction>,
       purchaseInProgressProduct: Product?,
-      startPurchase: (Product, Set<Product.PurchaseOption>) -> Void
+      startPurchase: @escaping (Product, Set<Product.PurchaseOption>) -> Void
    ) -> Products
 }

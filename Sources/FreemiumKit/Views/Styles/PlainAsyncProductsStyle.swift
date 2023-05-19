@@ -19,13 +19,17 @@ public struct PlainAsyncProductsStyle: AsyncProductsStyle {
       products: [Product],
       purchasedTransactions: Set<StoreKit.Transaction>,
       purchaseInProgressProduct: Product?,
-      startPurchase: (Product, Set<Product.PurchaseOption>
-   ) -> Void) -> some View {
+      startPurchase: @escaping (Product, Set<Product.PurchaseOption>) -> Void
+   ) -> some View {
       List(products) { product in
          if purchasedTransactions.map(\.productID).contains(product.id) {
             Label(product.displayName, systemImage: "checkmark")
          } else {
-            Text(product.displayName)
+            Button {
+               startPurchase(product, [])
+            } label: {
+               Text(product.displayName)
+            }
          }
       }
       .overlay {
