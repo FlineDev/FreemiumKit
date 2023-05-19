@@ -86,7 +86,7 @@ public final class InAppPurchase<ProductID: RawRepresentableProductID>: Observab
    public init() {
       self.updates = Task(priority: .background) {
          for await verificationResult in Transaction.updates {
-            self.handle(verificationResult: verificationResult)
+            await self.handle(verificationResult: verificationResult)
          }
       }
 
@@ -96,7 +96,7 @@ public final class InAppPurchase<ProductID: RawRepresentableProductID>: Observab
    private func loadCurrentEntitlements() {
       Task {
          for await verificationResult in Transaction.currentEntitlements {
-            self.handle(verificationResult: verificationResult)
+            await self.handle(verificationResult: verificationResult)
          }
       }
    }
@@ -140,6 +140,7 @@ public final class InAppPurchase<ProductID: RawRepresentableProductID>: Observab
       self.upgradeObservers.removeValue(forKey: id)
    }
 
+   @MainActor
    func handle(verificationResult: VerificationResult<Transaction>) {
       guard case .verified(let transaction) = verificationResult else { return }  // ignore unverified transactions
 
