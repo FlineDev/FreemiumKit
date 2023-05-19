@@ -31,12 +31,21 @@ import StoreKit
 /// Button(...).disabled(iap.permission(for: .scheduledPosts).isAlwaysDenied)
 /// ```
 public final class InAppPurchase<ProductID: RawRepresentableProductID> {
+   public enum Update {
+      case purchased
+      case expired
+      case revoked
+      case upgraded
+   }
+
    private var updates: Task<Void, Never>?
 
    private let onPurchase: (Transaction) -> Void
    private let onExpire: (Transaction) -> Void
    private let onRevoke: (Transaction) -> Void
    private let onUpgrade: (Transaction) -> Void
+
+   private var updateSubscribers: [String: (Transaction, Update) -> Void] = [:]
 
    /// The currently active purchased transactions.
    public var purchasedTransactions: Set<Transaction> = []
@@ -69,7 +78,6 @@ public final class InAppPurchase<ProductID: RawRepresentableProductID> {
    public var upgradedProductIDs: Set<ProductID> {
       Set(self.upgradedTransactions.map(\.productID).compactMap(ProductID.init(rawValue:)))
    }
-
 
    /// Initializes a manager that automatically loads current purchases on init & subscribes to StoreKit changes to update itself automatically.
    /// - Parameters:
@@ -110,23 +118,35 @@ public final class InAppPurchase<ProductID: RawRepresentableProductID> {
       self.updates?.cancel()
    }
 
+   public func subscribeToUpdates(id: String, onUpdate: @escaping (Transaction, Update) -> Void) {
+      self.updateSubscribers[id] = onUpdate
+   }
+
+   public func unsubscribeFromUpdates(id: String) {
+      self.updateSubscribers.removeValue(forKey: id)
+   }
+
    private func handle(verificationResult: VerificationResult<Transaction>) {
       guard case .verified(let transaction) = verificationResult else { return }  // ignore unverified transactions
 
       if transaction.revocationDate != nil {
          self.revokedTransactions.insert(transaction)
          self.onRevoke(transaction)
+         self.updateSubscribers.values.forEach { $0(transaction, .revoked) }
       } else if let expirationDate = transaction.expirationDate, expirationDate < Date.now {
          self.expiredTransactions.insert(transaction)
          self.purchasedTransactions.remove(transaction)
          self.onExpire(transaction)
+         self.updateSubscribers.values.forEach { $0(transaction, .expired) }
       } else if transaction.isUpgraded {
          self.upgradedTransactions.insert(transaction)
          self.purchasedTransactions.remove(transaction)
          self.onUpgrade(transaction)
+         self.updateSubscribers.values.forEach { $0(transaction, .upgraded) }
       } else {
          self.purchasedTransactions.insert(transaction)
          self.onPurchase(transaction)
+         self.updateSubscribers.values.forEach { $0(transaction, .purchased) }
       }
    }
 }
