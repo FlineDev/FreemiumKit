@@ -31,7 +31,7 @@ import StoreKit
 /// Button(...).disabled(iap.permission(for: .scheduledPosts).isAlwaysDenied)
 /// ```
 public final class InAppPurchase<ProductID: RawRepresentableProductID> {
-   public enum Update {
+   public enum Change {
       case purchased
       case expired
       case revoked
@@ -40,12 +40,10 @@ public final class InAppPurchase<ProductID: RawRepresentableProductID> {
 
    private var updates: Task<Void, Never>?
 
-   private let onPurchase: (Transaction) -> Void
-   private let onExpire: (Transaction) -> Void
-   private let onRevoke: (Transaction) -> Void
-   private let onUpgrade: (Transaction) -> Void
-
-   private var updateSubscribers: [String: (Transaction, Update) -> Void] = [:]
+   private var purchaseObservers: [String: (Transaction) -> Void] = [:]
+   private var expireObservers:  [String: (Transaction) -> Void] = [:]
+   private var revokeObservers: [String: (Transaction) -> Void] = [:]
+   private var upgradeObservers: [String: (Transaction) -> Void] = [:]
 
    /// The currently active purchased transactions.
    public var purchasedTransactions: Set<Transaction> = []
@@ -80,22 +78,7 @@ public final class InAppPurchase<ProductID: RawRepresentableProductID> {
    }
 
    /// Initializes a manager that automatically loads current purchases on init & subscribes to StoreKit changes to update itself automatically.
-   /// - Parameters:
-   ///   - onPurchase: Invoked for new successful transactions. ``TransactionManager`` handles updating permissions automatically, but you can attach custom logic.
-   ///   - onExpire: Invoked for transactions that expired. ``TransactionManager`` handles updating permissions automatically, but you can attach custom logic.
-   ///   - onRevoke: Invoked for transactions that got revoked. ``TransactionManager`` handles updating permissions automatically, but you can attach custom logic.
-   ///   - onUpgrade: Invoked for transactions that got upgraded. ``TransactionManager`` handles updating permissions automatically, but you can attach custom logic.
-   public init(
-      onPurchase: @escaping (Transaction) -> Void = { _ in },
-      onExpire: @escaping (Transaction) -> Void = { _ in },
-      onRevoke: @escaping (Transaction) -> Void = { _ in },
-      onUpgrade: @escaping (Transaction) -> Void = { _ in }
-   ) {
-      self.onPurchase = onPurchase
-      self.onExpire = onExpire
-      self.onRevoke = onRevoke
-      self.onUpgrade = onUpgrade
-
+   public init() {
       self.updates = Task(priority: .background) {
          for await verificationResult in Transaction.updates {
             self.handle(verificationResult: verificationResult)
@@ -118,36 +101,54 @@ public final class InAppPurchase<ProductID: RawRepresentableProductID> {
       self.updates?.cancel()
    }
 
-   public func subscribeToUpdates(id: String, onUpdate: @escaping (Transaction, Update) -> Void) {
-      self.updateSubscribers[id] = onUpdate
+   public func observeChanges(id: String, onChange: @escaping (Transaction, Change) -> Void) {
+      self.observePurchases(id: id, onPurchase: { onChange($0, .purchased) })
+      self.observeExpires(id: id, onExpire: { onChange($0, .purchased) })
+      self.observeRevokes(id: id, onRevoke: { onChange($0, .purchased) })
+      self.observeUpgrades(id: id, onUpgrade: { onChange($0, .purchased) })
    }
 
-   public func unsubscribeFromUpdates(id: String) {
-      self.updateSubscribers.removeValue(forKey: id)
+   public func observePurchases(id: String, onPurchase: @escaping (Transaction) -> Void) {
+      self.purchaseObservers[id] = onPurchase
    }
 
-   private func handle(verificationResult: VerificationResult<Transaction>) {
+   public func observeExpires(id: String, onExpire: @escaping (Transaction) -> Void) {
+      self.expireObservers[id] = onExpire
+   }
+
+   public func observeRevokes(id: String, onRevoke: @escaping (Transaction) -> Void) {
+      self.revokeObservers[id] = onRevoke
+   }
+
+   public func observeUpgrades(id: String, onUpgrade: @escaping (Transaction) -> Void) {
+      self.upgradeObservers[id] = onUpgrade
+   }
+
+   public func removeObserver(id: String) {
+      self.purchaseObservers.removeValue(forKey: id)
+      self.expireObservers.removeValue(forKey: id)
+      self.revokeObservers.removeValue(forKey: id)
+      self.upgradeObservers.removeValue(forKey: id)
+   }
+
+   func handle(verificationResult: VerificationResult<Transaction>) {
       guard case .verified(let transaction) = verificationResult else { return }  // ignore unverified transactions
 
       if transaction.revocationDate != nil {
          self.revokedTransactions.insert(transaction)
          self.purchasedTransactions.remove(transaction)
-         self.onRevoke(transaction)
-         self.updateSubscribers.values.forEach { $0(transaction, .revoked) }
+         self.revokeObservers.values.forEach { $0(transaction) }
       } else if let expirationDate = transaction.expirationDate, expirationDate < Date.now {
          self.expiredTransactions.insert(transaction)
          self.purchasedTransactions.remove(transaction)
-         self.onExpire(transaction)
-         self.updateSubscribers.values.forEach { $0(transaction, .expired) }
+         self.expireObservers.values.forEach { $0(transaction) }
       } else if transaction.isUpgraded {
          self.upgradedTransactions.insert(transaction)
          self.purchasedTransactions.remove(transaction)
-         self.onUpgrade(transaction)
-         self.updateSubscribers.values.forEach { $0(transaction, .upgraded) }
+         self.upgradeObservers.values.forEach { $0(transaction) }
       } else {
          self.purchasedTransactions.insert(transaction)
-         self.onPurchase(transaction)
-         self.updateSubscribers.values.forEach { $0(transaction, .purchased) }
+         self.purchaseObservers.values.forEach { $0(transaction) }
       }
    }
 }

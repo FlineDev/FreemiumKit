@@ -8,7 +8,11 @@ public struct PlainAsyncProductsStyle: AsyncProductsStyle {
       ProgressView()
    }
 
-   public func productsLoadFailed(reloadButtonTitle: LocalizedStringKey, loadFailedMessage: LocalizedStringKey, reloadRequested: @escaping () -> Void) -> some View {
+   public func productsLoadFailed(
+      reloadButtonTitle: LocalizedStringKey,
+      loadFailedMessage: LocalizedStringKey,
+      reloadRequested: @escaping () -> Void
+   ) -> some View {
       VStack(spacing: 15) {
          Text(loadFailedMessage)
          Button(reloadButtonTitle) { reloadRequested() }

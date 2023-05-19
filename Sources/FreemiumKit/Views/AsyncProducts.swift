@@ -12,7 +12,7 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
    private let style: Style
    private let productIDs: [ProductID]
    private let inAppPurchase: InAppPurchase<ProductID>
-   private let automaticallyFinishTransactions: Bool
+   private let autoFinishPurchases: Bool
 
    private let onPurchase: (StoreKit.Transaction) -> Void
    private let onPurchaseFailed: (PurchaseFailed) -> Void
@@ -40,7 +40,7 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
       style: Style,
       productIDs: [ProductID],
       inAppPurchase: InAppPurchase<ProductID>,
-      automaticallyFinishTransactions: Bool = true,
+      autoFinishPurchases: Bool = true,
       onPurchase: @escaping (StoreKit.Transaction) -> Void = { _ in },
       onPurchaseFailed: @escaping (PurchaseFailed) -> Void = { _ in },
       onLoadFailed: @escaping (StoreKitError) -> Void = { _ in }
@@ -48,7 +48,7 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
       self.style = style
       self.productIDs = productIDs
       self.inAppPurchase = inAppPurchase
-      self.automaticallyFinishTransactions = automaticallyFinishTransactions
+      self.autoFinishPurchases = autoFinishPurchases
 
       self.onPurchase = onPurchase
       self.onPurchaseFailed = onPurchaseFailed
@@ -78,8 +78,12 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
 
                      switch purchaseResult {
                      case .success(.verified(let transaction)):
-                        if self.automaticallyFinishTransactions { await transaction.finish() }
+                        if self.autoFinishPurchases {
+                           await transaction.finish()
+                        }
+
                         self.onPurchase(transaction)
+                        self.inAppPurchase.handle(verificationResult: .verified(transaction))
 
                      case .pending, .userCancelled, .success(.unverified):
                         break
@@ -106,10 +110,12 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
       }
       .background(Color.clear.disabled(self.refreshView))
       .onAppear {
-         self.inAppPurchase.subscribeToUpdates(id: self.updateID) { _, _ in self.refreshView.toggle() }
+         self.inAppPurchase.observeChanges(id: self.updateID) { _, _ in
+            self.refreshView.toggle()
+         }
       }
       .onDisappear {
-         self.inAppPurchase.unsubscribeFromUpdates(id: self.updateID)
+         self.inAppPurchase.removeObserver(id: self.updateID)
       }
       .task(id: self.loadProducts) {
          do {
