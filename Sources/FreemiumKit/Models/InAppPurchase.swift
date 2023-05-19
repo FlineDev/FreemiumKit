@@ -1,5 +1,6 @@
 import Foundation
 import StoreKit
+import IdentifiedCollections
 
 /// A manager that handles fetching, caching, and updating purchases from StoreKit.
 ///
@@ -45,32 +46,32 @@ public final class InAppPurchase<ProductID: RawRepresentableProductID> {
    private var revokeObservers: [String: (Transaction) -> Void] = [:]
    private var upgradeObservers: [String: (Transaction) -> Void] = [:]
 
-   /// The currently active purchased transactions.
-   public var purchasedTransactions: Set<Transaction> = []
+   /// The currently active purchased transactions with duplicate transactions for same ``productID`` removed.
+   public var purchasedTransactions: IdentifiedArray<String, Transaction> = .init(uniqueElements: [], id: \.productID)
 
    /// The IDs of the currently active purchased products wrapped in your ``RawRepresentableProductID`` product enum type.
    public var purchasedProductIDs: Set<ProductID> {
       Set(self.purchasedTransactions.map(\.productID).compactMap(ProductID.init(rawValue:)))
    }
 
-   /// The expired previously purchased transactions.
-   public var expiredTransactions: Set<Transaction> = []
+   /// The expired previously purchased transactions with duplicate transactions for same ``productID`` removed.
+   public var expiredTransactions: IdentifiedArray<String, Transaction> = .init(uniqueElements: [], id: \.productID)
 
    /// The IDs of the expired previously purchased products wrapped in your ``RawRepresentableProductID`` product enum type.
    public var expiredProductIDs: Set<ProductID> {
       Set(self.expiredTransactions.map(\.productID).compactMap(ProductID.init(rawValue:)))
    }
 
-   /// The revoked previously purchased transactions.
-   public var revokedTransactions: Set<Transaction> = []
+   /// The revoked previously purchased transactions with duplicate transactions for same ``productID`` removed.
+   public var revokedTransactions: IdentifiedArray<String, Transaction> = .init(uniqueElements: [], id: \.productID)
 
    /// The IDs of the revoked previously purchased products wrapped in your ``RawRepresentableProductID`` product enum type.
    public var revokedProductIDs: Set<ProductID> {
       Set(self.revokedTransactions.map(\.productID).compactMap(ProductID.init(rawValue:)))
    }
 
-   /// The upgraded previously purchased transactions.
-   public var upgradedTransactions: Set<Transaction> = []
+   /// The upgraded previously purchased transactions with duplicate transactions for same ``productID`` removed.
+   public var upgradedTransactions: IdentifiedArray<String, Transaction> = .init(uniqueElements: [], id: \.productID)
 
    /// The IDs of the upgraded previously purchased products wrapped in your ``RawRepresentableProductID`` product enum type.
    public var upgradedProductIDs: Set<ProductID> {
@@ -135,19 +136,24 @@ public final class InAppPurchase<ProductID: RawRepresentableProductID> {
       guard case .verified(let transaction) = verificationResult else { return }  // ignore unverified transactions
 
       if transaction.revocationDate != nil {
-         self.revokedTransactions.insert(transaction)
-         self.purchasedTransactions.remove(transaction)
+         self.revokedTransactions[id: transaction.productID] = transaction
+         self.revokedTransactions.sort { ($0.revocationDate ?? .distantPast) < ($1.revocationDate ?? .distantPast) }
+
+         self.purchasedTransactions.remove(id: transaction.productID)
          self.revokeObservers.values.forEach { $0(transaction) }
       } else if let expirationDate = transaction.expirationDate, expirationDate < Date.now {
-         self.expiredTransactions.insert(transaction)
-         self.purchasedTransactions.remove(transaction)
+         self.expiredTransactions[id: transaction.productID] = transaction
+         self.expiredTransactions.sort { ($0.expirationDate ?? .distantPast) < ($1.expirationDate ?? .distantPast) }
+
+         self.purchasedTransactions.remove(id: transaction.productID)
          self.expireObservers.values.forEach { $0(transaction) }
       } else if transaction.isUpgraded {
-         self.upgradedTransactions.insert(transaction)
-         self.purchasedTransactions.remove(transaction)
+         self.upgradedTransactions[id: transaction.productID] = transaction
+         self.purchasedTransactions.remove(id: transaction.productID)
          self.upgradeObservers.values.forEach { $0(transaction) }
       } else {
-         self.purchasedTransactions.insert(transaction)
+         self.purchasedTransactions[id: transaction.productID] = transaction
+         self.purchasedTransactions.sort { $0.purchaseDate < $1.purchaseDate }
          self.purchaseObservers.values.forEach { $0(transaction) }
       }
    }

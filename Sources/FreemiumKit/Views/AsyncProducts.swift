@@ -67,7 +67,7 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
          } else {
             self.style.products(
                products: self.products,
-               purchasedTransactions: self.inAppPurchase.purchasedTransactions,
+               purchasedTransactions: self.inAppPurchase.purchasedTransactions.elements,
                purchaseInProgressProduct: self.purchaseInProgressProduct
             ) { product, options in
                Task {
