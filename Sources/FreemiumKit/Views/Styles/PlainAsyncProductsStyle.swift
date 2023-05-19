@@ -25,11 +25,7 @@ public struct PlainAsyncProductsStyle: AsyncProductsStyle {
          if purchasedTransactions.map(\.productID).contains(product.id) {
             Label(product.displayName, systemImage: "checkmark")
          } else {
-            Button {
-               startPurchase(product, [])
-            } label: {
-               Text(product.displayName)
-            }
+            Button(product.displayName) { startPurchase(product, []) }
          }
       }
       .overlay {
