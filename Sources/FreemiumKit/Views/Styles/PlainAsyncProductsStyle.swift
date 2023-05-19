@@ -2,6 +2,8 @@ import StoreKit
 import SwiftUI
 
 public struct PlainAsyncProductsStyle: AsyncProductsStyle {
+   public init() {}
+
    public func productsLoadingPlaceholder() -> some View {
       ProgressView()
    }
