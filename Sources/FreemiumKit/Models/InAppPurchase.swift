@@ -96,15 +96,15 @@ public final class InAppPurchase<ProductID: RawRepresentableProductID> {
       self.onRevoke = onRevoke
       self.onUpgrade = onUpgrade
 
+      self.updates = Task(priority: .background) {
+         for await verificationResult in Transaction.updates {
+            self.handle(verificationResult: verificationResult)
+         }
+      }
+
       Task {
          for await verificationResult in Transaction.currentEntitlements {
             self.handle(verificationResult: verificationResult)
-         }
-
-         Task(priority: .background) {
-            for await verificationResult in Transaction.updates {
-               self.handle(verificationResult: verificationResult)
-            }
          }
       }
    }
