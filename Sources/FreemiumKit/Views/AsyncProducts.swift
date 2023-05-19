@@ -7,6 +7,8 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
       case purchaseError(Product.PurchaseError)
    }
 
+   private let updateID: String = "AsyncProducts"
+
    private let style: Style
    private let productIDs: [ProductID]
    private let inAppPurchase: InAppPurchase<ProductID>
@@ -21,6 +23,9 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
 
    @State
    private var purchaseInProgressProduct: Product?
+
+   @State
+   private var refreshView: Bool = false
 
    @State
    private var loadProducts: Bool = false
@@ -98,6 +103,13 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
                }
             }
          }
+      }
+      .background(Color.clear.disabled(self.refreshView))
+      .onAppear {
+         self.inAppPurchase.subscribeToUpdates(id: self.updateID) { _, _ in self.refreshView.toggle() }
+      }
+      .onDisappear {
+         self.inAppPurchase.unsubscribeFromUpdates(id: self.updateID)
       }
       .task(id: self.loadProducts) {
          do {
