@@ -131,6 +131,7 @@ public final class InAppPurchase<ProductID: RawRepresentableProductID> {
 
       if transaction.revocationDate != nil {
          self.revokedTransactions.insert(transaction)
+         self.purchasedTransactions.remove(transaction)
          self.onRevoke(transaction)
          self.updateSubscribers.values.forEach { $0(transaction, .revoked) }
       } else if let expirationDate = transaction.expirationDate, expirationDate < Date.now {
