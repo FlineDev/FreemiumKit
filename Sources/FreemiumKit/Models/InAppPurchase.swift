@@ -90,6 +90,10 @@ public final class InAppPurchase<ProductID: RawRepresentableProductID>: Observab
          }
       }
 
+      self.loadCurrentEntitlements()
+   }
+
+   private func loadCurrentEntitlements() {
       Task {
          for await verificationResult in Transaction.currentEntitlements {
             self.handle(verificationResult: verificationResult)
@@ -145,12 +149,16 @@ public final class InAppPurchase<ProductID: RawRepresentableProductID>: Observab
 
          self.purchasedTransactions.remove(id: transaction.productID)
          self.revokeObservers.values.forEach { $0(transaction) }
+
+         self.loadCurrentEntitlements()
       } else if let expirationDate = transaction.expirationDate, expirationDate < Date.now {
          self.expiredTransactions[id: transaction.productID] = transaction
          self.expiredTransactions.sort { ($0.expirationDate ?? .distantPast) < ($1.expirationDate ?? .distantPast) }
 
          self.purchasedTransactions.remove(id: transaction.productID)
          self.expireObservers.values.forEach { $0(transaction) }
+
+         self.loadCurrentEntitlements()
       } else if transaction.isUpgraded {
          self.upgradedTransactions[id: transaction.productID] = transaction
          self.purchasedTransactions.remove(id: transaction.productID)
