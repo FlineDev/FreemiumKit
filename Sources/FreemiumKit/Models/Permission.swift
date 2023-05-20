@@ -23,7 +23,7 @@ public enum Permission: Codable, Hashable, Sendable {
       }
    }
 
-   /// Returns `true` if the user has not reached their limit yet. Else, returns `false`. Always returns `false` for ``locked``, always returns `true` for ``unlimited``.
+   /// Returns `true` if the user has reached their limit already. Else, returns `false`. Always returns `false` for ``unlimited``, always returns `true` for ``locked``.
    public func isDenied(current: Int) -> Bool {
       switch self {
       case .locked:

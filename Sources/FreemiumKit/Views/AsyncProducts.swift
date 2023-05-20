@@ -59,8 +59,10 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
          if self.loadingInProgress {
             self.style.productsLoadingPlaceholder()
          } else if self.loadingProductsFailed {
-            #warning("🧑‍💻 localize texts")
-            self.style.productsLoadFailed(reloadButtonTitle: "Reload", loadFailedMessage: "Failed to load products from App Store") {
+            self.style.productsLoadFailed(
+               reloadButtonTitle: "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle",
+               loadFailedMessage: "FreemiumKit.LoadingProductsFailed.Message"
+            ) {
                self.loadProducts.toggle()
             }
          } else {

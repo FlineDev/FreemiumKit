@@ -4,7 +4,7 @@ import IdentifiedCollections
 
 /// A manager that handles fetching, caching, and updating purchases from StoreKit.
 ///
-/// Here's a simplified example taken from the app "Twoot it!":
+/// Here's a simplified example how permission checking works taken from the app "Twoot it!":
 /// ```
 /// enum ProductID: String, RawRepresentableProductID {
 ///    case proYearly = "dev.fline.TwootIt.Pro.Yearly"
@@ -24,12 +24,12 @@ import IdentifiedCollections
 /// }
 ///
 /// // on app start
-/// let iap = InAppPurchase<ProductID, LockedFeature>
+/// let iap = InAppPurchase<ProductID>
 ///
 /// // in SwiftUI
-/// Button(...).disabled(iap.permission(for: .twitterPostsPerDay).isGranted(current: 1).isFalse)
-/// Button(...).disabled(iap.permission(for: .extendedAttachments).isAlwaysDenied)
-/// Button(...).disabled(iap.permission(for: .scheduledPosts).isAlwaysDenied)
+/// Button(...).disabled(iap.permission(for: LockedFeature.twitterPostsPerDay).isGranted(current: 1).isFalse)
+/// Button(...).disabled(iap.permission(for: LockedFeature.extendedAttachments).isAlwaysDenied)
+/// Button(...).disabled(iap.permission(for: LockedFeature.scheduledPosts).isAlwaysDenied)
 /// ```
 @MainActor
 public final class InAppPurchase<ProductID: RawRepresentableProductID>: ObservableObject {
