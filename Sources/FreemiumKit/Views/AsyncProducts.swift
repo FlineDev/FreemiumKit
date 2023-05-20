@@ -60,15 +60,15 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
             self.style.productsLoadingPlaceholder()
          } else if self.loadingProductsFailed {
             self.style.productsLoadFailed(
-               reloadButtonTitle: "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle",
-               loadFailedMessage: "FreemiumKit.LoadingProductsFailed.Message"
+               reloadButtonTitle: Bundle.module.localizedString(forKey: "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle"),
+               loadFailedMessage: Bundle.module.localizedString(forKey: "FreemiumKit.LoadingProductsFailed.Message")
             ) {
                self.loadProducts.toggle()
             }
          } else {
             self.style.products(
                products: self.products,
-               purchasedTransactions: self.inAppPurchase.purchasedTransactions.elements,
+               purchasedTransactions: self.inAppPurchase.purchasedTransactions,
                purchaseInProgressProduct: self.purchaseInProgressProduct
             ) { product, options in
                Task {
@@ -148,5 +148,12 @@ struct AsyncProductsView_Previews: PreviewProvider {
 
    static var previews: some View {
       AsyncProducts(style: PlainAsyncProductsStyle(), productIDs: ProductID.allCases, inAppPurchase: InAppPurchase<ProductID>())
+   }
+}
+
+extension Bundle {
+   /// Returns a localized version of the string designated by the specified key and residing in the default table "Localizable.strings".
+   func localizedString(forKey key: String) -> String {
+      self.localizedString(forKey: key, value: nil, table: nil)
    }
 }

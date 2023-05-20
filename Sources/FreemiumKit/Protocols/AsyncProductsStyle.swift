@@ -1,4 +1,6 @@
 import SwiftUI
+import StoreKit
+import IdentifiedCollections
 
 public protocol AsyncProductsStyle {
    associatedtype Placeholder: View
@@ -8,14 +10,14 @@ public protocol AsyncProductsStyle {
    func productsLoadingPlaceholder() -> Placeholder
 
    func productsLoadFailed(
-      reloadButtonTitle: LocalizedStringKey,
-      loadFailedMessage: LocalizedStringKey,
+      reloadButtonTitle: String,
+      loadFailedMessage: String,
       reloadRequested: @escaping () -> Void
    ) -> LoadFailed
 
    func products(
       products: [Product],
-      purchasedTransactions: [StoreKit.Transaction],
+      purchasedTransactions: IdentifiedArray<String, StoreKit.Transaction>,
       purchaseInProgressProduct: Product?,
       startPurchase: @escaping (Product, Set<Product.PurchaseOption>) -> Void
    ) -> Products

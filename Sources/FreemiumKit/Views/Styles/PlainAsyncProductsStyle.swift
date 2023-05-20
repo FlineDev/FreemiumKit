@@ -1,5 +1,6 @@
 import StoreKit
 import SwiftUI
+import IdentifiedCollections
 
 /// A very simple style using only plain SwiftUI types like ``Text``, ``Button``, or ``Label`` without fancy styling.
 /// Don't use this directly – this is meant as a guide to help those who want to implement their custom ``AsyncProductsStyle`` styles.
@@ -15,8 +16,8 @@ public struct PlainAsyncProductsStyle: AsyncProductsStyle {
    }
 
    public func productsLoadFailed(
-      reloadButtonTitle: LocalizedStringKey,
-      loadFailedMessage: LocalizedStringKey,
+      reloadButtonTitle: String,
+      loadFailedMessage: String,
       reloadRequested: @escaping () -> Void
    ) -> some View {
       VStack(spacing: self.verticalSpacing) {
@@ -27,12 +28,12 @@ public struct PlainAsyncProductsStyle: AsyncProductsStyle {
 
    public func products(
       products: [Product],
-      purchasedTransactions: [StoreKit.Transaction],
+      purchasedTransactions: IdentifiedArray<String, StoreKit.Transaction>,
       purchaseInProgressProduct: Product?,
       startPurchase: @escaping (Product, Set<Product.PurchaseOption>) -> Void
    ) -> some View {
       List(products) { product in
-         if purchasedTransactions.map(\.productID).contains(product.id) {
+         if let purchasedTransaction = purchasedTransactions[id: product.id], purchasedTransaction.purchaseDate > .now {
             Label(product.displayName, systemImage: "checkmark")
          } else {
             Button(product.displayName) { startPurchase(product, []) }
@@ -61,7 +62,7 @@ struct PlainAsyncProductsStyle_Previews: PreviewProvider {
 
          PlainAsyncProductsStyle(verticalSpacing: 25).products(
             products: [],
-            purchasedTransactions: [],
+            purchasedTransactions: .init(uniqueElements: [], id: \.productID),
             purchaseInProgressProduct: nil,
             startPurchase: { _, _ in }
          )
