@@ -152,8 +152,8 @@ struct AsyncProductsView_Previews: PreviewProvider {
 }
 
 extension Bundle {
-   /// Returns a localized version of the string designated by the specified key and residing in the default table "Localizable.strings".
+   /// Returns a localized version of the string designated by the specified key and residing in the default table "Localizable".
    func localizedString(forKey key: String) -> String {
-      self.localizedString(forKey: key, value: nil, table: nil)
+      self.localizedString(forKey: key, value: nil, table: "Localizable")
    }
 }
