@@ -14,6 +14,6 @@ let package = Package(
       dependencies: [
          .product(name: "IdentifiedCollections", package: "swift-identified-collections")
       ],
-      resources: [.process("Resources")]
+      resources: [.process("Resources/Localizable")]
     )]
 )
