@@ -16,15 +16,15 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
    private var inAppPurchase: InAppPurchase<ProductID>
    private let autoFinishPurchases: Bool
 
-   private let onPurchase: (StoreKit.Transaction) -> Void
+   private let onPurchase: (FKTransaction) -> Void
    private let onPurchaseFailed: (PurchaseFailed) -> Void
    private let onLoadFailed: (StoreKitError) -> Void
 
    @State
-   private var products: [Product] = []
+   private var products: [FKProduct] = []
 
    @State
-   private var purchaseInProgressProduct: Product?
+   private var purchaseInProgressProduct: FKProduct?
 
    @State
    private var loadProducts: Bool = false
@@ -40,7 +40,7 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
       productIDs: [ProductID],
       inAppPurchase: InAppPurchase<ProductID>,
       autoFinishPurchases: Bool = true,
-      onPurchase: @escaping (StoreKit.Transaction) -> Void = { _ in },
+      onPurchase: @escaping (FKTransaction) -> Void = { _ in },
       onPurchaseFailed: @escaping (PurchaseFailed) -> Void = { _ in },
       onLoadFailed: @escaping (StoreKitError) -> Void = { _ in }
    ) {
@@ -114,6 +114,7 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
             self.loadingInProgress = true
             self.loadingProductsFailed = false
 
+            // replace 'Product' with 'PreviewProduct' for SwiftUI previews during development
             self.products = try await Product.products(for: self.productIDs.map(\.rawValue))
 
             self.loadingInProgress = false

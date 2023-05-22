@@ -13,6 +13,7 @@ public struct PlainAsyncProductsStyle: AsyncProductsStyle {
 
    public func productsLoadingPlaceholder() -> some View {
       ProgressView()
+         .padding()
    }
 
    public func productsLoadFailed(
@@ -24,13 +25,14 @@ public struct PlainAsyncProductsStyle: AsyncProductsStyle {
          Text(loadFailedMessage)
          Button(reloadButtonTitle) { reloadRequested() }
       }
+      .padding()
    }
 
    public func products(
-      products: [Product],
-      purchasedTransactions: IdentifiedArray<String, StoreKit.Transaction>,
-      purchaseInProgressProduct: Product?,
-      startPurchase: @escaping (Product, Set<Product.PurchaseOption>) -> Void
+      products: [FKProduct],
+      purchasedTransactions: IdentifiedArray<String, FKTransaction>,
+      purchaseInProgressProduct: FKProduct?,
+      startPurchase: @escaping (FKProduct, Set<Product.PurchaseOption>) -> Void
    ) -> some View {
       List(products) { product in
          if let purchasedTransaction = purchasedTransactions[id: product.id], purchasedTransaction.purchaseDate > .now {
@@ -61,6 +63,8 @@ struct PlainAsyncProductsStyle_Previews: PreviewProvider {
          .previewDisplayName("Load Failed")
 
          PlainAsyncProductsStyle(verticalSpacing: 25).products(
+            // comment this out and comment the line below it to get SwiftUI previews with fake data (also change typealiases in PreviewTypes.swift)
+//            products: try! PreviewProduct.products(for: ["A", "B", "C", "D"]),
             products: [],
             purchasedTransactions: .init(uniqueElements: [], id: \.productID),
             purchaseInProgressProduct: nil,

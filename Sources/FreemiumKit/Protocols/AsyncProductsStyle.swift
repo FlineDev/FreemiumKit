@@ -16,9 +16,9 @@ public protocol AsyncProductsStyle {
    ) -> LoadFailed
 
    func products(
-      products: [Product],
-      purchasedTransactions: IdentifiedArray<String, StoreKit.Transaction>,
-      purchaseInProgressProduct: Product?,
-      startPurchase: @escaping (Product, Set<Product.PurchaseOption>) -> Void
+      products: [FKProduct],
+      purchasedTransactions: IdentifiedArray<String, FKTransaction>,
+      purchaseInProgressProduct: FKProduct?,
+      startPurchase: @escaping (FKProduct, Set<Product.PurchaseOption>) -> Void
    ) -> Products
 }

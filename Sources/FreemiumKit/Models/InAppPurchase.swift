@@ -35,7 +35,7 @@ import IdentifiedCollections
 public final class InAppPurchase<ProductID: RawRepresentableProductID>: ObservableObject {
    /// The currently active purchased transactions with duplicate transactions for same ``productID`` removed.
    @Published
-   public var purchasedTransactions: IdentifiedArray<String, Transaction> = .init(uniqueElements: [], id: \.productID)
+   public var purchasedTransactions: IdentifiedArray<String, FKTransaction> = .init(uniqueElements: [], id: \.productID)
 
    /// The IDs of the currently active purchased products wrapped in your ``RawRepresentableProductID`` product enum type.
    public var purchasedProductIDs: Set<ProductID> {
@@ -47,7 +47,7 @@ public final class InAppPurchase<ProductID: RawRepresentableProductID>: Observab
    /// Initializes a manager that automatically loads current purchases on init & subscribes to StoreKit changes to update itself automatically.
    public init() {
       self.updates = Task(priority: .background) {
-         for await verificationResult in Transaction.updates { self.handle(verificationResult: verificationResult) }
+         for await verificationResult in FKTransaction.updates { self.handle(verificationResult: verificationResult) }
       }
 
       self.loadCurrentEntitlements()
@@ -60,7 +60,7 @@ public final class InAppPurchase<ProductID: RawRepresentableProductID>: Observab
       feature.permission(purchasedProductIDs: self.purchasedProductIDs)
    }
 
-   func handle(verificationResult: VerificationResult<Transaction>) {
+   func handle(verificationResult: VerificationResult<FKTransaction>) {
       guard case .verified(let transaction) = verificationResult else { return }  // ignore unverified transactions
 
       if transaction.revocationDate != nil {
@@ -79,7 +79,7 @@ public final class InAppPurchase<ProductID: RawRepresentableProductID>: Observab
 
    private func loadCurrentEntitlements() {
       Task {
-         for await verificationResult in Transaction.currentEntitlements { self.handle(verificationResult: verificationResult) }
+         for await verificationResult in FKTransaction.currentEntitlements { self.handle(verificationResult: verificationResult) }
       }
    }
 }
