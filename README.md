@@ -16,12 +16,129 @@ So, if you're missing a feature in FreemiumKit, you are free to request the feat
 Always remember though: Except for the UI components, this library is really lightweight and the core logic is unlikely to get many changes. So forking the library is a viable option.
 
 
-## Quick Setup
+## Getting Started
 
 Here are the minimum steps you need to take to make use of FreemiumKit:
 
-TODO: initialize `InAppPurchase` on app start (AppDelegate), types conforming to `Unlockable` and `RawRepresentableProductID`, demo project available
+### Step 1: Define a type that conforms to `RawRepresentableProductID`
 
+This is required so FreemiumKit knows what products you want to present to the users.
+Make sure to use the correct identifiers of the products you created on App Store Connect as the raw String values:
+
+```Swift
+enum ProductID: String, RawRepresentableProductID {
+   case proMonthly = "dev.fline.TwootIt.Pro.Monthly"
+   case proYearly = "dev.fline.TwootIt.Pro.Monthly"
+   case proLifetime = "dev.fline.TwootIt.Pro.Lifetime"
+   
+   case liteMonthly = "dev.fline.TwootIt.Lite.Monthly"
+   case liteYearly = "dev.fline.TwootIt.Lite.Yearly"
+   case liteLifetime = "dev.fline.TwootIt.Lite.Lifetime"
+}
+```
+
+Note that it is totally possible to provide more cases here than you present to users.
+For example, if you have a product that you only want to offer to customers that unsubscribed to win them back (re-engagement offers), add it here.
+
+### Step 2: Define a type that conforms to `Unlockable`
+
+This is part of the built-in permissions system that will help you decide which features your user has access to.
+Specify the different kinds of features you lock or limit for lower/free tiers here.
+Note that you decide if you prefer a more fine-grained control or if you want to group features into broader topics and just list those:
+
+```Swift
+enum LockedFeature: Unlockable {
+   case twitterPostsPerDay
+   case extendedAttachments
+   case scheduledPosts
+
+   func permission(purchasedProductIDs: Set<ProductID>) -> Permission {
+      switch self {
+      case .twitterPostsPerDay:
+         return purchasedProductIDs.containsAny(prefixedBy: "dev.fline.TwootIt.Pro") ? .limited(3) : .locked 
+      case .extendedAttachments:
+         return purchasedProductIDs.isEmpty ? .locked : .unlimited
+      case .scheduledPosts:
+         return purchasedProductIDs.isEmpty ? .limited(1) : .unlimited
+      }
+   }
+}
+```
+
+Note that you have to implement the `permission(purchasedProductIDs:)` function yourself.
+In it, you get passed a set of `ProductID`s (the type you defined in step 1) and you have to return a `Permission`, one of `.locked`, `.limited(Int)`, or `.unlimited`.
+You can make use of the [convenience functions](https://github.com/FlineDev/FreemiumKit/blob/main/Sources/FreemiumKit/Protocols/Unlockable.swift#L37-L67) starting with `containsAny` FreemiumKit ships with to extend the `Set<ProductID>` type.
+
+### Step 3: Initialize an instance of `InAppPurchase` on app start
+
+In a SwiftUI app, using a simple global instance, this could look something like this:
+
+```Swift
+import SwiftUI
+import FreemiumKit
+
+final class AppDelegate: NSObject, UIApplicationDelegate {
+   static let inAppPurchase: InAppPurchase<ProductID> = .init()
+}
+
+@main
+struct FreemiumKitDemoApp: App {
+   @UIApplicationDelegateAdaptor(AppDelegate.self)
+   var appDelegate
+
+   var body: some Scene {
+      WindowGroup {
+         ContentView()
+      }
+   }
+}
+```
+
+Note that you need to pass your custom `ProductID` type as the generic type to `InAppPurchase` to let it know about your apps product IDs.
+The sheer initialization of `InAppPurchase` will activate your apps integration with StoreKit and load the users purchased products on app start.
+It will also take care of observing any changes while the app is running, so your users purchases are always correct.
+
+### Step 4: 
+
+Now, anywhere in your app where you have features that are potentially locked, you can ask `InAppPurchase` what the current permissions for your custom `LockedFeature` type are at the moment:
+
+```Swift
+let permission = AppDelegate.inAppPurchase.permission(for: LockedFeature.scheduledPosts)
+```
+
+The `Permission` type which you receive as a response to `permission(for:)` is an enum that you can switch over, but it also comes with a bunch of convenience APIs so no switch-case is ever needed:
+
+* `permission.isAlwaysGranted` returns `true` if the permission is set to `unlimited`
+* `permission.isAlwaysDenied` returns `true` if the permission is set to `locked`
+* `permission.limit` returns an `Int` that represents the allowed count (`0` if `locked`, `Int.max` if `unlimited`)
+* `permission.isGranted(current: Int)` returns `true` if the `current` "usage count" **doesn't exceed** the allowed limit
+* `permission.isDenied(current: Int)` returns `true` if the `current` "usage count" **equals or exceeds** the allowed limit
+
+So, you might do something like this:
+
+```Swift
+Button("Schedule Post") { ... }
+   .disabled(AppDelegate.inAppPurchase.permission(for: LockedFeature.schedulesPosts.isDenied(current: scheduledPosts.count))
+```
+
+Note that FreemiumKit does not help persisting your current usage count, you need to handle that yourself, e.g. using UserDefaults or requesting your server API.
+
+### Step 5:
+
+Lastly, whenever you present your paywall, you can use one of the provided UI components so you don't have to fetch your products from App Store Connect and present them in a nice way yourself. The UI part is what really saves a lot of time when integrating in-app purchases, and thanks to the open `AsyncProductsStyle` protocol, the community can add new UI styles over time so you can quickly switch between different styles, following current trends or doing A/B testing easily.
+
+For a full list of all available UI components, see the next section. But after [some research](TODO) I created the `VerticalProductsStyle` which is a good one to start with as it's clean, flexible, and proven to be succesful in many high-grossing apps:
+
+```Swift
+// in your paywall SwiftUI screen, place this view where you need it (for iOS, bottom half of the screen is recommended)
+AsyncProducts(style: VerticalProductsStyle(), productIDs: ProductID.allCases, inAppPurchase: AppDelegate.inAppPurchase)
+``` 
+
+Note that instead of `VerticalProductsStyle()` you can pass any other community-provided or even your custom style, or pass some of the optional parameters to `VerticalProductsStyle`. Also, instead of `ProductID.allCases`, you can pass an array with only select cases if you don't want to show all available options at once (like excluding re-engagement offers).
+
+The resulting screen should look something like this (the `AsyncProducts` view is highlighted):
+
+<img src="https://raw.githubusercontent.com/FlineDev/FreemiumKit/main/Images/PaywallSample_AsyncProducts.png">
 
 ## Provided UI Components
 
@@ -44,6 +161,7 @@ Note: If you implemented a somewhat different UI and have the chance to share it
 While basic In-App Purchases are already covered, there are several extra features I'd like to add over time. These include:
 
 - [ ] Fix localized texts not working properly
+- [ ] Add dark mode support in `VerticalProductStyle` & `HorizontalProductstyle`
 - [ ] Introductory Offer support (hiding away the eligibility check)
 - [ ] Promotional Offers support
 

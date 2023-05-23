@@ -19,21 +19,11 @@ import Foundation
 ///    func permission(purchasedProductIDs: Set<ProductID>) -> Permission {
 ///       switch self {
 ///       case .twitterPostsPerDay:
-///          if purchasedProductIDs.containsAny(prefixedBy: "dev.fline.TwootIt.Pro3") {
-///             return .limited(3)
-///          } else if purchasedProductIDs.containsAny(prefixedBy: "dev.fline.TwootIt.Pro2") }) {
-///             return .limited(2)
-///          } else if purchasedProductIDs.containsAny(prefixedBy: "dev.fline.TwootIt.Pro1") }) {
-///             return .limited(1)
-///          } else {
-///             return .denied
-///          }
-///
+///          return purchasedProductIDs.containsAny(prefixedBy: "dev.fline.TwootIt.Pro") ? .limited(3) : .locked
 ///       case .extendedAttachments:
-///          return purchasedProductIDs.isEmpty ? .denied : .unlimited
-///
+///          return purchasedProductIDs.isEmpty ? .locked : .unlimited
 ///       case .scheduledPosts:
-///          return purchasedProductIDs.isEmpty ? .limit(1) : .unlimited
+///          return purchasedProductIDs.isEmpty ? .limited(1) : .unlimited
 ///       }
 ///    }
 /// }
