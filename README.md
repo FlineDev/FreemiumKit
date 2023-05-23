@@ -150,7 +150,7 @@ AsyncProducts(style: ..., productIDs: ..., inAppPurchase: ..., onPurchase: { _ i
 ```
 
 <details>
-<summary>Read this if any of your products is a [Consumable](https://developer.apple.com/help/app-store-connect/manage-in-app-purchases/create-consumable-or-non-consumable-in-app-purchases)</summary>
+<summary>Read this if any of your products is a Consumable</summary>
 <p>Typically, you need to execute some code to provide the purchased consumable thing to your user, and often this code involves sending requests to a server. To ensure a user actually gets the purchased consumable, StoreKit requires you to call the `finish()` method on the purchased `Transaction`. FreemiumKit defaults to automatically calling `finish()` right after a transaction was successfully made, but for consumables, it's better you handle this manually. To do that, make sure to set the optional parameter `autoFinishPurchases` to `false` on the `AsyncProducts` initializer. Then, use the `transaction` parameter passed to the optional `onPurchase` closure of the same initializer to call `finish()` once you provided your user with the purchased consumable item(s). As long as `finish()` does not get called, StoreKit will inform the app about a newly purchased product on each app start until the app calls `finish()` on the transaction.</p>
 </details>
 
