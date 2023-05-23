@@ -35,7 +35,7 @@ public struct HorizontalProductsStyle: AsyncProductsStyle {
       startPurchase: @escaping (FKProduct, Set<Product.PurchaseOption>) -> Void
    ) -> some View {
       List(products) { product in
-         if let purchasedTransaction = purchasedTransactions[id: product.id], purchasedTransaction.purchaseDate > .now {
+         if let purchasedTransaction = purchasedTransactions[id: product.id] {
             Label(product.displayName, systemImage: "checkmark")
          } else {
             Button(product.displayName) { startPurchase(product, []) }

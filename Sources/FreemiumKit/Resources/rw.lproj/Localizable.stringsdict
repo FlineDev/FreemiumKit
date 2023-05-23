@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>FreemiumKit.SubscriptionPeriod.FreeTrialDays(count: %d)</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>Umunsi %d kubuntu</string>
+			<key>other</key>
+			<string>Iminsi %d kubuntu</string>
+		</dict>
+	</dict>
+	<key>FreemiumKit.SubscriptionPeriod.FreeTrialMonths(count: %d)</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>Ukwezi %d kubuntu</string>
+			<key>other</key>
+			<string>Amezi %d kubuntu</string>
+		</dict>
+	</dict>
+	<key>FreemiumKit.SubscriptionPeriod.FreeTrialWeeks(count: %d)</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>Icyumweru %d kubuntu</string>
+			<key>other</key>
+			<string>Ibyumweru %d kubuntu</string>
+		</dict>
+	</dict>
+	<key>FreemiumKit.SubscriptionPeriod.FreeTrialYears(count: %d)</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>Umwaka %d kubuntu</string>
+			<key>other</key>
+			<string>Imyaka %d kubuntu</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

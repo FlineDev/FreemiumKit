@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>FreemiumKit.SubscriptionPeriod.FreeTrialDays(count: %d)</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>%d den zdarma</string>
+			<key>few</key>
+			<string>%d dny zdarma</string>
+			<key>many</key>
+			<string>%d dne zdarma</string>
+			<key>other</key>
+			<string>%d dní zdarma</string>
+		</dict>
+	</dict>
+	<key>FreemiumKit.SubscriptionPeriod.FreeTrialMonths(count: %d)</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>%d měsíc zdarma</string>
+			<key>few</key>
+			<string>%d měsíce zdarma</string>
+			<key>many</key>
+			<string>%d měsíce zdarma</string>
+			<key>other</key>
+			<string>%d měsíců zdarma</string>
+		</dict>
+	</dict>
+	<key>FreemiumKit.SubscriptionPeriod.FreeTrialWeeks(count: %d)</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>%d týden zdarma</string>
+			<key>few</key>
+			<string>%d týdny zdarma</string>
+			<key>many</key>
+			<string>%d týdne zdarma</string>
+			<key>other</key>
+			<string>%d týdnů zdarma</string>
+		</dict>
+	</dict>
+	<key>FreemiumKit.SubscriptionPeriod.FreeTrialYears(count: %d)</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>%d rok zdarma</string>
+			<key>few</key>
+			<string>%d roky zdarma</string>
+			<key>many</key>
+			<string>%d roku zdarma</string>
+			<key>other</key>
+			<string>%d let zdarma</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

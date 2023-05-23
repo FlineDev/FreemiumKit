@@ -34,17 +34,43 @@ public struct VerticalProductsStyle: AsyncProductsStyle {
       purchaseInProgressProduct: FKProduct?,
       startPurchase: @escaping (FKProduct, Set<Product.PurchaseOption>) -> Void
    ) -> some View {
-      List(products) { product in
-         if let purchasedTransaction = purchasedTransactions[id: product.id], purchasedTransaction.purchaseDate > .now {
-            Label(product.displayName, systemImage: "checkmark")
-         } else {
-            Button(product.displayName) { startPurchase(product, []) }
+      VStack {
+         List(products) { product in
+            HStack {
+               VStack(alignment: .leading, spacing: 4) {
+                  Text(product.displayName).font(.title3)
+
+                  if
+                     let subscription = product.subscription, subscription.isEligibleForIntroOffer,
+                     let introductoryOffer = subscription.introductoryOffer, introductoryOffer.paymentMode == .freeTrial
+                  {
+                     Text(introductoryOffer.period.localizedFreeTrialDescription).font(.subheadline)
+                  }
+               }
+
+               Spacer()
+
+               VStack {
+                  Text(product.displayPricePerPeriodIfSubscription).font(.title3)
+               }
+            }
+            .frame(minHeight: 58)
+            .padding(.horizontal, 18)
+            .padding(.vertical, 14)
+            .overlay {
+               RoundedRectangle(cornerRadius: 10).stroke(.gray.opacity(0.3), lineWidth: 2)
+            }
+            .listRowSeparator(.hidden)
          }
-      }
-      .overlay {
-         if purchaseInProgressProduct != nil {
-            ProgressView()
+         .padding()
+         .listStyle(.plain)
+         .overlay {
+            if purchaseInProgressProduct != nil {
+               ProgressView()
+            }
          }
+
+//         Button("Continue") { startPurchase(product, []) }
       }
    }
 }

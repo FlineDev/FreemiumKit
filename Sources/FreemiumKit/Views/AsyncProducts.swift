@@ -158,3 +158,92 @@ extension Bundle {
       self.localizedString(forKey: key, value: nil, table: "Localizable")
    }
 }
+
+extension Product {
+   var displayPricePerPeriodIfSubscription: String {
+      guard let subscription else { return self.displayPrice }
+
+      #warning("🧑‍💻 localize these")
+      switch subscription.subscriptionPeriod.unit {
+      case .day:
+         return "\(self.displayPrice)/day"
+
+      case .week:
+         return "\(self.displayPrice)/week"
+
+      case .month:
+         return "\(self.displayPrice)/month"
+
+      case .year:
+         return "\(self.displayPrice)/year"
+      }
+   }
+}
+
+extension Product.SubscriptionPeriod {
+   var localizedFreeTrialDescription: String {
+      switch self.unit {
+      case .day:
+         return Loc.FreemiumKit.SubscriptionPeriod.FreeTrialDays(count: self.value).string
+
+      case .week:
+         return Loc.FreemiumKit.SubscriptionPeriod.FreeTrialWeeks(count: self.value).string
+
+      case .month:
+         return Loc.FreemiumKit.SubscriptionPeriod.FreeTrialMonths(count: self.value).string
+
+      case .year:
+         return Loc.FreemiumKit.SubscriptionPeriod.FreeTrialYears(count: self.value).string
+
+      @unknown default:
+         return "\(self.value) \(String(describing: self.unit).lowercased())s free"
+      }
+   }
+}
+
+#if DEBUG
+extension PreviewProduct {
+   var displayPricePerPeriodIfSubscription: String {
+      guard let subscription else { return self.displayPrice }
+
+      #warning("🧑‍💻 localize these")
+      switch subscription.subscriptionPeriod.unit {
+      case .day:
+         return "\(self.displayPrice)/day"
+
+      case .week:
+         return "\(self.displayPrice)/week"
+
+      case .month:
+         return "\(self.displayPrice)/month"
+
+      case .year:
+         return "\(self.displayPrice)/year"
+
+      @unknown default:
+         return "\(self.displayPrice)/\(String(describing: subscription.subscriptionPeriod.unit).lowercased())"
+      }
+   }
+}
+
+extension PreviewProduct.SubscriptionPeriod {
+   var localizedFreeTrialDescription: String {
+      switch self.unit {
+      case .day:
+         return Loc.FreemiumKit.SubscriptionPeriod.FreeTrialDays(count: self.value).string
+
+      case .week:
+         return Loc.FreemiumKit.SubscriptionPeriod.FreeTrialWeeks(count: self.value).string
+
+      case .month:
+         return Loc.FreemiumKit.SubscriptionPeriod.FreeTrialMonths(count: self.value).string
+
+      case .year:
+         return Loc.FreemiumKit.SubscriptionPeriod.FreeTrialYears(count: self.value).string
+
+      @unknown default:
+         return "\(self.value) \(String(describing: self.unit).lowercased())s free"
+      }
+   }
+}
+#endif

@@ -175,9 +175,9 @@ Note: If you implemented a somewhat different UI and have the chance to share it
 While basic In-App Purchases are already covered, there are several extra features I'd like to add over time. These include:
 
 - [ ] Fix localized texts not working properly
-- [ ] Add dark mode support in `VerticalProductStyle` & `HorizontalProductstyle`
-- [ ] Introductory Offer support (hiding away the eligibility check)
-- [ ] Promotional Offers support
+- [ ] Implement `HorizontalProductsStyle`
+- [ ] Other types of introductory offers than `.freeTrial` support (in UI components)
+- [ ] Promotional Offers support (in UI components)
 
 
 ## Contributing

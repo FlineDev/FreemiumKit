@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>FreemiumKit.SubscriptionPeriod.FreeTrialDays(count: %d)</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>%d സൗജന്യമായി ദിവസം</string>
+			<key>other</key>
+			<string>സൌജന്യമായി %d ദിവസം</string>
+		</dict>
+	</dict>
+	<key>FreemiumKit.SubscriptionPeriod.FreeTrialMonths(count: %d)</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>%d മാസം സൗജന്യമായി</string>
+			<key>other</key>
+			<string>%d മാസം സൌജന്യമായി</string>
+		</dict>
+	</dict>
+	<key>FreemiumKit.SubscriptionPeriod.FreeTrialWeeks(count: %d)</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>സൗജന്യമായി %d ആഴ്ച</string>
+			<key>other</key>
+			<string>%d ആഴ്ച സൌജന്യമായി</string>
+		</dict>
+	</dict>
+	<key>FreemiumKit.SubscriptionPeriod.FreeTrialYears(count: %d)</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>%d സൗജന്യമായി വർഷം</string>
+			<key>other</key>
+			<string>%d വർഷം സൌജന്യമായി</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

@@ -11,10 +11,42 @@ public typealias FKTransaction = PreviewTransaction
 public struct PreviewProduct: Identifiable, Hashable, Sendable {
    /// Properties and functionality specific to auto-renewable subscriptions.
    struct SubscriptionInfo: Hashable, Sendable {
+      /// An optional introductory offer that will automatically be applied if the user is eligible.
+      public let introductoryOffer: SubscriptionOffer?
+
+      /// An array of all the promotional offers configured for this subscription.
+      public let promotionalOffers: [SubscriptionOffer]
+
       /// The duration that this subscription lasts before auto-renewing.
       let subscriptionPeriod: SubscriptionPeriod
 
-      #warning("✨ add `introductoryOffer` & `promotionalOffers` support here")
+      /// Whether the user is eligible to have an introductory offer applied to their purchase.
+      @inlinable public var isEligibleForIntroOffer: Bool { true }
+   }
+
+   /// Information about a subscription offer configured in App Store Connect.
+   struct SubscriptionOffer: Hashable, Sendable {
+      /// The type of the offer.
+      public let type: Product.SubscriptionOffer.OfferType
+
+      /// The discounted price that the offer provides in local currency.
+      ///
+      /// This is the price per period in the case of `.payAsYouGo`
+      public let price: Decimal
+
+      /// A localized string representation of `price`.
+      public let displayPrice: String
+
+      /// The duration that this offer lasts before auto-renewing or changing to standard subscription renewals.
+      public let period: SubscriptionPeriod
+
+      /// The number of periods this offer will renew for.
+      ///
+      /// Always 1 except for `.payAsYouGo`.
+      public let periodCount: Int
+
+      /// How the user is charged for this offer.
+      public let paymentMode: Product.SubscriptionOffer.PaymentMode
    }
 
    public struct SubscriptionPeriod: Hashable, Sendable {
@@ -74,7 +106,7 @@ public struct PreviewProduct: Identifiable, Hashable, Sendable {
             price: 0.99,
             displayPrice: "$0.99",
             isFamilyShareable: false,
-            subscription: SubscriptionInfo(subscriptionPeriod: SubscriptionPeriod(unit: .month, value: 1))
+            subscription: SubscriptionInfo(introductoryOffer: nil, promotionalOffers: [], subscriptionPeriod: SubscriptionPeriod(unit: .month, value: 1))
          ),
          PreviewProduct(
             id: "B",
@@ -84,7 +116,7 @@ public struct PreviewProduct: Identifiable, Hashable, Sendable {
             price: 9.99,
             displayPrice: "$9.99",
             isFamilyShareable: false,
-            subscription: SubscriptionInfo(subscriptionPeriod: SubscriptionPeriod(unit: .year, value: 1))
+            subscription: SubscriptionInfo(introductoryOffer: nil, promotionalOffers: [], subscriptionPeriod: SubscriptionPeriod(unit: .year, value: 1))
          ),
          PreviewProduct(
             id: "C",
@@ -94,7 +126,18 @@ public struct PreviewProduct: Identifiable, Hashable, Sendable {
             price: 2.99,
             displayPrice: "$2.99",
             isFamilyShareable: false,
-            subscription: SubscriptionInfo(subscriptionPeriod: SubscriptionPeriod(unit: .month, value: 1))
+            subscription: SubscriptionInfo(
+               introductoryOffer: SubscriptionOffer(
+                  type: .introductory,
+                  price: 0,
+                  displayPrice: "$0.00",
+                  period: SubscriptionPeriod(unit: .day, value: 3),
+                  periodCount: 1,
+                  paymentMode: .freeTrial
+               ),
+               promotionalOffers: [],
+               subscriptionPeriod: SubscriptionPeriod(unit: .month, value: 1)
+            )
          ),
          PreviewProduct(
             id: "D",
@@ -104,7 +147,18 @@ public struct PreviewProduct: Identifiable, Hashable, Sendable {
             price: 29.99,
             displayPrice: "$29.99",
             isFamilyShareable: false,
-            subscription: SubscriptionInfo(subscriptionPeriod: SubscriptionPeriod(unit: .year, value: 1))
+            subscription: SubscriptionInfo(
+               introductoryOffer: SubscriptionOffer(
+                  type: .introductory,
+                  price: 0,
+                  displayPrice: "$0.00",
+                  period: SubscriptionPeriod(unit: .day, value: 7),
+                  periodCount: 1,
+                  paymentMode: .freeTrial
+               ),
+               promotionalOffers: [],
+               subscriptionPeriod: SubscriptionPeriod(unit: .year, value: 1)
+            )
          ),
       ]
    }
@@ -140,7 +194,7 @@ public struct PreviewTransaction: Hashable, Sendable {
    /// - Note: Only for subscriptions.
    let isUpgraded: Bool
 
-   #warning("✨ add `offerType` and `offerID` support here")
+   #warning("✨ add `offerType` and `offerID` support here?")
 
    /// The date the transaction was revoked, or `nil` if it was not revoked.
    let revocationDate: Date?

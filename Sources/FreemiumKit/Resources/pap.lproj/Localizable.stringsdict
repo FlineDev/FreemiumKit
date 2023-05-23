@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>FreemiumKit.SubscriptionPeriod.FreeTrialDays(count: %d)</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>%d dia gratis</string>
+			<key>other</key>
+			<string>%d dia gratis</string>
+		</dict>
+	</dict>
+	<key>FreemiumKit.SubscriptionPeriod.FreeTrialMonths(count: %d)</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>%d luna gratis</string>
+			<key>other</key>
+			<string>%d luna gratis</string>
+		</dict>
+	</dict>
+	<key>FreemiumKit.SubscriptionPeriod.FreeTrialWeeks(count: %d)</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>%d siman gratis</string>
+			<key>other</key>
+			<string>%d siman gratis</string>
+		</dict>
+	</dict>
+	<key>FreemiumKit.SubscriptionPeriod.FreeTrialYears(count: %d)</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>%d aña gratis</string>
+			<key>other</key>
+			<string>%d aña gratis</string>
+		</dict>
+	</dict>
+</dict>
+</plist>
