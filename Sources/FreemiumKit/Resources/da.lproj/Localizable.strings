@@ -1,3 +1,3 @@
-"FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Genindlæsning";
-
 "FreemiumKit.LoadingProductsFailed.Message" = "Det lykkedes ikke at indlæse produkter fra App Store.";
+
+"FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Genindlæsning";

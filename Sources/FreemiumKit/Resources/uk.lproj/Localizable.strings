@@ -1,3 +1,3 @@
-"FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Перезавантажити";
-
 "FreemiumKit.LoadingProductsFailed.Message" = "Не вдалося завантажити продукти з App Store.";
+
+"FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Перезавантажити";

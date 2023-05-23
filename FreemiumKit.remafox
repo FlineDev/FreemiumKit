@@ -1,0 +1,78 @@
+{
+  "androidStringsFilesSearch" : {
+    "excludeSubPathsContaining" : [
+      ".build/",
+      ".git/",
+      ".idea/",
+      "build/",
+      "docs/",
+      "gradle/"
+    ],
+    "pathsToSearch" : [
+
+    ]
+  },
+  "appleStringsFilesConfig" : {
+    "emptyLinesBetweenKeys" : 1
+  },
+  "appleStringsFilesSearch" : {
+    "excludeSubPathsContaining" : [
+      ".build/",
+      ".git/",
+      "build/",
+      "Carthage/",
+      "docs/",
+      "Pods/"
+    ],
+    "pathsToSearch" : [
+      "Sources/FreemiumKit/Resources/"
+    ]
+  },
+  "configFilePath" : "FreemiumKit.remafox",
+  "id" : "9799E9C6-C12F-4FEC-A14A-A67B15114B5C",
+  "interfaceBuilderFilesSearch" : {
+    "excludeSubPathsContaining" : [
+      ".build/",
+      ".git/",
+      "build/",
+      "Carthage/",
+      "docs/",
+      "Pods/"
+    ],
+    "pathsToSearch" : [
+
+    ]
+  },
+  "interfaceBuilderIgnoreTags" : [
+    "#remafox-ignore",
+    "#non-translatable"
+  ],
+  "lintTasks" : [
+    "duplicateKeys",
+    "emptyValues"
+  ],
+  "normalizeTasks" : [
+    "harmonizeWithSourceLanguage",
+    "sortByKeys"
+  ],
+  "openSourceRepo" : {
+    "orgaOrUserName" : "FlineDev",
+    "projectName" : "FreemiumKit",
+    "provider" : "github.com"
+  },
+  "projectName" : "FreemiumKit",
+  "resourcesEnum" : {
+    "accessLevel" : "internal",
+    "bundleInstance" : "Bundle.module",
+    "enumName" : "Res",
+    "filePath" : "Sources/FreemiumKit/RemafoX.swift",
+    "indent" : "   ",
+    "objectiveCCompatible" : false,
+    "stringsEnumName" : "Str",
+    "stringsTopLevelAlias" : "Loc",
+    "useSwiftPackagePreviewsWorkaround" : false,
+    "useTopLevelAliases" : true
+  },
+  "sourceLanguage" : "en",
+  "version" : 1
+}

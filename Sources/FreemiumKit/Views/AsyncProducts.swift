@@ -60,8 +60,8 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
             self.style.productsLoadingPlaceholder()
          } else if self.loadingProductsFailed {
             self.style.productsLoadFailed(
-               reloadButtonTitle: Bundle.module.localizedString(forKey: "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle"),
-               loadFailedMessage: Bundle.module.localizedString(forKey: "FreemiumKit.LoadingProductsFailed.Message")
+               reloadButtonTitle: Loc.FreemiumKit.LoadingProductsFailed.ReloadButtonTitle.string,
+               loadFailedMessage: Loc.FreemiumKit.LoadingProductsFailed.Message.string
             ) {
                self.loadProducts.toggle()
             }
