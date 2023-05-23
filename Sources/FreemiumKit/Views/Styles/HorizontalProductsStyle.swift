@@ -2,9 +2,9 @@ import StoreKit
 import SwiftUI
 import IdentifiedCollections
 
-/// A very simple style using only plain SwiftUI types like ``Text``, ``Button``, or ``Label`` without fancy styling.
-/// Don't use this directly – this is meant as a guide to help those who want to implement their custom ``AsyncProductsStyle`` styles.
-public struct PlainAsyncProductsStyle: AsyncProductsStyle {
+/// The horizontal "Paywall Blueprint" style implementing learnings from analyzing 20 different successful paywalls.
+/// If you have more than 3 products, consider using ``VerticalProductsStyle`` instead. It also scales better for longer (localized) product names.
+public struct HorizontalProductsStyle: AsyncProductsStyle {
    private let verticalSpacing: CGFloat
 
    public init(verticalSpacing: CGFloat = 15) {
@@ -49,23 +49,23 @@ public struct PlainAsyncProductsStyle: AsyncProductsStyle {
    }
 }
 
-struct PlainAsyncProductsStyle_Previews: PreviewProvider {
+struct HorizontalProductsStyle_Previews: PreviewProvider {
    static var previews: some View {
       Group {
-         PlainAsyncProductsStyle().productsLoadingPlaceholder()
+         HorizontalProductsStyle().productsLoadingPlaceholder()
             .previewDisplayName("Placeholder")
 
-         PlainAsyncProductsStyle(verticalSpacing: 20).productsLoadFailed(
+         HorizontalProductsStyle(verticalSpacing: 20).productsLoadFailed(
             reloadButtonTitle: "Reload",
             loadFailedMessage: "Loading products failed.",
             reloadRequested: {}
          )
          .previewDisplayName("Load Failed")
 
-         PlainAsyncProductsStyle(verticalSpacing: 25).products(
+         HorizontalProductsStyle(verticalSpacing: 25).products(
             // comment this out and comment the line below it to get SwiftUI previews with fake data (also change typealiases in PreviewTypes.swift)
-//            products: try! PreviewProduct.products(for: ["A", "B", "C", "D"]),
-            products: [],
+            products: try! PreviewProduct.products(for: ["A", "B", "C", "D"]),
+//            products: [],
             purchasedTransactions: .init(uniqueElements: [], id: \.productID),
             purchaseInProgressProduct: nil,
             startPurchase: { _, _ in }

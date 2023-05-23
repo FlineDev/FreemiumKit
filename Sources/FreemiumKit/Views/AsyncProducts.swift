@@ -114,8 +114,8 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
             self.loadingInProgress = true
             self.loadingProductsFailed = false
 
-            // replace 'Product' with 'PreviewProduct' for SwiftUI previews during development
-            self.products = try await Product.products(for: self.productIDs.map(\.rawValue))
+//             replace 'Product' with 'PreviewProduct' for SwiftUI previews during development
+            self.products = try await PreviewProduct.products(for: self.productIDs.map(\.rawValue))
 
             self.loadingInProgress = false
             self.loadingProductsFailed = false
@@ -148,7 +148,7 @@ struct AsyncProductsView_Previews: PreviewProvider {
    }
 
    static var previews: some View {
-      AsyncProducts(style: PlainAsyncProductsStyle(), productIDs: ProductID.allCases, inAppPurchase: InAppPurchase<ProductID>())
+      AsyncProducts(style: PlainProductsStyle(), productIDs: ProductID.allCases, inAppPurchase: InAppPurchase<ProductID>())
    }
 }
 

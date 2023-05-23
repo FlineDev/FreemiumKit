@@ -53,7 +53,7 @@ While basic In-App Purchases are already covered, there are several extra featur
 If you find any issues with this project, make sure to report them in the Issues tab. Any questions should be asked in the Discussions tab.
 
 If you want to share your custom UI component with the community, that's also highly encouraged!
-It can even be a cool SwiftUI programming challenge to find a paywall design you like and trying to implement it & sharing with the community.
+It can even be a cool SwiftUI programming challenge to find a paywall design you like (e.g. from [here](https://www.paywallscreens.com/)) and trying to implement it & sharing with the community.
 
 
 ## FAQ
