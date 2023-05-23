@@ -2,7 +2,7 @@ TODO: add Swift Package Index badges
 
 # FreemiumKit
 
-Lightweight layer on top of [StoreKit 2](https://developer.apple.com/videos/play/wwdc2021/10114/) + built-in permission engine & built-in UI components for your SwiftUI paywall.
+Lightweight layer on top of [StoreKit 2](https://developer.apple.com/videos/play/wwdc2021/10114/) + built-in permission engine & built-in UI components for SwiftUI paywalls.
 
 Read [this introductory article]() for a full step-by-step guide on how to setup in-app purchases for your app + some basic thoughts on pricing.
 
@@ -98,7 +98,7 @@ Note that you need to pass your custom `ProductID` type as the generic type to `
 The sheer initialization of `InAppPurchase` will activate your apps integration with StoreKit and load the users purchased products on app start.
 It will also take care of observing any changes while the app is running, so your users purchases are always correct.
 
-### Step 4: 
+### Step 4: Lock your features if user doesn't have permission
 
 Now, anywhere in your app where you have features that are potentially locked, you can ask `InAppPurchase` what the current permissions for your custom `LockedFeature` type are at the moment:
 
@@ -123,7 +123,7 @@ Button("Schedule Post") { ... }
 
 Note that FreemiumKit does not help persisting your current usage count, you need to handle that yourself, e.g. using UserDefaults or requesting your server API.
 
-### Step 5:
+### Step 5: Show your products & handle purchase completion in your paywall
 
 Lastly, whenever you present your paywall, you can use one of the provided UI components so you don't have to fetch your products from App Store Connect and present them in a nice way yourself. The UI part is what really saves a lot of time when integrating in-app purchases, and thanks to the open `AsyncProductsStyle` protocol, the community can add new UI styles over time so you can quickly switch between different styles, following current trends or doing A/B testing easily.
 
@@ -138,7 +138,21 @@ Note that instead of `VerticalProductsStyle()` you can pass any other community-
 
 The resulting screen should look something like this (the `AsyncProducts` view is highlighted):
 
-<img src="https://raw.githubusercontent.com/FlineDev/FreemiumKit/main/Images/PaywallSample_AsyncProducts.png">
+<img src="https://github.com/FlineDev/FreemiumKit/blob/main/Images/PaywallSample_AsyncProducts.png?raw=true">
+
+Note that the `AsyncProducts` initializer takes several optional arguments, one of them is `onPurchase` which you can use to close your paywall or do whatever the next step is after a successful purchase. For example:
+
+```Swift
+@Environment(\.dismiss)
+var dismiss
+// ...
+AsyncProducts(style: ..., productIDs: ..., inAppPurchase: ..., onPurchase: { _ in self.dismiss() })
+```
+
+<details>
+<summary>Read this if any of your products is a [Consumable](https://developer.apple.com/help/app-store-connect/manage-in-app-purchases/create-consumable-or-non-consumable-in-app-purchases)</summary>
+<p>Typically, you need to execute some code to provide the purchased consumable thing to your user, and often this code involves sending requests to a server. To ensure a user actually gets the purchased consumable, StoreKit requires you to call the `finish()` method on the purchased `Transaction`. FreemiumKit defaults to automatically calling `finish()` right after a transaction was successfully made, but for consumables, it's better you handle this manually. To do that, make sure to set the optional parameter `autoFinishPurchases` to `false` on the `AsyncProducts` initializer. Then, use the `transaction` parameter passed to the optional `onPurchase` closure of the same initializer to call `finish()` once you provided your user with the purchased consumable item(s). As long as `finish()` does not get called, StoreKit will inform the app about a newly purchased product on each app start until the app calls `finish()` on the transaction.</p>
+</details>
 
 ## Provided UI Components
 
