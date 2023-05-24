@@ -83,8 +83,7 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
             self.loadingInProgress = true
             self.loadingProductsFailed = false
 
-//             replace 'Product' with 'PreviewProduct' for SwiftUI previews during development
-            self.products = try await Product.products(for: self.productIDs.map(\.rawValue))
+            self.products = try await FKProduct.products(for: self.productIDs.map(\.rawValue))
 
             self.productIDsEligibleForIntroductoryOffer = []
             for product in self.products {
