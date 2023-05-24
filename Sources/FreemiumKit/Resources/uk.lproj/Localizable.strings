@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@/день";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@/місяць";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@/тиждень";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/рік";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Не вдалося завантажити продукти з App Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Перезавантажити";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Продовжуйте";

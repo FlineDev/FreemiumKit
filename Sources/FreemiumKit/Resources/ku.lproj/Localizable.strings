@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@/day";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "٪@/month";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@ /هەفتە";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "٪@/ساڵ";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "سەرکەوتوو نەبوو لە بارکردنی بەرهەمەکان لە App Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "بارکردنەوە";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "بەردەوامبە";

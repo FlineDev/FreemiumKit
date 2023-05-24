@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@/дзень";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@/месяц";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@/тыдзень";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/год";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Не атрымалася загрузіць прадукты з App Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Перазагрузіць";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Працягваць";

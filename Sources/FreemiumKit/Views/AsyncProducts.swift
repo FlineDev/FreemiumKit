@@ -135,16 +135,9 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
 }
 
 struct AsyncProductsView_Previews: PreviewProvider {
-   enum ProductID: String, RawRepresentableProductID {
+   private enum ProductID: String, RawRepresentableProductID {
       case pro
       case lite
-
-      var subscriptionLevel: Int? {
-         switch self {
-         case .pro: return 1
-         case .lite: return 2
-         }
-      }
    }
 
    static var previews: some View {
@@ -152,30 +145,25 @@ struct AsyncProductsView_Previews: PreviewProvider {
    }
 }
 
-extension Bundle {
-   /// Returns a localized version of the string designated by the specified key and residing in the default table "Localizable".
-   func localizedString(forKey key: String) -> String {
-      self.localizedString(forKey: key, value: nil, table: "Localizable")
-   }
-}
-
 extension Product {
    var displayPricePerPeriodIfSubscription: String {
       guard let subscription else { return self.displayPrice }
 
-      #warning("🧑‍💻 localize these")
       switch subscription.subscriptionPeriod.unit {
       case .day:
-         return "\(self.displayPrice)/day"
+         return Loc.FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: self.displayPrice).string
 
       case .week:
-         return "\(self.displayPrice)/week"
+         return Loc.FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: self.displayPrice).string
 
       case .month:
-         return "\(self.displayPrice)/month"
+         return Loc.FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: self.displayPrice).string
 
       case .year:
-         return "\(self.displayPrice)/year"
+         return Loc.FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: self.displayPrice).string
+
+      @unknown default:
+         return "\(self.displayPrice)/\(String(describing: subscription.subscriptionPeriod.unit).lowercased())"
       }
    }
 }
@@ -206,19 +194,18 @@ extension PreviewProduct {
    var displayPricePerPeriodIfSubscription: String {
       guard let subscription else { return self.displayPrice }
 
-      #warning("🧑‍💻 localize these")
       switch subscription.subscriptionPeriod.unit {
       case .day:
-         return "\(self.displayPrice)/day"
+         return Loc.FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: self.displayPrice).string
 
       case .week:
-         return "\(self.displayPrice)/week"
+         return Loc.FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: self.displayPrice).string
 
       case .month:
-         return "\(self.displayPrice)/month"
+         return Loc.FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: self.displayPrice).string
 
       case .year:
-         return "\(self.displayPrice)/year"
+         return Loc.FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: self.displayPrice).string
 
       @unknown default:
          return "\(self.displayPrice)/\(String(describing: subscription.subscriptionPeriod.unit).lowercased())"

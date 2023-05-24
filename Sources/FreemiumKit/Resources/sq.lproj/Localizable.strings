@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@ / ditë";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@ / muaj";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@ / javë";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@ / vit";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Nuk arriti të ngarkojë produkte nga App Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Ringarkoni";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Vazhdoni";

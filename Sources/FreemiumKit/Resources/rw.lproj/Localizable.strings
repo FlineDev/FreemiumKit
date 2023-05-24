@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@ / umunsi";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@ / ukwezi";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@/ Icyumweru";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@ / umwaka";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Kunanirwa gupakira ibicuruzwa mububiko bwa App.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Ongera usubiremo";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Komeza";

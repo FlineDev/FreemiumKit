@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@/latha";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@/mìos";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@/seachdain";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@ / bliadhna";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Dh'fhàillig luchdadh bathar bhon App Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Ath-luchdaich";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Lean air adhart";

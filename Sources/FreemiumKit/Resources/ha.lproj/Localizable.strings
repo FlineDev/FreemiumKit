@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@/rana";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@/wata";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@/mako";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/ shekara";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "An kasa loda samfura daga App Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Sake kaya";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Ci gaba";

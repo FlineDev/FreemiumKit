@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@ / ദിവസം";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@ / മാസം";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@/ആഴ്ച";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@ / വർഷം";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "അപ്ലിക്കേഷൻ സ്റ്റോറിൽ നിന്ന് ഉൽപ്പന്നങ്ങൾ ലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "വീണ്ടും ലോഡ് ചെയ്യുക";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "തുടരുക";

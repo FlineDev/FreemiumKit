@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@ / jum";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@ / xahar";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@/ġimgħa";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@ / sena";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Naqas milli jgħabbi prodotti mill-App Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Tagħbija mill-ġdid";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Kompli";

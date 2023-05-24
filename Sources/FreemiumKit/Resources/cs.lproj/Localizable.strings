@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@/den";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@/měsíc";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@/týden";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/rok";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Nepodařilo se načíst produkty z App Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Znovu načíst";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Pokračovat";

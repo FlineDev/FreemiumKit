@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@/ڕۆژ";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@/مانگ";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@/هەفتە";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/ساڵ";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "شکستی هێنا لە بارکردنی بەرهەمەکان لە ئەپ ستۆرەوە.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "دووبارە بارکردنەوە";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "بەردەوام بوون";

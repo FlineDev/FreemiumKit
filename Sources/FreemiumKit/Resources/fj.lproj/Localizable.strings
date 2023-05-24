@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@/siga";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@/vula";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@ /macawa";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/yabaki";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Sega ni rawa ni vakavodoki na ivoli mai na App Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Vakavodoka tale";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Tomana";

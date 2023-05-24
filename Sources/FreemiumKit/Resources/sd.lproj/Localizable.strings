@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@/ڏينهن";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "٪@/مهينو";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@/هفتو";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "٪@/سال";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "ايپ اسٽور تان پروڊڪٽس لوڊ ڪرڻ ۾ ناڪام.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "ٻيهر لوڊ ڪريو";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "جاري رکو";

@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@ / טאָג";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@ / חודש";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@/וואָך";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@ / יאָר";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "ניט געקאָנט צו מאַסע פּראָדוקטן פון אַפּ סטאָר.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "רילאָאַד";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "פאָרזעצן";

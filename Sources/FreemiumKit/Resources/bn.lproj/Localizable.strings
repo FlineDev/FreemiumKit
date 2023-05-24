@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@/দিন";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@/মাস";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@ / সপ্তাহ";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/বছর";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "অ্যাপ স্টোর থেকে পণ্য লোড করতে ব্যর্থ";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "পুনরায় লোড করুন";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "চালিয়ে যান";

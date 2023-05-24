@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@/দিন";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@/মাহ";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@/সপ্তাহ";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/বছৰ";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "এপ্প ষ্টোৰৰ পৰা সামগ্ৰী লোড কৰিবলৈ ব্যৰ্থ হৈছে।";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "পুনৰ লোড কৰক";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "অব্যাহত ৰাখক";

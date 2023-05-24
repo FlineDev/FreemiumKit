@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@/day";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "٪@/month";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@ /اونۍ";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "٪@/year";
+
 "FreemiumKit.LoadingProductsFailed.Message" = ".اپ سټور نه د محصولاتو په لېښلو کې پاتې راغی";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "بیالېښل";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "ادامه";

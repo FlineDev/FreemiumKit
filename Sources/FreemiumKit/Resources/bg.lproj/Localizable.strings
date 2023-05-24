@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@/ден";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@/месец";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@/седмица";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/година";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Не успях да заредя продукти от App Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Презареждане";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Продължи";

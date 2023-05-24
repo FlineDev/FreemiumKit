@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@ / siku";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@ / mwezi";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@ / wiki";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@ / mwaka";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Imeshindwa kupakia bidhaa Kutoka Duka La App.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Pakia upya";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Endelea";

@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@ / usuku";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@/inyanga";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@ / iveki";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@ / ngonyaka";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Ayiphumelelanga ukulayisha iimveliso Kwivenkile Yeapp.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "_faka kwakhona";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Qhubeka";

@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@ / நாள்";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@ / மாதம்";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@ / வாரம்";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@ / ஆண்டு";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "ஆப் ஸ்டோரிலிருந்து தயாரிப்புகளை ஏற்ற முடியவில்லை.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "மீண்டும் ஏற்றவும்";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "தொடரவும்";

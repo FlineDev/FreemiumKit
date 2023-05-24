@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@ / dydd";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@ / mis";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@ / wythnos";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@ / year";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Methu llwytho cynhyrchion O'r App Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Ail-lwytho";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Parhau";

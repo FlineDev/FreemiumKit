@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@ / tago";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@ / monato";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@ / semajno";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@ / jaro";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Malsukcesis ŝarĝi produktojn de App Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Reŝargi";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Daŭrigu";

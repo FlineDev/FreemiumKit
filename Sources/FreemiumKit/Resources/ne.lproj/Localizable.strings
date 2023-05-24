@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@/दिन";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@/महिना";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@ / हप्ता";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/वर्ष";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "अनुप्रयोग स्टोरबाट उत्पादनहरू लोड गर्न असफल भयो । ";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "पुन: लोड गर्नुहोस्";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "जारी राख्नुहोस्";

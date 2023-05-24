@@ -99,7 +99,7 @@ public struct PreviewProduct: Identifiable, Hashable, Sendable {
    static func products(for identifiers: [String]) throws -> [PreviewProduct] {
       return [
          PreviewProduct(
-            id: "A",
+            id: "Lite.Monthly",
             type: .autoRenewable,
             displayName: "Lite (Monthly)",
             description: "Up to 50 documents, 1 team member",
@@ -109,7 +109,7 @@ public struct PreviewProduct: Identifiable, Hashable, Sendable {
             subscription: SubscriptionInfo(introductoryOffer: nil, promotionalOffers: [], subscriptionPeriod: SubscriptionPeriod(unit: .month, value: 1))
          ),
          PreviewProduct(
-            id: "B",
+            id: "Lite.Yearly",
             type: .autoRenewable,
             displayName: "Lite (Yearly)",
             description: "Up to 50 documents, 1 team member",
@@ -119,7 +119,7 @@ public struct PreviewProduct: Identifiable, Hashable, Sendable {
             subscription: SubscriptionInfo(introductoryOffer: nil, promotionalOffers: [], subscriptionPeriod: SubscriptionPeriod(unit: .year, value: 1))
          ),
          PreviewProduct(
-            id: "C",
+            id: "Pro.Monthly",
             type: .autoRenewable,
             displayName: "Pro (Monthly)",
             description: "Unlimited documents, up to 5 team members",
@@ -140,7 +140,7 @@ public struct PreviewProduct: Identifiable, Hashable, Sendable {
             )
          ),
          PreviewProduct(
-            id: "D",
+            id: "Pro.Yearly",
             type: .autoRenewable,
             displayName: "Pro (Yearly)",
             description: "Unlimited documents, up to 5 team members",
@@ -159,6 +159,16 @@ public struct PreviewProduct: Identifiable, Hashable, Sendable {
                promotionalOffers: [],
                subscriptionPeriod: SubscriptionPeriod(unit: .year, value: 1)
             )
+         ),
+         PreviewProduct(
+            id: "Pro.Lifetime",
+            type: .nonConsumable,
+            displayName: "Pro (Lifetime)",
+            description: "Unlimited documents, up to 5 team members, forever",
+            price: 74.99,
+            displayPrice: "$74.99",
+            isFamilyShareable: false,
+            subscription: nil
          ),
       ]
    }
@@ -194,7 +204,7 @@ public struct PreviewTransaction: Hashable, Sendable {
    /// - Note: Only for subscriptions.
    let isUpgraded: Bool
 
-   #warning("✨ add `offerType` and `offerID` support here?")
+   #warning("%@ add `offerType` and `offerID` support here?")
 
    /// The date the transaction was revoked, or `nil` if it was not revoked.
    let revocationDate: Date?

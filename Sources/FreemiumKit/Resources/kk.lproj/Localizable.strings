@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@ / күн";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@ / ай";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@ / апта";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@ / жыл";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "App Store дүкенінен өнімдерді жүктеу мүмкін болмады.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Қайта жүктеу";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Жалғастыру";

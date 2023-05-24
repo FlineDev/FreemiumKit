@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@/zi";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@/lună";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@/săptămână";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/an";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Nu s-a reușit încărcarea produselor din App Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Reîncărcare";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Continuați";

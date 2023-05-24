@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@/kun";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@/oy";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@/hafta";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@ / yil";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "App Store-dan mahsulotlarni yuklab bo'lmadi.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Qayta yuklash";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Davom";

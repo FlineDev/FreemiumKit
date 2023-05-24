@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@ / օր";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@ / ամիս";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@ / շաբաթ";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@ / տարի";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "App Store-ից ապրանքները հնարավոր չէ ներբեռնել:";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Վերաբեռնել";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Շարունակել";

@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@/dan";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@/mesec";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@/teden";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/leto";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Ni uspelo naložiti izdelkov iz trgovine App Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Ponovno polnjenje";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Nadaljuj";

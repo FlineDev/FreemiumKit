@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@ / Dag";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@ / Mount";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@ / Woch";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@ / Joer";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Feeler Beim Luede Vu Produkter aus Dem App Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Lueden";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Weider";

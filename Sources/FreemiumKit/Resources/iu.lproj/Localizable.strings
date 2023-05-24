@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@/ᐅᓪᓗᖅ";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@/ᑕᖅᑭᖅ";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@/ᐱᓇᓱᐊᕈᓯᖅ";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/ᐊᕐᕌᒍ";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "ᐅᓯᓕᖅᓱᕐᓗᒋᑦ ᖃᕆᑕᐅᔭᑦ ᖃᕆᑕᐅᔭᕋᓛᓂᑦ.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "ᓂᐅᕋᐃᓂᖅ";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "ᑲᔪᓯᓗᒍ";

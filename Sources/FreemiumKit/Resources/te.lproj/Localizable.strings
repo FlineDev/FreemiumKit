@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@ / రోజు";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@ / నెల";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@/వారం";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@ / సంవత్సరం";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "యాప్ స్టోర్ నుండి ఉత్పత్తులను లోడ్ చేయడంలో విఫలమైంది.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "రీలోడ్ చేయండి";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "కొనసాగించు";

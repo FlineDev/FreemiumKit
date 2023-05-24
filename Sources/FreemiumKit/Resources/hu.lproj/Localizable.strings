@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@/nap";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@/hó";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@/hét";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/év";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Nem sikerült termékeket betölteni az App Store-ból.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Újratöltés";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Folytatás";

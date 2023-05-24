@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@/Day";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@/bishii";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@ /toddobaad";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/sanadka";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Ku guuldareystay in ay shubaan waxyaabaha ka App Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Reload";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Sii wad";

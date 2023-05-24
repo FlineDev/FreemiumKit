@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@/кече";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@/тылзе";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@/арня";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/ий";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Колтымо Оксам Sres-шамыч Кечат.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Угыч опташ";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Шуяш";

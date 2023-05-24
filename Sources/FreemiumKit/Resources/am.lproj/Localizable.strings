@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@/ቀን";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@/ወር";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@/ሳምንት";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/ዓመት";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "ምርቶችን ከመተግበሪያ መደብር መጫን አልተሳካም።";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "እንደገና ጫን";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "ቀጥል";

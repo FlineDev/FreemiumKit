@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@/uru";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@/phaxsi";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@/semana";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/mara";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "App Store ukan yänak apkatañax janiw ch’amäkiti.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Recargar ukax mä juk’a pachanakanwa";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Sarantaña";

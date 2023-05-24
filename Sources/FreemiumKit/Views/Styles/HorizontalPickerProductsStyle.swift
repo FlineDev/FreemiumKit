@@ -3,8 +3,8 @@ import SwiftUI
 import IdentifiedCollections
 
 /// The horizontal "Paywall Blueprint" style implementing learnings from analyzing 20 different successful paywalls.
-/// If you have more than 3 products, consider using ``VerticalProductsStyle`` instead. It also scales better for longer (localized) product names.
-public struct HorizontalProductsStyle: AsyncProductsStyle {
+/// If you have more than 3 products, consider using ``VerticalPickerProductsStyle`` instead. It also scales better for longer (localized) product names.
+public struct HorizontalPickerProductsStyle: AsyncProductsStyle {
    private let verticalSpacing: CGFloat
 
    public init(verticalSpacing: CGFloat = 15) {
@@ -49,20 +49,20 @@ public struct HorizontalProductsStyle: AsyncProductsStyle {
    }
 }
 
-struct HorizontalProductsStyle_Previews: PreviewProvider {
+struct HorizontalPickerProductsStyle_Previews: PreviewProvider {
    static var previews: some View {
       Group {
-         HorizontalProductsStyle().productsLoadingPlaceholder()
+         HorizontalPickerProductsStyle().productsLoadingPlaceholder()
             .previewDisplayName("Placeholder")
 
-         HorizontalProductsStyle(verticalSpacing: 20).productsLoadFailed(
+         HorizontalPickerProductsStyle(verticalSpacing: 20).productsLoadFailed(
             reloadButtonTitle: "Reload",
             loadFailedMessage: "Loading products failed.",
             reloadRequested: {}
          )
          .previewDisplayName("Load Failed")
 
-         HorizontalProductsStyle(verticalSpacing: 25).products(
+         HorizontalPickerProductsStyle(verticalSpacing: 25).products(
             // comment this out and comment the line below it to get SwiftUI previews with fake data (also change typealiases in PreviewTypes.swift)
             products: try! PreviewProduct.products(for: ["A", "B", "C", "D"]),
 //            products: [],

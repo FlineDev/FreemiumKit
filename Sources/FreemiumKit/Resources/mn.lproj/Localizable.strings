@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@ / өдөр";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@ / сар";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@ / долоо хоног";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@ / жил";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "App Store-оос бүтээгдэхүүн ачаалж чадсангүй.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Дуут хувилбар";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Үргэлжлүүлэх";

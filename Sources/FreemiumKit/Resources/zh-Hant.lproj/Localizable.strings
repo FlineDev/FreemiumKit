@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@/天";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@/月";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@ /周";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/年";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "無法從應用商店載入產品。";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "重新載入";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "繼續";

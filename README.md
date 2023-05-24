@@ -127,14 +127,14 @@ Note that FreemiumKit does not help persisting your current usage count, you nee
 
 Lastly, whenever you present your paywall, you can use one of the provided UI components so you don't have to fetch your products from App Store Connect and present them in a nice way yourself. The UI part is what really saves a lot of time when integrating in-app purchases, and thanks to the open `AsyncProductsStyle` protocol, the community can add new UI styles over time so you can quickly switch between different styles, following current trends or doing A/B testing easily.
 
-For a full list of all available UI components, see the next section. But after [some research](TODO) I created the `VerticalProductsStyle` which is a good one to start with as it's clean, flexible, and proven to be succesful in many high-grossing apps:
+For a full list of all available UI components, see the next section. But after [some research](TODO) I created the `VerticalPickerProductsStyle` which is a good one to start with as it's clean, flexible, and proven to be succesful in many high-grossing apps:
 
 ```Swift
 // in your paywall SwiftUI screen, place this view where you need it (for iOS, bottom half of the screen is recommended)
-AsyncProducts(style: VerticalProductsStyle(), productIDs: ProductID.allCases, inAppPurchase: AppDelegate.inAppPurchase)
+AsyncProducts(style: VerticalPickerProductsStyle(), productIDs: ProductID.allCases, inAppPurchase: AppDelegate.inAppPurchase)
 ``` 
 
-Note that instead of `VerticalProductsStyle()` you can pass any other community-provided or even your custom style, or pass some of the optional parameters to `VerticalProductsStyle`. Also, instead of `ProductID.allCases`, you can pass an array with only select cases if you don't want to show all available options at once (like excluding re-engagement offers).
+Note that instead of `VerticalPickerProductsStyle()` you can pass any other community-provided or even your custom style, or pass some of the optional parameters to `VerticalPickerProductsStyle`. Also, instead of `ProductID.allCases`, you can pass an array with only select cases if you don't want to show all available options at once (like excluding re-engagement offers).
 
 The resulting screen should look something like this (the `AsyncProducts` view is highlighted):
 
@@ -175,7 +175,7 @@ Note: If you implemented a somewhat different UI and have the chance to share it
 While basic In-App Purchases are already covered, there are several extra features I'd like to add over time. These include:
 
 - [ ] Fix localized texts not working properly
-- [ ] Implement `HorizontalProductsStyle`
+- [ ] Implement `HorizontalPickerProductsStyle`
 - [ ] Other types of introductory offers than `.freeTrial` support (in UI components)
 - [ ] Promotional Offers support (in UI components)
 

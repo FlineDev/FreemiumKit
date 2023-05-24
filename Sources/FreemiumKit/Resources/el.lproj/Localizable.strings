@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@/day";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@/μήνα";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@/εβδομάδα";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/έτος";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Απέτυχε να φορτώσει προϊόντα από το App Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Επαναφόρτωση";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Συνεχίστε";

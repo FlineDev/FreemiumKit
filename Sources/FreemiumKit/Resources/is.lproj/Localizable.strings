@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@ / dagur";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@ / mánuður";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@/vikudagur";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@ / ár";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Tókst ekki að hlaða inn vörum Úr App Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Endurlesa";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Halda áfram";

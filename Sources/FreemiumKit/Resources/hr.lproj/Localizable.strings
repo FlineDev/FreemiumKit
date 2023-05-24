@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@ / dan";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@ / mjesec";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@ / tjedan";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@ / godina";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Nije moguće preuzeti proizvode iz izbornika.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Ponovno pokreni";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Nastavi";

@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@/දිනය";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@/මාසය";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@ / සතිය";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/වසර";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "App Store වෙතින් නිෂ්පාදන පූරණය කිරීමට අසමත් විය.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "නැවත පූරණය කරන්න";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "දිගටම කරගෙන යන්න";

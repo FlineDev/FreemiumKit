@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@/көн";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@/ай";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@/атна";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/ел";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "App Store ' дан продуктларны йөкләп алу мөмкин булмады.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Яңадан башлау";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Бирү";

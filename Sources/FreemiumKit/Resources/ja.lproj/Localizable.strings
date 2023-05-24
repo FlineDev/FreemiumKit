@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@/日";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "(%@/月)";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@/週";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "(%@/年)";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "App Storeから製品を読み込むのに失敗しました。";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "リロード";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "続き";

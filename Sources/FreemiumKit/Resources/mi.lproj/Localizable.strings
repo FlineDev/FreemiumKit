@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@ / rā";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@ / marama";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@ / wiki";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@ / tau";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Kāore i taea te uta i ngā hua mai i Te App Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Whakakī anō";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Haere tonu";

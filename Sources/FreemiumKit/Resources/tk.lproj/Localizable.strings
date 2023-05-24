@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "unit-symbols";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "unit-symbols";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@ /hepde";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "unit-symbols";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "App Store-dan önümleri ýüklemek başartmady.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Ýüklemek";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Dowam ediň";

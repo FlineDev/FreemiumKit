@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@ / рӯз";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@ / моҳ";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@ / ҳафта";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@ / сол";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Маҳсулотро аз Дӯкони App зеркашӣ карда натавонист.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Бозоғоз";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Идома диҳед";

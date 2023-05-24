@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@ / diei";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@ / mensis";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@/settimana tag";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "% / annus";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Res ex App Copia onerare non potuit.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Repellendus";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Permanere";

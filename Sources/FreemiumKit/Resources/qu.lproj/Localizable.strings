@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@/punchaw";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@/killa";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@/semana";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/wata";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "App Storemanta rurukunata mana kargayta atirqanchu.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Recargar";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Qatiq";

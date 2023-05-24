@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@/siku";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@/n'hweti";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@/vhiki";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/lembe";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Ku tsandzekile ku layicha switirhisiwa ku suka eka App Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Layicha nakambe";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Yisa emahlweni";

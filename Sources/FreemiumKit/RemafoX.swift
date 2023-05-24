@@ -16,6 +16,92 @@ internal enum Res {
    /// Root namespace for safe access to localized strings. Managed by RemafoX (https://remafox.app).
    internal enum Str {
       internal enum FreemiumKit {
+         internal enum DisplayPriceIfSubscription {
+            /// 🇺🇸 English: "%@/day"
+            internal struct PerDay {
+               internal let displayPrice: String
+
+               internal init(displayPrice: String) {
+                  self.displayPrice = displayPrice
+               }
+
+               /// The translated `String` instance.
+               internal var string: String {
+                  let localizedFormatString = Bundle.module.localizedString(forKey: self.tableLookupKey, value: nil, table: "Localizable")
+                  return String.localizedStringWithFormat(localizedFormatString, self.displayPrice)
+               }
+
+               /// The SwiftUI `LocalizedStringKey` instance.
+               internal var locStringKey: LocalizedStringKey { LocalizedStringKey("FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: \(self.displayPrice))") }
+
+               /// The lookup key in the translation table (= the key in the `.strings` or `.stringsdict` file).
+               internal var tableLookupKey: String { "FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" }
+            }
+
+            /// 🇺🇸 English: "%@/month"
+            internal struct PerMonth {
+               internal let displayPrice: String
+
+               internal init(displayPrice: String) {
+                  self.displayPrice = displayPrice
+               }
+
+               /// The translated `String` instance.
+               internal var string: String {
+                  let localizedFormatString = Bundle.module.localizedString(forKey: self.tableLookupKey, value: nil, table: "Localizable")
+                  return String.localizedStringWithFormat(localizedFormatString, self.displayPrice)
+               }
+
+               /// The SwiftUI `LocalizedStringKey` instance.
+               internal var locStringKey: LocalizedStringKey { LocalizedStringKey("FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: \(self.displayPrice))") }
+
+               /// The lookup key in the translation table (= the key in the `.strings` or `.stringsdict` file).
+               internal var tableLookupKey: String { "FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" }
+            }
+
+            /// 🇺🇸 English: "%@/week"
+            internal struct PerWeek {
+               internal let displayPrice: String
+
+               internal init(displayPrice: String) {
+                  self.displayPrice = displayPrice
+               }
+
+               /// The translated `String` instance.
+               internal var string: String {
+                  let localizedFormatString = Bundle.module.localizedString(forKey: self.tableLookupKey, value: nil, table: "Localizable")
+                  return String.localizedStringWithFormat(localizedFormatString, self.displayPrice)
+               }
+
+               /// The SwiftUI `LocalizedStringKey` instance.
+               internal var locStringKey: LocalizedStringKey { LocalizedStringKey("FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: \(self.displayPrice))") }
+
+               /// The lookup key in the translation table (= the key in the `.strings` or `.stringsdict` file).
+               internal var tableLookupKey: String { "FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" }
+            }
+
+            /// 🇺🇸 English: "%@/year"
+            internal struct PerYear {
+               internal let displayPrice: String
+
+               internal init(displayPrice: String) {
+                  self.displayPrice = displayPrice
+               }
+
+               /// The translated `String` instance.
+               internal var string: String {
+                  let localizedFormatString = Bundle.module.localizedString(forKey: self.tableLookupKey, value: nil, table: "Localizable")
+                  return String.localizedStringWithFormat(localizedFormatString, self.displayPrice)
+               }
+
+               /// The SwiftUI `LocalizedStringKey` instance.
+               internal var locStringKey: LocalizedStringKey { LocalizedStringKey("FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: \(self.displayPrice))") }
+
+               /// The lookup key in the translation table (= the key in the `.strings` or `.stringsdict` file).
+               internal var tableLookupKey: String { "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" }
+            }
+         }
+
          internal enum LoadingProductsFailed {
             /// 🇺🇸 English: "Failed to load products from App Store."
             internal enum Message {
@@ -39,6 +125,20 @@ internal enum Res {
 
                /// The lookup key in the translation table (= the key in the `.strings` or `.stringsdict` file).
                internal static var tableLookupKey: String { "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" }
+            }
+         }
+
+         internal enum PickerProductsStyle {
+            /// 🇺🇸 English: "Continue"
+            internal enum ContinueButtonTitle {
+               /// The translated `String` instance.
+               internal static var string: String { Bundle.module.localizedString(forKey: self.tableLookupKey, value: nil, table: "Localizable") }
+
+               /// The SwiftUI `LocalizedStringKey` instance.
+               internal static var locStringKey: LocalizedStringKey { LocalizedStringKey(self.tableLookupKey) }
+
+               /// The lookup key in the translation table (= the key in the `.strings` or `.stringsdict` file).
+               internal static var tableLookupKey: String { "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" }
             }
          }
 

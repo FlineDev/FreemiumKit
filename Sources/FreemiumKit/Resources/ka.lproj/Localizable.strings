@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@ / დღე";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@/თვე";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@ / კვირა";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@ / წელი";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "ვერ მოხერხდა პროდუქციის ჩატვირთვა App Store-დან.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "გადატვირთვა";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "გაგრძელება";

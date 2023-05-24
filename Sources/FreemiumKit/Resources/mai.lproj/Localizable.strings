@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@/दिन";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@/मास";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@/हफ्ता";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/साल";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "ऐप स्टोर स उत्पाद लोड करबा मे असफल।";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "पुनः लोड करे";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "करैत रहू";

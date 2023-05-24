@@ -5,11 +5,7 @@ import IdentifiedCollections
 /// A very simple style using only plain SwiftUI types like ``Text``, ``Button``, or ``Label`` without fancy styling.
 /// Don't use this directly – this is meant as a guide to help those who want to implement their custom ``AsyncProductsStyle`` styles.
 public struct PlainProductsStyle: AsyncProductsStyle {
-   private let verticalSpacing: CGFloat
-
-   public init(verticalSpacing: CGFloat = 15) {
-      self.verticalSpacing = verticalSpacing
-   }
+   public init() {}
 
    public func productsLoadingPlaceholder() -> some View {
       ProgressView()
@@ -21,7 +17,7 @@ public struct PlainProductsStyle: AsyncProductsStyle {
       loadFailedMessage: String,
       reloadRequested: @escaping () -> Void
    ) -> some View {
-      VStack(spacing: self.verticalSpacing) {
+      VStack(spacing: 15) {
          Text(loadFailedMessage)
          Button(reloadButtonTitle) { reloadRequested() }
       }
@@ -55,14 +51,14 @@ struct PlainProductsStyle_Previews: PreviewProvider {
          PlainProductsStyle().productsLoadingPlaceholder()
             .previewDisplayName("Placeholder")
 
-         PlainProductsStyle(verticalSpacing: 20).productsLoadFailed(
+         PlainProductsStyle().productsLoadFailed(
             reloadButtonTitle: "Reload",
             loadFailedMessage: "Loading products failed.",
             reloadRequested: {}
          )
          .previewDisplayName("Load Failed")
 
-         PlainProductsStyle(verticalSpacing: 25).products(
+         PlainProductsStyle().products(
             // comment this out and comment the line below it to get SwiftUI previews with fake data (also change typealiases in PreviewTypes.swift)
             products: try! PreviewProduct.products(for: ["A", "B", "C", "D"]),
 //            products: [],

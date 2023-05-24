@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@/နေ့";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@/လ";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@/တစ်ပတ်";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/နှစ်";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "App Store မှထုတ်ကုန်များကိုတင်ရန်ပျက်ကွက်သည်။";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "ပြန်လည်အားသွင်းခြင်း";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "ဆက်လက်";

@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@ / ದಿನ";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@ / ತಿಂಗಳು";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@/ವಾರ";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@ / ವರ್ಷ";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "ಆಪ್ ಸ್ಟೋರ್ನಿಂದ ಉತ್ಪನ್ನಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "ಮರುಲೋಡ್ ಮಾಡಿ";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "ಮುಂದುವರಿಸಿ";

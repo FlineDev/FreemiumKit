@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@/päev";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@/kuu";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@/nädalas";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/aasta";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "App Store'ist ei õnnestunud tooteid laadida.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Laadige uuesti";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Jätka";

@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@/dag";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@/måned";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@/uge";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/år";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Det lykkedes ikke at indlæse produkter fra App Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Genindlæsning";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Fortsæt";

@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@/'";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@/ Hol";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@/Hogh";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "'ej ghe''ordaq ghuS ghaH, vaj MuSHa'chuqghaj.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "polonyuS";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "taH";

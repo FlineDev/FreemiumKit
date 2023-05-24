@@ -1,3 +1,13 @@
+"FreemiumKit.DisplayPriceIfSubscription.PerDay(displayPrice: %@)" = "%@/mokolo";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerMonth(displayPrice: %@)" = "%@/sanza";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerWeek(displayPrice: %@)" = "%@/poso na poso";
+
+"FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/mbula";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Elongi te ko charger ba produits na App Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Recharger lisusu";
+
+"FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Kokoba";
