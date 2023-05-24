@@ -111,14 +111,8 @@ public struct VerticalPickerProductsStyle<ProductID: RawRepresentableProductID>:
                .buttonStyle(.plain)
                .listRowSeparator(.hidden)
             }
-
             .padding(.vertical, 5)
             .listStyle(.plain)
-            .overlay {
-               if purchaseInProgressProduct != nil {
-                  ProgressView()
-               }
-            }
 
             Spacer().frame(minHeight: 20)
 
@@ -134,6 +128,11 @@ public struct VerticalPickerProductsStyle<ProductID: RawRepresentableProductID>:
             .buttonStyle(ContinueButtonStyle(tintColor: self.tintColor))
             .opacity(self.selectedProduct(products: products) == nil ? 0.5 : 1)
             .disabled(self.selectedProduct(products: products) == nil)
+         }
+         .overlay {
+            if self.purchaseInProgressProduct != nil {
+               ProgressView()
+            }
          }
          .padding(.horizontal, 30)
          .padding(.vertical, 20)
