@@ -131,10 +131,14 @@ For a full list of all available UI components, see the next section. But after 
 
 ```Swift
 // in your paywall SwiftUI screen, place this view where you need it (for iOS, bottom half of the screen is recommended)
-AsyncProducts(style: VerticalPickerProductsStyle(), productIDs: ProductID.allCases, inAppPurchase: AppDelegate.inAppPurchase)
+AsyncProducts(
+   style: VerticalPickerProductsStyle(preselectedProductID: ProductID.proYearly), 
+   productIDs: ProductID.allCases, 
+   inAppPurchase: AppDelegate.inAppPurchase
+)
 ``` 
 
-Note that instead of `VerticalPickerProductsStyle()` you can pass any other community-provided or even your custom style, or pass some of the optional parameters to `VerticalPickerProductsStyle`. Also, instead of `ProductID.allCases`, you can pass an array with only select cases if you don't want to show all available options at once (like excluding re-engagement offers).
+Note that instead of `VerticalPickerProductsStyle` you can pass any other community-provided or even your custom style, or pass some of the optional parameters to `VerticalPickerProductsStyle`. Also, instead of `ProductID.allCases`, you can pass an array with only select cases if you don't want to show all available options at once (like excluding re-engagement offers).
 
 The resulting screen should look something like this (the `AsyncProducts` view is highlighted):
 
@@ -151,7 +155,7 @@ AsyncProducts(style: ..., productIDs: ..., inAppPurchase: ..., onPurchase: { _ i
 
 <details>
 <summary>Read this if any of your products is a Consumable</summary>
-<p>Typically, you need to execute some code to provide the purchased consumable thing to your user, and often this code involves sending requests to a server. To ensure a user actually gets the purchased consumable, StoreKit requires you to call the `finish()` method on the purchased `Transaction`. FreemiumKit defaults to automatically calling `finish()` right after a transaction was successfully made, but for consumables, it's better you handle this manually. To do that, make sure to set the optional parameter `autoFinishPurchases` to `false` on the `AsyncProducts` initializer. Then, use the `transaction` parameter passed to the optional `onPurchase` closure of the same initializer to call `finish()` once you provided your user with the purchased consumable item(s). As long as `finish()` does not get called, StoreKit will inform the app about a newly purchased product on each app start until the app calls `finish()` on the transaction.</p>
+<p>Typically, you need to execute some code to provide the purchased consumable thing to your user, and often this code involves sending requests to a server. To ensure a user actually gets the purchased consumable, StoreKit requires you to call the `finish()` method on the purchased `Transaction`. FreemiumKit defaults to automatically calling `finish()` right after a transaction was successfully made, but for consumables, it's better you handle this manually. To do that, make sure to set the optional parameter `autoFinishPurchases` to `false` on the `AsyncProducts` initializer. Then, use the `transaction` parameter passed to the optional `onPurchase` closure of the same initializer to call `finish()` once you provided your user with the purchased consumable item(s).</p>
 </details>
 
 ## Provided UI Components

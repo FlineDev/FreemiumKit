@@ -30,6 +30,7 @@ public struct HorizontalPickerProductsStyle: AsyncProductsStyle {
 
    public func products(
       products: [FKProduct],
+      productIDsEligibleForIntroductoryOffer: Set<FKProduct.ID>,
       purchasedTransactions: IdentifiedArray<String, FKTransaction>,
       purchaseInProgressProduct: FKProduct?,
       startPurchase: @escaping (FKProduct, Set<Product.PurchaseOption>) -> Void
@@ -49,6 +50,7 @@ public struct HorizontalPickerProductsStyle: AsyncProductsStyle {
    }
 }
 
+#if DEBUG
 struct HorizontalPickerProductsStyle_Previews: PreviewProvider {
    static var previews: some View {
       Group {
@@ -63,9 +65,8 @@ struct HorizontalPickerProductsStyle_Previews: PreviewProvider {
          .previewDisplayName("Load Failed")
 
          HorizontalPickerProductsStyle(verticalSpacing: 25).products(
-            // comment this out and comment the line below it to get SwiftUI previews with fake data (also change typealiases in PreviewTypes.swift)
-            products: try! PreviewProduct.products(for: ["A", "B", "C", "D"]),
-//            products: [],
+            products: FKProduct.mockedProducts,
+            productIDsEligibleForIntroductoryOffer: Set(FKProduct.mockedProducts.map(\.id)),
             purchasedTransactions: .init(uniqueElements: [], id: \.productID),
             purchaseInProgressProduct: nil,
             startPurchase: { _, _ in }
@@ -74,3 +75,4 @@ struct HorizontalPickerProductsStyle_Previews: PreviewProvider {
       }
    }
 }
+#endif

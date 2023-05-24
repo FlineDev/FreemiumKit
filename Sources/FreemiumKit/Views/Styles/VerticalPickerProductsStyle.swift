@@ -44,6 +44,7 @@ public struct VerticalPickerProductsStyle<ProductID: RawRepresentableProductID>:
 
    public func products(
       products: [FKProduct],
+      productIDsEligibleForIntroductoryOffer: Set<FKProduct.ID>,
       purchasedTransactions: IdentifiedArray<String, FKTransaction>,
       purchaseInProgressProduct: FKProduct?,
       startPurchase: @escaping (FKProduct, Set<Product.PurchaseOption>) -> Void
@@ -58,8 +59,8 @@ public struct VerticalPickerProductsStyle<ProductID: RawRepresentableProductID>:
                      Text(product.displayName)
 
                      if
-                        let subscription = product.subscription, subscription.isEligibleForIntroOffer,
-                        let introductoryOffer = subscription.introductoryOffer, introductoryOffer.paymentMode == .freeTrial
+                        let subscription = product.subscription, let introductoryOffer = subscription.introductoryOffer,
+                        productIDsEligibleForIntroductoryOffer.contains(product.id), introductoryOffer.paymentMode == .freeTrial
                      {
                         Text(introductoryOffer.period.localizedFreeTrialDescription)
                            .font(.subheadline)
@@ -142,9 +143,8 @@ struct VerticalPickerProductsStyle_Previews: PreviewProvider {
          .previewDisplayName("Load Failed")
 
          VerticalPickerProductsStyle(preselectedProductID: ProductID.liteYearly).products(
-            // comment this out and comment the line below it to get SwiftUI previews with fake data (also change typealiases in PreviewTypes.swift)
-            products: try! PreviewProduct.products(for: []),
-//            products: [],
+            products: FKProduct.mockedProducts,
+            productIDsEligibleForIntroductoryOffer: Set(FKProduct.mockedProducts.map(\.id)),
             purchasedTransactions: .init(uniqueElements: [], id: \.productID),
             purchaseInProgressProduct: nil,
             startPurchase: { _, _ in }

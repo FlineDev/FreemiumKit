@@ -24,6 +24,9 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
    private var products: [FKProduct] = []
 
    @State
+   private var productIDsEligibleForIntroductoryOffer: Set<Product.ID> = []
+
+   @State
    private var purchaseInProgressProduct: FKProduct?
 
    @State
@@ -68,45 +71,11 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
          } else {
             self.style.products(
                products: self.products,
+               productIDsEligibleForIntroductoryOffer: self.productIDsEligibleForIntroductoryOffer,
                purchasedTransactions: self.inAppPurchase.purchasedTransactions,
-               purchaseInProgressProduct: self.purchaseInProgressProduct
-            ) { product, options in
-               Task {
-                  do {
-                     self.purchaseInProgressProduct = product
-                     let purchaseResult = try await product.purchase(options: options)
-                     self.purchaseInProgressProduct = nil
-
-                     switch purchaseResult {
-                     case .success(.verified(let transaction)):
-                        if self.autoFinishPurchases {
-                           await transaction.finish()
-                        }
-
-                        self.inAppPurchase.handle(verificationResult: .verified(transaction))
-                        self.onPurchase(transaction)
-
-                     case .pending, .userCancelled, .success(.unverified):
-                        break
-
-                     @unknown default:
-                        print("warning: A new purchase result case was added but is not yet supported – please upgrade FreemiumKit or report this.")
-                        break
-                     }
-                  } catch {
-                     self.purchaseInProgressProduct = nil
-
-                     if let storeKitError = error as? StoreKitError {
-                        self.onPurchaseFailed(.storeKitError(storeKitError))
-                     } else if let purchaseError = error as? Product.PurchaseError {
-                        self.onPurchaseFailed(.purchaseError(purchaseError))
-                     } else {
-                        assertionFailure("Unexpected Error: According to the docs of `Product.purchase(options:)` this can't happen.")
-                        return
-                     }
-                  }
-               }
-            }
+               purchaseInProgressProduct: self.purchaseInProgressProduct,
+               startPurchase: self.handlePurchase(product:options:)
+            )
          }
       }
       .task(id: self.loadProducts) {
@@ -115,7 +84,14 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
             self.loadingProductsFailed = false
 
 //             replace 'Product' with 'PreviewProduct' for SwiftUI previews during development
-            self.products = try await PreviewProduct.products(for: self.productIDs.map(\.rawValue))
+            self.products = try await Product.products(for: self.productIDs.map(\.rawValue))
+
+            self.productIDsEligibleForIntroductoryOffer = []
+            for product in self.products {
+               if product.subscription?.introductoryOffer != nil, await product.subscription!.isEligibleForIntroOffer {
+                  self.productIDsEligibleForIntroductoryOffer.insert(product.id)
+               }
+            }
 
             self.loadingInProgress = false
             self.loadingProductsFailed = false
@@ -129,6 +105,44 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
             }
 
             self.onLoadFailed(storeKitError)
+         }
+      }
+   }
+
+   private func handlePurchase(product: FKProduct, options: Set<Product.PurchaseOption>) {
+      Task {
+         do {
+            self.purchaseInProgressProduct = product
+            let purchaseResult = try await product.purchase(options: options)
+            self.purchaseInProgressProduct = nil
+
+            switch purchaseResult {
+            case .success(.verified(let transaction)):
+               if self.autoFinishPurchases {
+                  await transaction.finish()
+               }
+
+               self.inAppPurchase.handle(verificationResult: .verified(transaction))
+               self.onPurchase(transaction)
+
+            case .pending, .userCancelled, .success(.unverified):
+               break
+
+            @unknown default:
+               print("warning: A new purchase result case was added but is not yet supported – please upgrade FreemiumKit or report this.")
+               break
+            }
+         } catch {
+            self.purchaseInProgressProduct = nil
+
+            if let storeKitError = error as? StoreKitError {
+               self.onPurchaseFailed(.storeKitError(storeKitError))
+            } else if let purchaseError = error as? Product.PurchaseError {
+               self.onPurchaseFailed(.purchaseError(purchaseError))
+            } else {
+               assertionFailure("Unexpected Error: According to the docs of `Product.purchase(options:)` this can't happen.")
+               return
+            }
          }
       }
    }
