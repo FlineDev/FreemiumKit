@@ -44,7 +44,6 @@ public struct VerticalPickerProductsStyle<ProductID: RawRepresentableProductID>:
       products: [FKProduct],
       productIDsEligibleForIntroductoryOffer: Set<FKProduct.ID>,
       purchasedTransactions: IdentifiedArray<String, FKTransaction>,
-      purchaseInProgressProduct: FKProduct?,
       startPurchase: @escaping (FKProduct, Set<Product.PurchaseOption>) -> Void
    ) -> some View {
       ProductsView(
@@ -53,7 +52,6 @@ public struct VerticalPickerProductsStyle<ProductID: RawRepresentableProductID>:
          products: products,
          productIDsEligibleForIntroductoryOffer: productIDsEligibleForIntroductoryOffer,
          purchasedTransactions: purchasedTransactions,
-         purchaseInProgressProduct: purchaseInProgressProduct,
          startPurchase: startPurchase
       )
    }
@@ -69,7 +67,6 @@ public struct VerticalPickerProductsStyle<ProductID: RawRepresentableProductID>:
       let products: [FKProduct]
       let productIDsEligibleForIntroductoryOffer: Set<FKProduct.ID>
       let purchasedTransactions: IdentifiedArray<String, FKTransaction>
-      let purchaseInProgressProduct: FKProduct?
       let startPurchase: (FKProduct, Set<Product.PurchaseOption>) -> Void
 
       var body: some View {
@@ -129,11 +126,6 @@ public struct VerticalPickerProductsStyle<ProductID: RawRepresentableProductID>:
             .opacity(self.selectedProduct(products: products) == nil ? 0.5 : 1)
             .disabled(self.selectedProduct(products: products) == nil)
          }
-         .overlay {
-            if self.purchaseInProgressProduct != nil {
-               ProgressView()
-            }
-         }
          .padding(.horizontal, 30)
          .padding(.vertical, 20)
          .onAppear {
@@ -173,7 +165,6 @@ struct VerticalPickerProductsStyle_Previews: PreviewProvider {
             products: FKProduct.mockedProducts,
             productIDsEligibleForIntroductoryOffer: Set(FKProduct.mockedProducts.map(\.id)),
             purchasedTransactions: .init(uniqueElements: [], id: \.productID),
-            purchaseInProgressProduct: nil,
             startPurchase: { _, _ in }
          )
          .previewDisplayName("Products")

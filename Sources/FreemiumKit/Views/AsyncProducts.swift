@@ -27,9 +27,6 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
    private var productIDsEligibleForIntroductoryOffer: Set<Product.ID> = []
 
    @State
-   private var purchaseInProgressProduct: FKProduct?
-
-   @State
    private var loadProducts: Bool = false
 
    @State
@@ -73,7 +70,6 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
                products: self.products,
                productIDsEligibleForIntroductoryOffer: self.productIDsEligibleForIntroductoryOffer,
                purchasedTransactions: self.inAppPurchase.purchasedTransactions,
-               purchaseInProgressProduct: self.purchaseInProgressProduct,
                startPurchase: self.handlePurchase(product:options:)
             )
          }
@@ -111,9 +107,7 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
    private func handlePurchase(product: FKProduct, options: Set<Product.PurchaseOption>) {
       Task {
          do {
-            self.purchaseInProgressProduct = product
             let purchaseResult = try await product.purchase(options: options)
-            self.purchaseInProgressProduct = nil
 
             switch purchaseResult {
             case .success(.verified(let transaction)):
@@ -132,8 +126,6 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
                break
             }
          } catch {
-            self.purchaseInProgressProduct = nil
-
             if let storeKitError = error as? StoreKitError {
                self.onPurchaseFailed(.storeKitError(storeKitError))
             } else if let purchaseError = error as? Product.PurchaseError {

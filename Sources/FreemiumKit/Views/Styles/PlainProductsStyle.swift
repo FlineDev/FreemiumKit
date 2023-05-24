@@ -28,7 +28,6 @@ public struct PlainProductsStyle: AsyncProductsStyle {
       products: [FKProduct],
       productIDsEligibleForIntroductoryOffer: Set<FKProduct.ID>,
       purchasedTransactions: IdentifiedArray<String, FKTransaction>,
-      purchaseInProgressProduct: FKProduct?,
       startPurchase: @escaping (FKProduct, Set<Product.PurchaseOption>) -> Void
    ) -> some View {
       List(products) { product in
@@ -36,11 +35,6 @@ public struct PlainProductsStyle: AsyncProductsStyle {
             Label(product.displayName, systemImage: "checkmark")
          } else {
             Button(product.displayName) { startPurchase(product, []) }
-         }
-      }
-      .overlay {
-         if purchaseInProgressProduct != nil {
-            ProgressView()
          }
       }
    }
@@ -64,7 +58,6 @@ struct PlainProductsStyle_Previews: PreviewProvider {
             products: FKProduct.mockedProducts,
             productIDsEligibleForIntroductoryOffer: Set(FKProduct.mockedProducts.map(\.id)),
             purchasedTransactions: .init(uniqueElements: [], id: \.productID),
-            purchaseInProgressProduct: nil,
             startPurchase: { _, _ in }
          )
          .previewDisplayName("Products")
