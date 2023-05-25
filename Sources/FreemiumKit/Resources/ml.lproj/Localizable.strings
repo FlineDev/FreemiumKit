@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "വീണ്ടും ലോഡ് ചെയ്യുക";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "തുടരുക";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "നിലവിലെ പദ്ധതി";

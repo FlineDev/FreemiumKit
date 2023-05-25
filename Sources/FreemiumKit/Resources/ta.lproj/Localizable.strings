@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "மீண்டும் ஏற்றவும்";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "தொடரவும்";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "தற்போதைய திட்டம்";

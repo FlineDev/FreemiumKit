@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "重新加載";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "繼續";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "當前計劃";

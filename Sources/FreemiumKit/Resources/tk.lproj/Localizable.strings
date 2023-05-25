@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Ýüklemek";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Dowam ediň";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "Häzirki meýilnama";

@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Tagħbija mill-ġdid";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Kompli";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "Pjan Kurrenti";

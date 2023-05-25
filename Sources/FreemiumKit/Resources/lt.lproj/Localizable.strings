@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Perkrauti";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Tęsti";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "Dabartinis planas";

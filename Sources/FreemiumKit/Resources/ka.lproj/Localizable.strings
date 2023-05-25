@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "გადატვირთვა";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "გაგრძელება";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "მიმდინარე გეგმა";

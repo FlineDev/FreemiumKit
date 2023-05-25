@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "טען מחדש";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "המשך";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "תוכנית נוכחית";

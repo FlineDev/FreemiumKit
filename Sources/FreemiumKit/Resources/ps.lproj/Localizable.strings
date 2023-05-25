@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "بیالېښل";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "ادامه";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "اوسنی پلان";

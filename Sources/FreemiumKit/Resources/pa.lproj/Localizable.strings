@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "ਮੁੜ ਲੋਡ ਕਰੋ";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "ਜਾਰੀ ਰੱਖੋ";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "ਮੌਜੂਦਾ ਯੋਜਨਾ";

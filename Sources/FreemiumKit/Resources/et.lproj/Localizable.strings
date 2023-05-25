@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Laadige uuesti";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Jätka";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "Praegune kava";

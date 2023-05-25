@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "ރީލޯޑް ކުރުން";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "ކުރިއަށް ގެންދިޔުން";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "މިހާރުގެ ޕްލޭން";

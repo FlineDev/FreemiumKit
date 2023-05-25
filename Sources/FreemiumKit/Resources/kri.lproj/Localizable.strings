@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Rilod bak";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Kɔntinyu";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "Plan we yu de du naw";

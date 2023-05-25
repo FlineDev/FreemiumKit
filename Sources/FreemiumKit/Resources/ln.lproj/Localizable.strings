@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Recharger lisusu";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Kokoba";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "Plan ya lelo";

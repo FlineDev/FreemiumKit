@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Znovu načíst";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Pokračovat";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "Současný plán";

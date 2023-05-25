@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Reŝargi";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Daŭrigu";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "Aktuala Plano";

@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Qayta yuklash";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Davom";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "Joriy Reja";

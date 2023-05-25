@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Ail-lwytho";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Parhau";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "Y Cynllun Cyfredol";

@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Pārlādēt";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Turpināt";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "Pašreizējais plāns";

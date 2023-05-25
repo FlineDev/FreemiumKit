@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Рестарт";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Настави";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "Тренутни план";

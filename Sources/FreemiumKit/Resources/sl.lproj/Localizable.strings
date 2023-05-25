@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Ponovno polnjenje";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Nadaljuj";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "Trenutni načrt";

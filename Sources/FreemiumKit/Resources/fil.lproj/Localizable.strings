@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "I-Reload";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Magpatuloy";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "Kasalukuyang Plano";

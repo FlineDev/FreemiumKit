@@ -1,5 +1,6 @@
 import Foundation
 import StoreKit
+import IdentifiedCollections
 
 #warning("🧑‍💻 find a better way to develop with SwiftUI previews, this commenting in/out isn't great")
 // To instantiate fake products during development for SwiftUI previews, simply change the right hand side to `PreviewProduct` & `PreviewTransaction`.
@@ -269,5 +270,28 @@ extension PreviewProduct {
 
 extension Product {
    static let mockedProducts: [Self] = []
+}
+
+extension PreviewTransaction {
+   static var mockedTransactions: IdentifiedArray<String, Self> {
+      IdentifiedArray<String, Self>(
+         uniqueElements: [PreviewTransaction(
+            productID: PreviewProduct.mockedProducts.first?.id ?? "",
+            purchaseDate: .now.advanced(by: -3 * 24 * 60 * 60),
+            originalPurchaseDate: .now.advanced(by: -3 * 24 * 60 * 60),
+            expirationDate: .now.advanced(by: 27 * 24 * 60 * 60),
+            purchasedQuantity: 1,
+            isUpgraded: false,
+            revocationDate: nil,
+            revocationReason: nil,
+            productType: PreviewProduct.mockedProducts.first?.type ?? .autoRenewable
+         )],
+         id: \.productID
+      )
+   }
+}
+
+extension StoreKit.Transaction {
+   static let mockedTransactions: IdentifiedArray<String, Self> = .init(uniqueElements: [], id: \.productID)
 }
 #endif

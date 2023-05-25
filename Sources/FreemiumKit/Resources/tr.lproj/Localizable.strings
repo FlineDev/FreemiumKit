@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Yeniden Yükle";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Devam et";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "Mevcut Plan";

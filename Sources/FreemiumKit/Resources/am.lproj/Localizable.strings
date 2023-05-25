@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "እንደገና ጫን";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "ቀጥል";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "የአሁኑ ዕቅድ";

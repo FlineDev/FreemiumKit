@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Ngisi ulang";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Lanjut";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "Rencana Saiki";

@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Tải lại";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Tiếp tục";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "Kế Hoạch Hiện Tại";

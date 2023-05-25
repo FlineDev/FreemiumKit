@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Қайта жүктеу";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Жалғастыру";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "Ағымдағы жоспар";

@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Yenidən başladın";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Davam edin";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "Cari plan";

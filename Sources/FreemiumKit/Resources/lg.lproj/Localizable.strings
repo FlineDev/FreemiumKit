@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Ddamu okutikka";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Eeyongera";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "Enteekateeka eriwo kati";

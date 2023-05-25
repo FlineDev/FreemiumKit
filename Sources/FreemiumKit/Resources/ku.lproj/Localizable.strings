@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "بارکردنەوە";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "بەردەوامبە";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "پلانی ئێستا";

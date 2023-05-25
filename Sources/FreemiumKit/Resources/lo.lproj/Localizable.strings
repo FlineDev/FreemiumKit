@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "ໂຫລດ";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "ສືບຕໍ່";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "ແຜນປະຈຸບັນ";

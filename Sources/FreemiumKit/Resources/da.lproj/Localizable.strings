@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Genindlæsning";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Fortsæt";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "Nuværende plan";

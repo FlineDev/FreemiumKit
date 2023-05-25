@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Ikarga manen";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Ituloy";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "Agdama a Plano";

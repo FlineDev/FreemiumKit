@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Վերաբեռնել";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Շարունակել";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "Ընթացիկ պլան";

@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Athluchtaigh";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Lean ar aghaidh";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "Plean Reatha";

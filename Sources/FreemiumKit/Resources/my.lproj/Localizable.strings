@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "ပြန်လည်အားသွင်းခြင်း";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "ဆက်လက်";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "လက်ရှိအစီအစဉ်";

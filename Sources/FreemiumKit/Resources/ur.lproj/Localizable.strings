@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "دوبارہ لوڈ کریں";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "جاری رکھیں";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "موجودہ منصوبہ";

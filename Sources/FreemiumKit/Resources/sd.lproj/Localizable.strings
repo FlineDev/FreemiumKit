@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "ٻيهر لوڊ ڪريو";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "جاري رکو";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "موجوده منصوبو";

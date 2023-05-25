@@ -140,6 +140,18 @@ internal enum Res {
                /// The lookup key in the translation table (= the key in the `.strings` or `.stringsdict` file).
                internal static var tableLookupKey: String { "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" }
             }
+
+            /// 🇺🇸 English: "Current Plan"
+            internal enum CurrentPlan {
+               /// The translated `String` instance.
+               internal static var string: String { Bundle.module.localizedString(forKey: self.tableLookupKey, value: nil, table: "Localizable") }
+
+               /// The SwiftUI `LocalizedStringKey` instance.
+               internal static var locStringKey: LocalizedStringKey { LocalizedStringKey(self.tableLookupKey) }
+
+               /// The lookup key in the translation table (= the key in the `.strings` or `.stringsdict` file).
+               internal static var tableLookupKey: String { "FreemiumKit.PickerProductsStyle.CurrentPlan" }
+            }
          }
 
          internal enum SubscriptionPeriod {

@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "পুনৰ লোড কৰক";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "অব্যাহত ৰাখক";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "বৰ্তমান পৰিকল্পনা";

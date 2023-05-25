@@ -101,17 +101,36 @@ public struct VerticalPickerProductsStyle<ProductID: RawRepresentableProductID>:
                   .background(product.id == self.selectedProductID ? self.tintColor.opacity(0.1) : .clear)
                   .overlay {
                      RoundedRectangle(cornerRadius: 12)
-                        .stroke(product.id == self.selectedProductID ? self.tintColor : .gray.opacity(0.3), lineWidth: 2.5)
+                        .stroke(
+                           purchasedTransactions.contains(where: \.productID, equalsTo: product.id) || product.id == self.selectedProductID
+                              ? self.tintColor
+                              : .gray.opacity(0.3), lineWidth: 2.5
+                        )
                   }
                   .frame(minHeight: 44)
                }
                .buttonStyle(.plain)
-               .listRowSeparator(.hidden)
-            }
-            .padding(.vertical, 5)
-            .listStyle(.plain)
+               .disabled(purchasedTransactions.contains(where: \.productID, equalsTo: product.id))
 
-            Spacer().frame(minHeight: 20)
+               if let transaction = purchasedTransactions.first(where: \.productID, equalsTo: product.id) {
+                  HStack {
+                     Label(Loc.FreemiumKit.PickerProductsStyle.CurrentPlan.string, systemImage: "checkmark.circle")
+                        .foregroundColor(self.tintColor)
+
+                     Spacer()
+
+                     if let expirationDate = transaction.expirationDate {
+                        Label(expirationDate.formatted(date: .abbreviated, time: .omitted), systemImage: "hourglass")
+                           .foregroundColor(.red)
+                     }
+                  }
+                  .font(.footnote)
+               }
+
+               Spacer().frame(height: 20)
+            }
+
+            Spacer()
 
             Button {
                if let selectedProduct = self.selectedProduct(products: products) {
@@ -164,7 +183,7 @@ struct VerticalPickerProductsStyle_Previews: PreviewProvider {
          VerticalPickerProductsStyle(preselectedProductID: ProductID.liteYearly).products(
             products: FKProduct.mockedProducts,
             productIDsEligibleForIntroductoryOffer: Set(FKProduct.mockedProducts.map(\.id)),
-            purchasedTransactions: .init(uniqueElements: [], id: \.productID),
+            purchasedTransactions: FKTransaction.mockedTransactions,
             startPurchase: { _, _ in }
          )
          .previewDisplayName("Products")

@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "_faka kwakhona";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Qhubeka";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "Isicwangciso Sangoku";

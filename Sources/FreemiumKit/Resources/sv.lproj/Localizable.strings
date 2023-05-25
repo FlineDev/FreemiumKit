@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Ladda om";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Fortsätt";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "Nuvarande plan";

@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Επαναφόρτωση";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Συνεχίστε";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "Τρέχον σχέδιο";

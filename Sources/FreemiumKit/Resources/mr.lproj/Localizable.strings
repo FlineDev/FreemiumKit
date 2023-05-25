@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "पुन्हा लोड करा";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "पुढे जा";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "चालू योजना";

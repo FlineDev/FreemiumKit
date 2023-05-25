@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Nakładować";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "pokročować";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "Aktualny plan";

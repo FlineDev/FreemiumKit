@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Učitaj ponovo";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Nastavi";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "Trenutni Plan";

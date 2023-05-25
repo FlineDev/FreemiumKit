@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Ath-luchdaich";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Lean air adhart";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "Am Plana Làithreach";

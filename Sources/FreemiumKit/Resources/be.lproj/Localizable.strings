@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Перазагрузіць";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Працягваць";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "Бягучы план";

@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Ngamuat deui";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Teruskeun";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "Rencana Ayeuna";

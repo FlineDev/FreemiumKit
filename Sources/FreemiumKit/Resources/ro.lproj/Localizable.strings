@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Reîncărcare";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Continuați";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "Planul actual";

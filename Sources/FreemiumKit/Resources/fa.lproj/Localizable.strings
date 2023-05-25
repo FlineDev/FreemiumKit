@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "بارگیری مجدد";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "ادامه";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "برنامه فعلی";

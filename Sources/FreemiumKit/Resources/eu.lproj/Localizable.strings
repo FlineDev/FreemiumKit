@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Berkargatu";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Jarraitu";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "Egungo Plana";

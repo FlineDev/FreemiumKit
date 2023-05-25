@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Перезагружать";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Шуяш";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "Ирӹкӓн план";

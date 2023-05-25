@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Lueden";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Weider";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "Aktuelle Plang";

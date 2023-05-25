@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "ផ្ទុកឡើងវិញ";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "បន្ត";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "ផែនការបច្ចុប្បន្ន";

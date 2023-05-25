@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "ಮರುಲೋಡ್ ಮಾಡಿ";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "ಮುಂದುವರಿಸಿ";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "ಪ್ರಸ್ತುತ ಯೋಜನೆ";

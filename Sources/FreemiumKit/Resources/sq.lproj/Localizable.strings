@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Ringarkoni";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Vazhdoni";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "Plani Aktual";

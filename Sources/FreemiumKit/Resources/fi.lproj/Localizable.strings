@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Lataa uudelleen";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Jatka";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "Nykyinen suunnitelma";

@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "නැවත පූරණය කරන්න";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "දිගටම කරගෙන යන්න";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "වර්තමාන සැලැස්ම";

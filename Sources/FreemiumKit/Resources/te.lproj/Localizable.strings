@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "రీలోడ్ చేయండి";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "కొనసాగించు";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "ప్రస్తుత ప్రణాళిక";

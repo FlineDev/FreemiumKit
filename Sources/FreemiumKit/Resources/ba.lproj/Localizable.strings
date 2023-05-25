@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Яңынан башлау";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Артабан дауам итеү";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "Ағымдағы план";

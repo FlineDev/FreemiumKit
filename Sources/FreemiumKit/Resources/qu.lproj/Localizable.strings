@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Recargar";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Qatiq";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "Kunan pacha Plan";

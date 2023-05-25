@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "ફરીથી લોડ કરો";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "ચાલુ રાખો";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "વર્તમાન યોજના";

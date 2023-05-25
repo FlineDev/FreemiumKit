@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "โหลดใหม่";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "ดำเนินการต่อ";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "แผนปัจจุบัน";

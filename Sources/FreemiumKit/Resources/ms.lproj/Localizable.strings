@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Muat semula";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Teruskan";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "Pelan Semasa";

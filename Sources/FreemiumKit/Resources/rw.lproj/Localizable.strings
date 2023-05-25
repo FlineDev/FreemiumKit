@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Ongera usubiremo";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Komeza";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "Gahunda y'ubu";

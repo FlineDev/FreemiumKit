@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Дуут хувилбар";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Үргэлжлүүлэх";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "Одоогийн Төлөвлөгөө";

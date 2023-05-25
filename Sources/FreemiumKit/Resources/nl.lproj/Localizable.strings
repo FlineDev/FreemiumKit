@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Herladen";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Ga verder";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "Huidig plan";

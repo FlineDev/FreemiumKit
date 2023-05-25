@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "إعادة التحميل";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "تابع";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "الخطة الحالية";

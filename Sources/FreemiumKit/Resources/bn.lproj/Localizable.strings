@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "পুনরায় লোড করুন";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "চালিয়ে যান";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "বর্তমান পরিকল্পনা";

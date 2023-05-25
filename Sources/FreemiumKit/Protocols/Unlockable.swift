@@ -37,31 +37,31 @@ public protocol Unlockable: Equatable, CaseIterable {
 extension Set where Element: RawRepresentable<String> {
    /// Returns a Boolean value indicating whether the set contains an element that begins with the specified prefix.
    public func containsAny(prefixedBy prefix: String) -> Bool {
-      self.contains { $0.rawValue.hasPrefix(prefix) }
+      self.contains(where: \.rawValue, prefixedBy: prefix)
    }
 
    /// Returns a Boolean value indicating whether the set contains an element that begins with one of the specified prefixes.
    public func containsAny(prefixedByAnyOf prefixes: [String]) -> Bool {
-      prefixes.contains { prefix in self.contains { $0.rawValue.hasPrefix(prefix) } }
+      self.contains(where: \.rawValue, prefixedByOneOf: prefixes)
    }
 
    /// Returns a Boolean value indicating whether the set contains an element that contains the specified substring.
    public func containsAny(containing substring: String) -> Bool {
-      self.contains { $0.rawValue.contains(substring) }
+      self.contains(where: \.rawValue, containing: substring)
    }
 
    /// Returns a Boolean value indicating whether the set contains an element that contains one of the specified substrings.
    public func containsAny(containingAnyOf substrings: [String]) -> Bool {
-      substrings.contains { substring in self.contains { $0.rawValue.contains(substring) } }
+      self.contains(where: \.rawValue, containingOneOf: substrings)
    }
 
    /// Returns a Boolean value indicating whether the set contains an element that ends with the specified suffix.
    public func containsAny(suffixedBy suffix: String) -> Bool {
-      self.contains { $0.rawValue.hasSuffix(suffix) }
+      self.contains(where: \.rawValue, suffixedBy: suffix)
    }
 
    /// Returns a Boolean value indicating whether the set contains an element that ends with one of the specified suffixes.
    public func containsAny(suffixedByAnyOf suffixes: [String]) -> Bool {
-      suffixes.contains { suffix in self.contains { $0.rawValue.hasSuffix(suffix) } }
+      self.contains(where: \.rawValue, suffixedByOneOf: suffixes)
    }
 }

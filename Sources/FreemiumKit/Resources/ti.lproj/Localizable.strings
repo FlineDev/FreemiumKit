@@ -11,3 +11,5 @@
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "እንደገና ጽዓን";
 
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "ቀጽል";
+
+"FreemiumKit.PickerProductsStyle.CurrentPlan" = "እዋናዊ መደብ";
