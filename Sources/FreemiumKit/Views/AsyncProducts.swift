@@ -27,6 +27,9 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
    private var productIDsEligibleForIntroductoryOffer: Set<Product.ID> = []
 
    @State
+   private var purchaseInProgressProductID: FKProduct.ID?
+
+   @State
    private var loadProducts: Bool = false
 
    @State
@@ -70,6 +73,7 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
                products: self.products,
                productIDsEligibleForIntroductoryOffer: self.productIDsEligibleForIntroductoryOffer,
                purchasedTransactions: self.inAppPurchase.purchasedTransactions,
+               purchaseInProgressProductID: self.purchaseInProgressProductID,
                startPurchase: self.handlePurchase(product:options:)
             )
          }
@@ -107,7 +111,13 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
    private func handlePurchase(product: FKProduct, options: Set<Product.PurchaseOption>) {
       Task {
          do {
+            withAnimation(.easeIn) {
+               self.purchaseInProgressProductID = product.id
+            }
             let purchaseResult = try await product.purchase(options: options)
+            withAnimation(.easeOut) {
+               self.purchaseInProgressProductID = nil
+            }
 
             switch purchaseResult {
             case .success(.verified(let transaction)):
@@ -126,6 +136,10 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
                break
             }
          } catch {
+            withAnimation(.easeOut) {
+               self.purchaseInProgressProductID = nil
+            }
+
             if let storeKitError = error as? StoreKitError {
                self.onPurchaseFailed(.storeKitError(storeKitError))
             } else if let purchaseError = error as? Product.PurchaseError {
@@ -136,17 +150,6 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
             }
          }
       }
-   }
-}
-
-struct AsyncProductsView_Previews: PreviewProvider {
-   private enum ProductID: String, RawRepresentableProductID {
-      case pro
-      case lite
-   }
-
-   static var previews: some View {
-      AsyncProducts(style: PlainProductsStyle(), productIDs: ProductID.allCases, inAppPurchase: InAppPurchase<ProductID>())
    }
 }
 
@@ -236,6 +239,21 @@ extension PreviewProduct.SubscriptionPeriod {
       @unknown default:
          return "\(self.value) \(String(describing: self.unit).lowercased())s free"
       }
+   }
+}
+
+struct AsyncProductsView_Previews: PreviewProvider {
+   private enum ProductID: String, RawRepresentableProductID {
+      case pro
+      case lite
+   }
+
+   static var previews: some View {
+      AsyncProducts(
+         style: VerticalPickerProductsStyle(preselectedProductID: ProductID.lite),
+         productIDs: ProductID.allCases,
+         inAppPurchase: InAppPurchase<ProductID>()
+      )
    }
 }
 #endif

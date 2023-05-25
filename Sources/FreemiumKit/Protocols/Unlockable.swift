@@ -47,12 +47,12 @@ extension Set where Element: RawRepresentable<String> {
 
    /// Returns a Boolean value indicating whether the set contains an element that contains the specified substring.
    public func containsAny(containing substring: String) -> Bool {
-      self.contains(where: \.rawValue, containing: substring)
+      self.contains(where: \.rawValue, contains: substring)
    }
 
    /// Returns a Boolean value indicating whether the set contains an element that contains one of the specified substrings.
    public func containsAny(containingAnyOf substrings: [String]) -> Bool {
-      self.contains(where: \.rawValue, containingOneOf: substrings)
+      self.contains(where: \.rawValue, containsOneOf: substrings)
    }
 
    /// Returns a Boolean value indicating whether the set contains an element that ends with the specified suffix.

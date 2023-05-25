@@ -19,6 +19,7 @@ public protocol AsyncProductsStyle {
       products: [FKProduct],
       productIDsEligibleForIntroductoryOffer: Set<FKProduct.ID>,
       purchasedTransactions: IdentifiedArray<String, FKTransaction>,
+      purchaseInProgressProductID: FKProduct.ID?,
       startPurchase: @escaping (FKProduct, Set<Product.PurchaseOption>) -> Void
    ) -> Products
 }

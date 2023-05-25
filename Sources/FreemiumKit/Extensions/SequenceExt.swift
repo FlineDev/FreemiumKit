@@ -23,13 +23,13 @@ extension Sequence {
    }
 
    /// Returns a Boolean value indicating whether the sequence contains an element with a String keypath value that contains the specified substring.
-   public func contains(where keyPath: KeyPath<Element, String>, containing substring: String) -> Bool {
+   public func contains(where keyPath: KeyPath<Element, String>, contains substring: String) -> Bool {
       self.contains { $0[keyPath: keyPath].contains(substring) }
    }
 
    /// Returns a Boolean value indicating whether the sequence contains an element with a String keypath value that contains one of the specified substrings.
-   public func contains(where keyPath: KeyPath<Element, String>, containingOneOf substrings: [String]) -> Bool {
-      substrings.contains { self.contains(where: keyPath, containing: $0) }
+   public func contains(where keyPath: KeyPath<Element, String>, containsOneOf substrings: [String]) -> Bool {
+      substrings.contains { self.contains(where: keyPath, contains: $0) }
    }
 
    /// Returns a Boolean value indicating whether the sequence contains an element with a String keypath value that ends with the specified suffix.

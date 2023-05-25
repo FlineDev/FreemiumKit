@@ -28,13 +28,27 @@ public struct PlainProductsStyle: AsyncProductsStyle {
       products: [FKProduct],
       productIDsEligibleForIntroductoryOffer: Set<FKProduct.ID>,
       purchasedTransactions: IdentifiedArray<String, FKTransaction>,
+      purchaseInProgressProductID: FKProduct.ID?,
       startPurchase: @escaping (FKProduct, Set<Product.PurchaseOption>) -> Void
    ) -> some View {
       List(products) { product in
-         if let purchasedTransaction = purchasedTransactions[id: product.id] {
+         if purchasedTransactions.contains(where: \.productID, equalsTo: product.id) {
             Label(product.displayName, systemImage: "checkmark")
          } else {
-            Button(product.displayName) { startPurchase(product, []) }
+            Button {
+               startPurchase(product, [])
+            } label: {
+               if purchaseInProgressProductID == product.id {
+                  ProgressView()
+               } else {
+                  HStack {
+                     Text(product.displayName)
+                     Spacer()
+                     Text(product.displayPrice)
+                  }
+               }
+            }
+            .disabled(purchaseInProgressProductID != nil)
          }
       }
    }
@@ -58,6 +72,7 @@ struct PlainProductsStyle_Previews: PreviewProvider {
             products: FKProduct.mockedProducts,
             productIDsEligibleForIntroductoryOffer: Set(FKProduct.mockedProducts.map(\.id)),
             purchasedTransactions: .init(uniqueElements: [], id: \.productID),
+            purchaseInProgressProductID: nil,
             startPurchase: { _, _ in }
          )
          .previewDisplayName("Products")

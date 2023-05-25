@@ -18,7 +18,7 @@ public struct VerticalPickerProductsStyle<ProductID: RawRepresentableProductID>:
    private let preselectedProductID: ProductID?
    private let tintColor: Color
 
-   public init(preselectedProductID: ProductID? = nil, tintColor: Color = .blue) {
+   public init(preselectedProductID: ProductID?, tintColor: Color = .blue) {
       self.preselectedProductID = preselectedProductID
       self.tintColor = tintColor
    }
@@ -44,6 +44,7 @@ public struct VerticalPickerProductsStyle<ProductID: RawRepresentableProductID>:
       products: [FKProduct],
       productIDsEligibleForIntroductoryOffer: Set<FKProduct.ID>,
       purchasedTransactions: IdentifiedArray<String, FKTransaction>,
+      purchaseInProgressProductID: FKProduct.ID?,
       startPurchase: @escaping (FKProduct, Set<Product.PurchaseOption>) -> Void
    ) -> some View {
       ProductsView(
@@ -52,6 +53,7 @@ public struct VerticalPickerProductsStyle<ProductID: RawRepresentableProductID>:
          products: products,
          productIDsEligibleForIntroductoryOffer: productIDsEligibleForIntroductoryOffer,
          purchasedTransactions: purchasedTransactions,
+         purchaseInProgressProductID: purchaseInProgressProductID,
          startPurchase: startPurchase
       )
    }
@@ -67,6 +69,7 @@ public struct VerticalPickerProductsStyle<ProductID: RawRepresentableProductID>:
       let products: [FKProduct]
       let productIDsEligibleForIntroductoryOffer: Set<FKProduct.ID>
       let purchasedTransactions: IdentifiedArray<String, FKTransaction>
+      let purchaseInProgressProductID: FKProduct.ID?
       let startPurchase: (FKProduct, Set<Product.PurchaseOption>) -> Void
 
       var body: some View {
@@ -110,7 +113,7 @@ public struct VerticalPickerProductsStyle<ProductID: RawRepresentableProductID>:
                   .frame(minHeight: 44)
                }
                .buttonStyle(.plain)
-               .disabled(purchasedTransactions.contains(where: \.productID, equalsTo: product.id))
+               .disabled(purchasedTransactions.contains(where: \.productID, equalsTo: product.id) || purchaseInProgressProductID != nil)
 
                if let transaction = purchasedTransactions.first(where: \.productID, equalsTo: product.id) {
                   HStack {
@@ -137,13 +140,19 @@ public struct VerticalPickerProductsStyle<ProductID: RawRepresentableProductID>:
                   startPurchase(selectedProduct, [])
                }
             } label: {
-               Text(Loc.FreemiumKit.PickerProductsStyle.ContinueButtonTitle.string)
-                  .foregroundColor(.white)
-                  .frame(maxWidth: .infinity, minHeight: 44)
+               Group {
+                  if purchaseInProgressProductID != nil {
+                     ProgressView().tint(.white)
+                  } else {
+                     Text(Loc.FreemiumKit.PickerProductsStyle.ContinueButtonTitle.string)
+                        .foregroundColor(.white)
+                  }
+               }
+               .frame(maxWidth: .infinity, minHeight: 44)
             }
             .buttonStyle(ContinueButtonStyle(tintColor: self.tintColor))
-            .opacity(self.selectedProduct(products: products) == nil ? 0.5 : 1)
-            .disabled(self.selectedProduct(products: products) == nil)
+            .opacity(self.selectedProduct(products: products) == nil || purchaseInProgressProductID != nil ? 0.5 : 1)
+            .disabled(self.selectedProduct(products: products) == nil || purchaseInProgressProductID != nil)
          }
          .padding(.horizontal, 30)
          .padding(.vertical, 20)
@@ -184,6 +193,7 @@ struct VerticalPickerProductsStyle_Previews: PreviewProvider {
             products: FKProduct.mockedProducts,
             productIDsEligibleForIntroductoryOffer: Set(FKProduct.mockedProducts.map(\.id)),
             purchasedTransactions: FKTransaction.mockedTransactions,
+            purchaseInProgressProductID: FKProduct.mockedProducts.last!.id,
             startPurchase: { _, _ in }
          )
          .previewDisplayName("Products")
