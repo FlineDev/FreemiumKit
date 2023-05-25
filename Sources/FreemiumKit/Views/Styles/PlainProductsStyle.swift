@@ -28,6 +28,7 @@ public struct PlainProductsStyle: AsyncProductsStyle {
       products: [FKProduct],
       productIDsEligibleForIntroductoryOffer: Set<FKProduct.ID>,
       purchasedTransactions: IdentifiedArray<String, FKTransaction>,
+      renewalInfoByProductID: Dictionary<FKProduct.ID, FKProduct.SubscriptionInfo.RenewalInfo>,
       purchaseInProgressProductID: FKProduct.ID?,
       startPurchase: @escaping (FKProduct, Set<Product.PurchaseOption>) -> Void
    ) -> some View {
@@ -72,6 +73,7 @@ struct PlainProductsStyle_Previews: PreviewProvider {
             products: FKProduct.mockedProducts,
             productIDsEligibleForIntroductoryOffer: Set(FKProduct.mockedProducts.map(\.id)),
             purchasedTransactions: .init(uniqueElements: [], id: \.productID),
+            renewalInfoByProductID: [:],
             purchaseInProgressProductID: nil,
             startPurchase: { _, _ in }
          )

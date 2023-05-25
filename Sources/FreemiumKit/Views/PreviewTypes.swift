@@ -11,54 +11,69 @@ public typealias FKTransaction = StoreKit.Transaction
 /// A replica of ``StoreKit.Product`` to instantiate fake products during development for SwiftUI previews.
 public struct PreviewProduct: Identifiable, Hashable, Sendable {
    /// Properties and functionality specific to auto-renewable subscriptions.
-   struct SubscriptionInfo: Hashable, Sendable {
+   public struct SubscriptionInfo: Hashable, Sendable {
+      /// The renewal status information for an auto-renewable subscription.
+      struct Status: Hashable, Sendable {
+         /// The signed renewal information for the auto-renewable subscription.
+         let renewalInfo: VerificationResult<RenewalInfo>
+      }
+
+      /// The renewal information for an auto-renewable subscription.
+      public struct RenewalInfo: Hashable, Sendable {
+         /// A Boolean value that indicates whether the subscription will automatically renew in the next period.
+         let willAutoRenew: Bool
+      }
+
       /// An optional introductory offer that will automatically be applied if the user is eligible.
-      public let introductoryOffer: SubscriptionOffer?
+      let introductoryOffer: SubscriptionOffer?
 
       /// An array of all the promotional offers configured for this subscription.
-      public let promotionalOffers: [SubscriptionOffer]
+      let promotionalOffers: [SubscriptionOffer]
 
       /// The duration that this subscription lasts before auto-renewing.
       let subscriptionPeriod: SubscriptionPeriod
 
       /// Whether the user is eligible to have an introductory offer applied to their purchase.
-      @inlinable public var isEligibleForIntroOffer: Bool { true }
+      var isEligibleForIntroOffer: Bool { true }
+
+      /// An array that contains status information for a subscription group, including renewal and transaction information.
+      let status: [Status]
    }
 
    /// Information about a subscription offer configured in App Store Connect.
    struct SubscriptionOffer: Hashable, Sendable {
       /// The type of the offer.
-      public let type: Product.SubscriptionOffer.OfferType
+      let type: Product.SubscriptionOffer.OfferType
 
       /// The discounted price that the offer provides in local currency.
       ///
       /// This is the price per period in the case of `.payAsYouGo`
-      public let price: Decimal
+      let price: Decimal
 
       /// A localized string representation of `price`.
-      public let displayPrice: String
+      let displayPrice: String
 
       /// The duration that this offer lasts before auto-renewing or changing to standard subscription renewals.
-      public let period: SubscriptionPeriod
+      let period: SubscriptionPeriod
 
       /// The number of periods this offer will renew for.
       ///
       /// Always 1 except for `.payAsYouGo`.
-      public let periodCount: Int
+      let periodCount: Int
 
       /// How the user is charged for this offer.
-      public let paymentMode: Product.SubscriptionOffer.PaymentMode
+      let paymentMode: Product.SubscriptionOffer.PaymentMode
    }
 
-   public struct SubscriptionPeriod: Hashable, Sendable {
+   struct SubscriptionPeriod: Hashable, Sendable {
       /// The unit of time that this period represents.
-      public let unit: Product.SubscriptionPeriod.Unit
+      let unit: Product.SubscriptionPeriod.Unit
 
       /// The number of units that the period represents.
-      public let value: Int
+      let value: Int
    }
 
-   public enum PurchaseResult {
+   enum PurchaseResult {
        /// The purchase succeeded with a `Transaction`.
        case success(VerificationResult<PreviewTransaction>)
 
@@ -107,7 +122,12 @@ public struct PreviewProduct: Identifiable, Hashable, Sendable {
             price: 0.99,
             displayPrice: "$0.99",
             isFamilyShareable: false,
-            subscription: SubscriptionInfo(introductoryOffer: nil, promotionalOffers: [], subscriptionPeriod: SubscriptionPeriod(unit: .month, value: 1))
+            subscription: SubscriptionInfo(
+               introductoryOffer: nil,
+               promotionalOffers: [],
+               subscriptionPeriod: SubscriptionPeriod(unit: .month, value: 1),
+               status: []
+            )
          ),
          PreviewProduct(
             id: "Lite.Yearly",
@@ -117,7 +137,12 @@ public struct PreviewProduct: Identifiable, Hashable, Sendable {
             price: 9.99,
             displayPrice: "$9.99",
             isFamilyShareable: false,
-            subscription: SubscriptionInfo(introductoryOffer: nil, promotionalOffers: [], subscriptionPeriod: SubscriptionPeriod(unit: .year, value: 1))
+            subscription: SubscriptionInfo(
+               introductoryOffer: nil,
+               promotionalOffers: [],
+               subscriptionPeriod: SubscriptionPeriod(unit: .year, value: 1),
+               status: []
+            )
          ),
          PreviewProduct(
             id: "Pro.Monthly",
@@ -137,7 +162,8 @@ public struct PreviewProduct: Identifiable, Hashable, Sendable {
                   paymentMode: .freeTrial
                ),
                promotionalOffers: [],
-               subscriptionPeriod: SubscriptionPeriod(unit: .month, value: 1)
+               subscriptionPeriod: SubscriptionPeriod(unit: .month, value: 1),
+               status: [.init(renewalInfo: .verified(.init(willAutoRenew: false)))]
             )
          ),
          PreviewProduct(
@@ -158,7 +184,8 @@ public struct PreviewProduct: Identifiable, Hashable, Sendable {
                   paymentMode: .freeTrial
                ),
                promotionalOffers: [],
-               subscriptionPeriod: SubscriptionPeriod(unit: .year, value: 1)
+               subscriptionPeriod: SubscriptionPeriod(unit: .year, value: 1),
+               status: [.init(renewalInfo: .verified(.init(willAutoRenew: true)))]
             )
          ),
          PreviewProduct(

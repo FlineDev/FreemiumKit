@@ -24,7 +24,10 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
    private var products: [FKProduct] = []
 
    @State
-   private var productIDsEligibleForIntroductoryOffer: Set<Product.ID> = []
+   private var productIDsEligibleForIntroductoryOffer: Set<FKProduct.ID> = []
+
+   @State
+   private var renewalInfoByProductID: Dictionary<FKProduct.ID, FKProduct.SubscriptionInfo.RenewalInfo> = [:]
 
    @State
    private var purchaseInProgressProductID: FKProduct.ID?
@@ -73,6 +76,7 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
                products: self.products,
                productIDsEligibleForIntroductoryOffer: self.productIDsEligibleForIntroductoryOffer,
                purchasedTransactions: self.inAppPurchase.purchasedTransactions,
+               renewalInfoByProductID: self.renewalInfoByProductID,
                purchaseInProgressProductID: self.purchaseInProgressProductID,
                startPurchase: self.handlePurchase(product:options:)
             )
@@ -86,9 +90,15 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
             self.products = try await FKProduct.products(for: self.productIDs.map(\.rawValue))
 
             self.productIDsEligibleForIntroductoryOffer = []
+            self.renewalInfoByProductID = [:]
+
             for product in self.products {
                if product.subscription?.introductoryOffer != nil, await product.subscription!.isEligibleForIntroOffer {
                   self.productIDsEligibleForIntroductoryOffer.insert(product.id)
+               }
+
+               if let renewalInfo = try await self.renewalInfo(product: product) {
+                  self.renewalInfoByProductID[product.id] = renewalInfo
                }
             }
 
@@ -150,6 +160,16 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
             }
          }
       }
+   }
+
+   private func renewalInfo(product: FKProduct) async throws -> FKProduct.SubscriptionInfo.RenewalInfo? {
+      guard let subscriptionInfo = product.subscription else { return nil }
+      guard let status = try await subscriptionInfo.status.first else { return nil }
+
+      let result = status.renewalInfo
+      guard case .verified(let renewalInfo) = result else { return nil }
+
+      return renewalInfo
    }
 }
 

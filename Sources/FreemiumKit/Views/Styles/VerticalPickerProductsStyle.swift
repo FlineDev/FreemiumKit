@@ -44,6 +44,7 @@ public struct VerticalPickerProductsStyle<ProductID: RawRepresentableProductID>:
       products: [FKProduct],
       productIDsEligibleForIntroductoryOffer: Set<FKProduct.ID>,
       purchasedTransactions: IdentifiedArray<String, FKTransaction>,
+      renewalInfoByProductID: Dictionary<FKProduct.ID, FKProduct.SubscriptionInfo.RenewalInfo>,
       purchaseInProgressProductID: FKProduct.ID?,
       startPurchase: @escaping (FKProduct, Set<Product.PurchaseOption>) -> Void
    ) -> some View {
@@ -53,6 +54,7 @@ public struct VerticalPickerProductsStyle<ProductID: RawRepresentableProductID>:
          products: products,
          productIDsEligibleForIntroductoryOffer: productIDsEligibleForIntroductoryOffer,
          purchasedTransactions: purchasedTransactions,
+         renewalInfoByProductID: renewalInfoByProductID,
          purchaseInProgressProductID: purchaseInProgressProductID,
          startPurchase: startPurchase
       )
@@ -69,6 +71,7 @@ public struct VerticalPickerProductsStyle<ProductID: RawRepresentableProductID>:
       let products: [FKProduct]
       let productIDsEligibleForIntroductoryOffer: Set<FKProduct.ID>
       let purchasedTransactions: IdentifiedArray<String, FKTransaction>
+      let renewalInfoByProductID: Dictionary<FKProduct.ID, FKProduct.SubscriptionInfo.RenewalInfo>
       let purchaseInProgressProductID: FKProduct.ID?
       let startPurchase: (FKProduct, Set<Product.PurchaseOption>) -> Void
 
@@ -122,9 +125,9 @@ public struct VerticalPickerProductsStyle<ProductID: RawRepresentableProductID>:
 
                      Spacer()
 
-                     if let expirationDate = transaction.expirationDate {
-                        Label(expirationDate.formatted(date: .abbreviated, time: .omitted), systemImage: "hourglass")
-                           .foregroundColor(.red)
+                     if let expirationDate = transaction.expirationDate, let renewalInfo = renewalInfoByProductID[product.id] {
+                        Label(expirationDate.formatted(date: .abbreviated, time: .omitted), systemImage: renewalInfo.willAutoRenew ? "repeat" : "hourglass")
+                           .foregroundColor(renewalInfo.willAutoRenew ? .secondary : .red)
                      }
                   }
                   .font(.footnote)
@@ -193,6 +196,7 @@ struct VerticalPickerProductsStyle_Previews: PreviewProvider {
             products: FKProduct.mockedProducts,
             productIDsEligibleForIntroductoryOffer: Set(FKProduct.mockedProducts.map(\.id)),
             purchasedTransactions: FKTransaction.mockedTransactions,
+            renewalInfoByProductID: [:],
             purchaseInProgressProductID: FKProduct.mockedProducts.last!.id,
             startPurchase: { _, _ in }
          )
