@@ -71,7 +71,7 @@ import SwiftUI
 import FreemiumKit
 
 final class AppDelegate: NSObject, UIApplicationDelegate {
-   static let inAppPurchase: InAppPurchase<ProductID> = .init()
+   static let inAppPurchase = InAppPurchase<ProductID>()
 }
 
 @main
@@ -99,7 +99,8 @@ Now, anywhere in your app where you have features that are potentially locked, y
 let permission = AppDelegate.inAppPurchase.permission(for: LockedFeature.scheduledPosts)
 ```
 
-The `Permission` type which you receive as a response to `permission(for:)` is an enum that you can switch over, but it also comes with a bunch of convenience APIs so no switch-case is ever needed:
+The `Permission` type which you receive as a response to `permission(for:)` is an enum with the cases `locked`, `limited(Int)`, and `unlimited` that you can switch over.
+But it also comes with a bunch of convenience APIs so no switch-case is ever needed:
 
 * `permission.isAlwaysGranted` returns `true` if the permission is set to `unlimited`
 * `permission.isAlwaysDenied` returns `true` if the permission is set to `locked`
@@ -111,7 +112,11 @@ So, you might do something like this:
 
 ```Swift
 Button("Schedule Post") { ... }
-   .disabled(AppDelegate.inAppPurchase.permission(for: LockedFeature.schedulesPosts.isDenied(current: scheduledPosts.count))
+   .disabled(
+      AppDelegate.inAppPurchase
+         .permission(for: LockedFeature.schedulesPosts)
+         .isDenied(current: scheduledPosts.count)
+   )
 ```
 
 Note that FreemiumKit does not help persisting your current usage count, you need to handle that yourself, e.g. using UserDefaults or requesting your server API.
@@ -180,10 +185,10 @@ Except for the UI components, this library is really lightweight and the core lo
 
 While basic In-App Purchases are already covered, there are several extra features I'd like to add over time. These include:
 
-- [ ] Fix localized texts not working properly
 - [ ] Implement `HorizontalPickerProductsStyle`
-- [ ] Other types of introductory offers than `.freeTrial` support (in UI components)
-- [ ] Promotional Offers support (in UI components)
+- [ ] Implement an Apple-style `HorizontalButtonsProductsStyle` (like in the [Final Cut Pro for iPad](https://twitter.com/emcro/status/1661032919459307520?s=61&t=UWlky3QOTUEnuolT9bg7RA) paywall)
+- [ ] Support for other kinds of Introductory Offers than `freeTrial` (in UI components)
+- [ ] Support for Promotional Offers (in UI components)
 
 
 ## Contributing
@@ -198,18 +203,18 @@ It can even be a cool SwiftUI programming challenge to find a paywall design you
 
 <details>
 <summary>Does FreemiumKit do receipt validation?</summary>
-<p>Yes: FreemiumKit is built on top of StoreKit 2 which automatically verifies any transaction is "signed by the App Store for my app for this device" (quote from [WWDC22 session "Meet StoreKit 2"](https://developer.apple.com/videos/play/wwdc2021/10114/)) before passing them on. It leaves developers the choice to accept even unverified purchases or to ignore them, depending on their business needs. But FreemiumKit doesn't do that, it simply **always** ignores them. When FreemiumKit passes a transaction to the UI component, it has already successfully passed validation. 💯</p>
+<p>Yes: FreemiumKit is built on top of StoreKit 2 which automatically verifies any transaction is "signed by the App Store for my app for this device" (quote from WWDC22 session "Meet StoreKit 2") before passing them on. It leaves developers the choice to accept even unverified purchases or to ignore them, depending on their business needs. But FreemiumKit doesn't do that, it simply ALWAYS ignores them. When FreemiumKit passes a transaction to the UI component, it has already successfully passed validation. 💯</p>
 </details>
 
 <details>
 <summary>I can't decide: Should I use a service like RevenueCat or StoreKit directly with this library?</summary>
-<p>The purpose of this library is to make integrating with StoreKit 2 as easy as possible. It does this job much better than the SDKs of RevenueCat and the like.</p>
-<p>The purpose of those services was also to make integrating with StoreKit easier, but that was because StoreKit 1 was much harder to work with and quite limited, too. Apple improved that situation vastly with StoreKit 2 in iOS 15+ so that advantage no longer holds true. But these service not only make things easier for StoreKit 1, they also add a lot of other value, like providing live purchase stats on their site (Connect data is delayed), providing an overview of your total income if you also support other platforms like Android, and much more. If you need any of these things, you might want to use those services. But if all you want is to provide In-App Purchases on Apple platforms as easy as possible and you are on iOS 15+, I recommend FreemiumKit.</p>
+<p>The purpose of this library is to make integrating with StoreKit 2 as easy as possible. It does this job much better than the SDKs of RevenueCat and the like which don't help with permission checking and don't provide UI components.</p>
+<p>The purpose of those services was also to make integrating with StoreKit easier, but that was because StoreKit 1 was much harder to work with and quite limited, too. Apple improved that situation vastly with StoreKit 2 in iOS 15+ so that advantage no longer holds true. But these services not only make things easier for StoreKit 1, they also add a lot of other value, like providing live purchase stats on their site (Connect data is delayed), providing an overview of your total income if you also support other platforms like Android, and much more. If you need any of these things, you might want to use those services. But if the data on App Store Connect is enough for you and all you want is to provide In-App Purchases on Apple platforms in the simplest way possible and you are on iOS 15+ (that's when StoreKit 2 arrived), I recommend FreemiumKit.</p>
 </details>
 
 <details>
 <summary>Can I use FreemiumKit and services like RevenueCat side-by-side?</summary>
-<p>Maybe. It was never the goal of FreemiumKit to be used in combination with those services, but some may want to use the permissions & UI capabilities of FreemiumKit while also profiting from the extra features of such a service. I'm not one of thoe people though, so I can't provide any support here. It's best you contact those services directly. The license of FreemiumKit allows for them to fork it or copy any code they like into their own SDKs.</p>
+<p>Maybe. It was never the goal of FreemiumKit to be used in combination with those services, but some may want to use the permissions & UI capabilities of FreemiumKit while also profiting from the extra features of such a service. I'm not one of those people though, so I can't provide any support here. It's best you contact those services directly. The license of FreemiumKit allows for them to fork it or copy any code they like into their own SDKs.</p>
 </details>
 
 
