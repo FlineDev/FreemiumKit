@@ -31,7 +31,6 @@ import IdentifiedCollections
 /// Button(...).disabled(iap.permission(for: LockedFeature.extendedAttachments).isAlwaysDenied)
 /// Button(...).disabled(iap.permission(for: LockedFeature.scheduledPosts).isAlwaysDenied)
 /// ```
-@MainActor
 public final class InAppPurchase<ProductID: RawRepresentableProductID>: ObservableObject {
    /// The currently active purchased transactions with duplicate transactions for same ``productID`` removed.
    @Published
@@ -45,6 +44,7 @@ public final class InAppPurchase<ProductID: RawRepresentableProductID>: Observab
    private var updates: Task<Void, Never>?
 
    /// Initializes a manager that automatically loads current purchases on init & subscribes to StoreKit changes to update itself automatically.
+   @MainActor
    public init() {
       self.updates = Task(priority: .background) {
          for await verificationResult in FKTransaction.updates { self.handle(verificationResult: verificationResult) }
@@ -60,6 +60,7 @@ public final class InAppPurchase<ProductID: RawRepresentableProductID>: Observab
       feature.permission(purchasedProductIDs: self.purchasedProductIDs)
    }
 
+   @MainActor
    func handle(verificationResult: VerificationResult<FKTransaction>) {
       guard case .verified(let transaction) = verificationResult else { return }  // ignore unverified transactions
 
@@ -77,6 +78,7 @@ public final class InAppPurchase<ProductID: RawRepresentableProductID>: Observab
       }
    }
 
+   @MainActor
    private func loadCurrentEntitlements() {
       Task {
          for await verificationResult in FKTransaction.currentEntitlements { self.handle(verificationResult: verificationResult) }
