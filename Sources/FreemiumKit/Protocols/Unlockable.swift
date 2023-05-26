@@ -19,7 +19,7 @@ import Foundation
 ///    func permission(purchasedProductIDs: Set<ProductID>) -> Permission {
 ///       switch self {
 ///       case .twitterPostsPerDay:
-///          return purchasedProductIDs.containsAny(prefixedBy: "dev.fline.TwootIt.Pro") ? .limited(3) : .locked
+///          return purchasedProductIDs.contains(where: \.rawValue, prefixedBy: "dev.fline.TwootIt.Pro") ? .limited(3) : .locked
 ///       case .extendedAttachments:
 ///          return purchasedProductIDs.isEmpty ? .locked : .unlimited
 ///       case .scheduledPosts:
@@ -32,36 +32,4 @@ public protocol Unlockable: Equatable, CaseIterable {
    associatedtype ProductID: RawRepresentableProductID
 
    func permission(purchasedProductIDs: Set<ProductID>) -> Permission
-}
-
-extension Set where Element: RawRepresentable<String> {
-   /// Returns a Boolean value indicating whether the set contains an element that begins with the specified prefix.
-   public func containsAny(prefixedBy prefix: String) -> Bool {
-      self.contains(where: \.rawValue, prefixedBy: prefix)
-   }
-
-   /// Returns a Boolean value indicating whether the set contains an element that begins with one of the specified prefixes.
-   public func containsAny(prefixedByAnyOf prefixes: [String]) -> Bool {
-      self.contains(where: \.rawValue, prefixedByOneOf: prefixes)
-   }
-
-   /// Returns a Boolean value indicating whether the set contains an element that contains the specified substring.
-   public func containsAny(containing substring: String) -> Bool {
-      self.contains(where: \.rawValue, contains: substring)
-   }
-
-   /// Returns a Boolean value indicating whether the set contains an element that contains one of the specified substrings.
-   public func containsAny(containingAnyOf substrings: [String]) -> Bool {
-      self.contains(where: \.rawValue, containsOneOf: substrings)
-   }
-
-   /// Returns a Boolean value indicating whether the set contains an element that ends with the specified suffix.
-   public func containsAny(suffixedBy suffix: String) -> Bool {
-      self.contains(where: \.rawValue, suffixedBy: suffix)
-   }
-
-   /// Returns a Boolean value indicating whether the set contains an element that ends with one of the specified suffixes.
-   public func containsAny(suffixedByAnyOf suffixes: [String]) -> Bool {
-      self.contains(where: \.rawValue, suffixedByOneOf: suffixes)
-   }
 }

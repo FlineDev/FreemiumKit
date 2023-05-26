@@ -48,7 +48,7 @@ enum LockedFeature: Unlockable {
    func permission(purchasedProductIDs: Set<ProductID>) -> Permission {
       switch self {
       case .twitterPostsPerDay:
-         return purchasedProductIDs.containsAny(prefixedBy: "dev.fline.TwootIt.Pro") ? .limited(3) : .locked 
+         return purchasedProductIDs.contains(where: \.rawValue, prefixedBy: "dev.fline.TwootIt.Pro") ? .limited(3) : .locked 
       case .extendedAttachments:
          return purchasedProductIDs.isEmpty ? .locked : .unlimited
       case .scheduledPosts:
@@ -60,7 +60,7 @@ enum LockedFeature: Unlockable {
 
 Note that you have to implement the `permission(purchasedProductIDs:)` function yourself.
 In it, you get passed a set of `ProductID`s (the type you defined in step 1) and you have to return a `Permission`, one of `.locked`, `.limited(Int)`, or `.unlimited`.
-You can make use of the [convenience functions](https://github.com/FlineDev/FreemiumKit/blob/main/Sources/FreemiumKit/Protocols/Unlockable.swift#L37-L67) starting with `containsAny` FreemiumKit ships with to extend the `Set<ProductID>` type.
+You can make use of the [`contains(where:...:)` convenience functions](https://github.com/FlineDev/FreemiumKit/blob/main/Sources/FreemiumKit/Extensions/SequenceExt.swift) FreemiumKit ships with.
 
 ### Step 3: Initialize an instance of `InAppPurchase` on app start
 
