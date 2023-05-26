@@ -185,10 +185,12 @@ Except for the UI components, this library is really lightweight and the core lo
 
 While basic In-App Purchases are already covered, there are several extra features I'd like to add over time. These include:
 
+- [ ] Automatically calculate long-term subcription savings over short-term ones & show "Save 20%" badge
+- [ ] Support for specifying a "Popular" or "Best Value" badge to selected plans
 - [ ] Implement `HorizontalPickerProductsStyle`
 - [ ] Implement an Apple-style `HorizontalButtonsProductsStyle` (like in the [Final Cut Pro for iPad](https://twitter.com/emcro/status/1661032919459307520?s=61&t=UWlky3QOTUEnuolT9bg7RA) paywall)
-- [ ] Support for other kinds of Introductory Offers than `freeTrial` (in UI components)
-- [ ] Support for Promotional Offers (in UI components)
+- [ ] Support for other kinds of Introductory Offers than `freeTrial`
+- [ ] Support for Promotional Offers
 
 
 ## Contributing
