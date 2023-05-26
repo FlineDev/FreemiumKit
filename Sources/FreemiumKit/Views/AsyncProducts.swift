@@ -263,7 +263,7 @@ extension PreviewProduct.SubscriptionPeriod {
 }
 
 struct AsyncProductsView_Previews: PreviewProvider {
-   private enum ProductID: String, RawRepresentableProductID {
+   private enum ProductID: String, CaseIterable, RawRepresentableProductID {
       case pro
       case lite
    }

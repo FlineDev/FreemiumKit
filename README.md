@@ -7,18 +7,11 @@ Lightweight layer on top of [StoreKit 2](https://developer.apple.com/videos/play
 Read [this introductory article]() for a full step-by-step guide on how to setup in-app purchases for your app + some basic thoughts on pricing.
 
 
-## Scope
-
-The purpose of this project is to make common In-App Purchase scenarios as easy as possible. But it's not the goal to cover every single feature of StoreKit 2.
-For example, FreemiumKit automatically handles expired & revoked purchases without passing on details like revocation/expiration date to the app. Instead, it defaults to what most developers probably want.
-
-So, if you're missing a feature in FreemiumKit, you are free to request the feature in the Issues tab. But please provide a reason why you think that feature is needed by many developers or it might be ignored.
-Always remember though: Except for the UI components, this library is really lightweight and the core logic is unlikely to get many changes. So forking the library is a viable option.
-
-
 ## Getting Started
 
-Here are the minimum steps you need to take to make use of FreemiumKit:
+Here are the minimum steps you need to take to make use of FreemiumKit (obviously, you first need to add it as a package dependency):
+
+Step 0: Obviously, you need to add FreemiumKit to your app as a package dependency first. See [Apples official guide](https://developer.apple.com/documentation/xcode/adding-package-dependencies-to-your-app).
 
 ### Step 1: Define a type that conforms to `RawRepresentableProductID`
 
@@ -26,7 +19,7 @@ This is required so FreemiumKit knows what products you want to present to the u
 Make sure to use the correct identifiers of the products you created on App Store Connect as the raw String values:
 
 ```Swift
-enum ProductID: String, RawRepresentableProductID {
+enum ProductID: String, CaseIterable, RawRepresentableProductID {
    case proMonthly = "dev.fline.TwootIt.Pro.Monthly"
    case proYearly = "dev.fline.TwootIt.Pro.Monthly"
    case proLifetime = "dev.fline.TwootIt.Pro.Lifetime"
@@ -172,6 +165,15 @@ While FreemiumKit ships with the above UI components that you can use out of the
 TODO: explain how to conform to `AsyncProductsStyle` and it's recommended to copy & adjust `PlainAsyncProdcutsStyle` which is its whhole purpose
 
 Note: If you implemented a somewhat different UI and have the chance to share it with the community, I'm happy to review your PR!    
+
+
+## Project Scope
+
+The purpose of this project is to make common In-App Purchase scenarios as easy as possible. But it's not the goal to cover every single feature of StoreKit 2.
+For example, FreemiumKit automatically handles expired & revoked purchases without passing on details like revocation/expiration date to the app. Instead, it defaults to what most developers probably want: Ignoring them.
+
+So, if you're missing a feature in FreemiumKit, you are free to request the feature in the Issues tab. But please provide a reason why you think that the feature is needed by many developers.
+Except for the UI components, this library is really lightweight and the core logic is unlikely to get many changes. So forking the library is a viable option.
 
 
 ## TODOs

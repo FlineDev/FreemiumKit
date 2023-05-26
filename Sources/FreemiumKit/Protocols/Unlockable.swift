@@ -4,7 +4,7 @@ import Foundation
 ///
 /// Here's a real-world example taken from the app "Twoot it!":
 /// ```
-/// enum ProductID: String, RawRepresentableProductID {
+/// enum ProductID: String, CaseIterable, RawRepresentableProductID {
 ///    case proYearly = "dev.fline.TwootIt.Pro.Yearly"
 ///    case proMonthly = "dev.fline.TwootIt.Pro.Monthly"
 ///    case liteYearly = "dev.fline.TwootIt.Lite.Yearly"

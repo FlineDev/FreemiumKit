@@ -172,7 +172,7 @@ public struct VerticalPickerProductsStyle<ProductID: RawRepresentableProductID>:
 
 #if DEBUG
 struct VerticalPickerProductsStyle_Previews: PreviewProvider {
-   private enum ProductID: String, RawRepresentableProductID {
+   private enum ProductID: String, CaseIterable, RawRepresentableProductID {
       case liteMonthly = "Lite.Monthly"
       case liteYearly = "Lite.Yearly"
       case proMonthly = "Pro.Monthly"

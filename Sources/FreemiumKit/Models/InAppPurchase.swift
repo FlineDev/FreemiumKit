@@ -6,7 +6,7 @@ import IdentifiedCollections
 ///
 /// Here's a simplified example how permission checking works taken from the app "Twoot it!":
 /// ```
-/// enum ProductID: String, RawRepresentableProductID {
+/// enum ProductID: String, CaseIterable, RawRepresentableProductID {
 ///    case proYearly = "dev.fline.TwootIt.Pro.Yearly"
 ///    case proMonthly = "dev.fline.TwootIt.Pro.Monthly"
 ///    case liteYearly = "dev.fline.TwootIt.Lite.Yearly"
