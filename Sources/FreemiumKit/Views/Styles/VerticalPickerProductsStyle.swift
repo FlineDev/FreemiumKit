@@ -25,7 +25,7 @@ public struct VerticalPickerProductsStyle<ProductID: RawRepresentableProductID>:
 
    public func productsLoadingPlaceholder() -> some View {
       ProgressView()
-         .padding()
+         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
    }
 
    public func productsLoadFailed(
@@ -37,7 +37,7 @@ public struct VerticalPickerProductsStyle<ProductID: RawRepresentableProductID>:
          Text(loadFailedMessage)
          Button(reloadButtonTitle) { reloadRequested() }
       }
-      .padding()
+      .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
    }
 
    public func products(

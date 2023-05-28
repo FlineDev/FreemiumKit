@@ -9,7 +9,7 @@ public struct PlainProductsStyle: AsyncProductsStyle {
 
    public func productsLoadingPlaceholder() -> some View {
       ProgressView()
-         .padding()
+         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
    }
 
    public func productsLoadFailed(
@@ -21,7 +21,7 @@ public struct PlainProductsStyle: AsyncProductsStyle {
          Text(loadFailedMessage)
          Button(reloadButtonTitle) { reloadRequested() }
       }
-      .padding()
+      .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
    }
 
    public func products(
