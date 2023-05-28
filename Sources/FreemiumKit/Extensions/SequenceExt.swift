@@ -47,3 +47,30 @@ extension Sequence {
       suffixes.contains { self.contains(where: keyPath, suffixedBy: $0) }
    }
 }
+
+extension Sequence<String> {
+   /// Returns a Boolean value indicating whether the sequence contains a String element prefixed by the provided value.
+   public func contains(prefixedBy prefix: String) -> Bool {
+      self.contains { $0.hasPrefix(prefix) }
+   }
+
+   /// Returns a Boolean value indicating whether the sequence contains a String element suffixed by the provided value.
+   public func contains(suffixedBy suffix: String) -> Bool {
+      self.contains { $0.hasSuffix(suffix) }
+   }
+
+   /// Returns a Boolean value indicating whether the sequence contains a String element prefixed by one of the provided values.
+   public func contains(prefixedByOneOf prefixes: [String]) -> Bool {
+      prefixes.contains { self.contains(prefixedBy: $0) }
+   }
+
+   /// Returns a Boolean value indicating whether the sequence contains a String element suffixed by one of the provided values.
+   public func contains(suffixedByOneOf suffixes: [String]) -> Bool {
+      suffixes.contains { self.contains(suffixedBy: $0) }
+   }
+
+   /// Returns a Boolean value indicating whether the sequence contains a String element containing one of the provided values.
+   public func contains(oneOf substrings: [String]) -> Bool {
+      substrings.contains { self.contains($0) }
+   }
+}
