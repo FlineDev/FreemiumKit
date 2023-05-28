@@ -15,14 +15,22 @@ public struct VerticalPickerProductsStyle<ProductID: RawRepresentableProductID>:
       }
    }
 
+   public static var defaultCompactMode: Bool {
+      #if os(iOS)
+         return UIScreen.main.bounds.height < 700
+      #else
+         return false
+      #endif
+   }
+
    private let preselectedProductID: ProductID?
    private let tintColor: Color
-   private let verticalSpacing: CGFloat
+   private let compactMode: Bool
 
-   public init(preselectedProductID: ProductID?, tintColor: Color = .blue, verticalSpacing: CGFloat = 10) {
+   public init(preselectedProductID: ProductID?, tintColor: Color = .blue, compactMode: Bool = VerticalPickerProductsStyle.defaultCompactMode) {
       self.preselectedProductID = preselectedProductID
       self.tintColor = tintColor
-      self.verticalSpacing = verticalSpacing
+      self.compactMode = compactMode
    }
 
    public func productsLoadingPlaceholder() -> some View {
@@ -53,7 +61,7 @@ public struct VerticalPickerProductsStyle<ProductID: RawRepresentableProductID>:
       ProductsView(
          preselectedProductID: self.preselectedProductID?.rawValue,
          tintColor: self.tintColor,
-         verticalSpacing: self.verticalSpacing,
+         compactMode: self.compactMode,
          products: products,
          productIDsEligibleForIntroductoryOffer: productIDsEligibleForIntroductoryOffer,
          purchasedTransactions: purchasedTransactions,
@@ -70,7 +78,7 @@ public struct VerticalPickerProductsStyle<ProductID: RawRepresentableProductID>:
 
       var preselectedProductID: FKProduct.ID?
       let tintColor: Color
-      let verticalSpacing: CGFloat
+      let compactMode: Bool
 
       let products: [FKProduct]
       let productIDsEligibleForIntroductoryOffer: Set<FKProduct.ID>
@@ -80,13 +88,13 @@ public struct VerticalPickerProductsStyle<ProductID: RawRepresentableProductID>:
       let startPurchase: (FKProduct, Set<Product.PurchaseOption>) -> Void
 
       var body: some View {
-         VStack(spacing: 3) {
+         VStack(spacing: self.compactMode ? 3 : 5) {
             ForEach(products) { product in
                Button {
                   self.selectedProductID = product.id
                } label: {
                   HStack {
-                     VStack(alignment: .leading, spacing: 3) {
+                     VStack(alignment: .leading, spacing: self.compactMode ? 3 : 4) {
                         Text(product.displayName)
 
                         if
@@ -106,8 +114,8 @@ public struct VerticalPickerProductsStyle<ProductID: RawRepresentableProductID>:
                   }
                   .font(.headline.weight(.light))
                   .opacity(product.id == self.selectedProductID ? 1 : 0.7)
-                  .padding(.horizontal, 12)
-                  .padding(.vertical, 10)
+                  .padding(.horizontal, self.compactMode ? 12 : 18)
+                  .padding(.vertical, self.compactMode ? 10 : 12)
                   .background(product.id == self.selectedProductID ? self.tintColor.opacity(0.1) : .clear)
                   .overlay {
                      RoundedRectangle(cornerRadius: 12)
@@ -137,7 +145,7 @@ public struct VerticalPickerProductsStyle<ProductID: RawRepresentableProductID>:
                   .font(.footnote)
                }
 
-               Spacer().frame(height: self.verticalSpacing)
+               Spacer().frame(height: self.compactMode ? 2 : 10)
             }
 
             Spacer()
@@ -194,7 +202,7 @@ struct VerticalPickerProductsStyle_Previews: PreviewProvider {
          )
          .previewDisplayName("Load Failed")
 
-         VerticalPickerProductsStyle(preselectedProductID: ProductID.liteYearly).products(
+         VerticalPickerProductsStyle(preselectedProductID: ProductID.liteYearly, compactMode: false).products(
             products: FKProduct.mockedProducts,
             productIDsEligibleForIntroductoryOffer: Set(FKProduct.mockedProducts.map(\.id)),
             purchasedTransactions: FKTransaction.mockedTransactions,
