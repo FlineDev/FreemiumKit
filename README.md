@@ -134,6 +134,7 @@ AsyncProducts(
    productIDs: ProductID.allCases, 
    inAppPurchase: AppDelegate.inAppPurchase
 )
+.padding()
 ``` 
 
 Note that instead of `VerticalPickerProductsStyle` you can pass any other community-provided or even your custom style, or pass some of the optional parameters to `VerticalPickerProductsStyle`. Also, instead of `ProductID.allCases`, you can pass an array with only select cases if you don't want to show all available options at once (like excluding re-engagement offers).
@@ -163,7 +164,7 @@ While FreemiumKit implements the latest proactive in-app purchase restore best p
 Instead, a separate `RestorePurchasesButton` view is provided that encapsulates a button with loading logic & even a loading state which you can place anywhere you see fit and it will just work. Note that the view isn't styled in any way though, so you need to style it the way you want, allowing you to provide a custom `.buttonStyle()`, for example. Most apps probably want to keep the style to the default (`.plain`) though, but "down-pop" the button to make it less prominent like so:
 
 ```Swift
-RestorePurchasesButton()
+RestorePurchasesButton(inAppPurchase: AppDelegate.inAppPurchase)
    .font(.footnote)
    .foregroundColor(.secondary)
 ```
