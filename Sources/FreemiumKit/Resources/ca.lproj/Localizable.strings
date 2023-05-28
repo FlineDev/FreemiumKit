@@ -13,3 +13,5 @@
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Continua";
 
 "FreemiumKit.PickerProductsStyle.CurrentPlan" = "Pla Actual";
+
+"FreemiumKit.RestorePurchasesButton.Title" = "Restaurar Compres";

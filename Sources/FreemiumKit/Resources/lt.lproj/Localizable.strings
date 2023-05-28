@@ -13,3 +13,5 @@
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Tęsti";
 
 "FreemiumKit.PickerProductsStyle.CurrentPlan" = "Dabartinis planas";
+
+"FreemiumKit.RestorePurchasesButton.Title" = "Atkurti pirkinius";

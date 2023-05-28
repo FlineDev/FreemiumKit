@@ -13,3 +13,5 @@
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Jätka";
 
 "FreemiumKit.PickerProductsStyle.CurrentPlan" = "Praegune kava";
+
+"FreemiumKit.RestorePurchasesButton.Title" = "Ostude taastamine";

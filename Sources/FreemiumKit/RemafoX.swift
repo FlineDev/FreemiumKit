@@ -154,6 +154,20 @@ internal enum Res {
             }
          }
 
+         internal enum RestorePurchasesButton {
+            /// 🇺🇸 English: "Restore Purchases"
+            internal enum Title {
+               /// The translated `String` instance.
+               internal static var string: String { Bundle.module.localizedString(forKey: self.tableLookupKey, value: nil, table: "Localizable") }
+
+               /// The SwiftUI `LocalizedStringKey` instance.
+               internal static var locStringKey: LocalizedStringKey { LocalizedStringKey(self.tableLookupKey) }
+
+               /// The lookup key in the translation table (= the key in the `.strings` or `.stringsdict` file).
+               internal static var tableLookupKey: String { "FreemiumKit.RestorePurchasesButton.Title" }
+            }
+         }
+
          internal enum SubscriptionPeriod {
             /// 🇺🇸 English (plural case 'other'): "%d days for free"
             internal struct FreeTrialDays {

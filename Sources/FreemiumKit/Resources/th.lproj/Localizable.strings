@@ -13,3 +13,5 @@
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "ดำเนินการต่อ";
 
 "FreemiumKit.PickerProductsStyle.CurrentPlan" = "แผนปัจจุบัน";
+
+"FreemiumKit.RestorePurchasesButton.Title" = "คืนค่าการซื้อ";

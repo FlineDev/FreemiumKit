@@ -13,3 +13,5 @@
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Turpināt";
 
 "FreemiumKit.PickerProductsStyle.CurrentPlan" = "Pašreizējais plāns";
+
+"FreemiumKit.RestorePurchasesButton.Title" = "Pirkumu atjaunošana";

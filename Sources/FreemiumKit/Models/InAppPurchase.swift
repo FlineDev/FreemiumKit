@@ -50,7 +50,7 @@ public final class InAppPurchase<ProductID: RawRepresentableProductID>: Observab
          for await verificationResult in FKTransaction.updates { self.handle(verificationResult: verificationResult) }
       }
 
-      self.loadCurrentEntitlements()
+      Task { await self.loadCurrentEntitlements() }
    }
 
    deinit { self.updates?.cancel() }
@@ -66,10 +66,10 @@ public final class InAppPurchase<ProductID: RawRepresentableProductID>: Observab
 
       if transaction.revocationDate != nil {
          self.purchasedTransactions.remove(id: transaction.productID)
-         self.loadCurrentEntitlements()
+         Task { await self.loadCurrentEntitlements() }
       } else if let expirationDate = transaction.expirationDate, expirationDate < Date.now {
          self.purchasedTransactions.remove(id: transaction.productID)
-         self.loadCurrentEntitlements()
+         Task { await self.loadCurrentEntitlements() }
       } else if transaction.isUpgraded {
          self.purchasedTransactions.remove(id: transaction.productID)
       } else {
@@ -79,9 +79,19 @@ public final class InAppPurchase<ProductID: RawRepresentableProductID>: Observab
    }
 
    @MainActor
-   private func loadCurrentEntitlements() {
-      Task {
-         for await verificationResult in FKTransaction.currentEntitlements { self.handle(verificationResult: verificationResult) }
+   func loadCurrentEntitlements() async {
+      if #available(iOS 16, *), Xcode.isRunningForPreviews {
+         try? await Task.sleep(for: .seconds(1))
+      } else {
+         for await verificationResult in FKTransaction.currentEntitlements {
+            self.handle(verificationResult: verificationResult)
+         }
       }
+   }
+}
+
+enum Xcode {
+   static var isRunningForPreviews: Bool {
+      ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1"
    }
 }

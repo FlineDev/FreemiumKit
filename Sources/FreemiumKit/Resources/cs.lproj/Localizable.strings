@@ -13,3 +13,5 @@
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Pokračovat";
 
 "FreemiumKit.PickerProductsStyle.CurrentPlan" = "Současný plán";
+
+"FreemiumKit.RestorePurchasesButton.Title" = "Obnovení nákupů";

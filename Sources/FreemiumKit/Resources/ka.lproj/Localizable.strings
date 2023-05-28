@@ -13,3 +13,5 @@
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "გაგრძელება";
 
 "FreemiumKit.PickerProductsStyle.CurrentPlan" = "მიმდინარე გეგმა";
+
+"FreemiumKit.RestorePurchasesButton.Title" = "შესყიდვების აღდგენა";

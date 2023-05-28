@@ -13,3 +13,5 @@
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "চালিয়ে যান";
 
 "FreemiumKit.PickerProductsStyle.CurrentPlan" = "বর্তমান পরিকল্পনা";
+
+"FreemiumKit.RestorePurchasesButton.Title" = "ক্রয় পুনরুদ্ধার করুন";

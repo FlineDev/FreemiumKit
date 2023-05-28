@@ -13,3 +13,5 @@
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Lanjutkan";
 
 "FreemiumKit.PickerProductsStyle.CurrentPlan" = "Rencana saat ini";
+
+"FreemiumKit.RestorePurchasesButton.Title" = "Mengembalikan Pembelian";

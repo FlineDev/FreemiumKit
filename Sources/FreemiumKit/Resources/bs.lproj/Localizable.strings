@@ -13,3 +13,5 @@
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Nastavi";
 
 "FreemiumKit.PickerProductsStyle.CurrentPlan" = "Trenutni Plan";
+
+"FreemiumKit.RestorePurchasesButton.Title" = "Vratite Kupovine";

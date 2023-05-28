@@ -13,3 +13,5 @@
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "继续";
 
 "FreemiumKit.PickerProductsStyle.CurrentPlan" = "目前的计划";
+
+"FreemiumKit.RestorePurchasesButton.Title" = "恢复购买";

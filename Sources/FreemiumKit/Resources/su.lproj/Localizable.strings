@@ -13,3 +13,5 @@
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Teruskeun";
 
 "FreemiumKit.PickerProductsStyle.CurrentPlan" = "Rencana Ayeuna";
+
+"FreemiumKit.RestorePurchasesButton.Title" = "Mulangkeun Purchases";

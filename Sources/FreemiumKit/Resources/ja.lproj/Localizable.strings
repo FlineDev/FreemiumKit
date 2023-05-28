@@ -13,3 +13,5 @@
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "続き";
 
 "FreemiumKit.PickerProductsStyle.CurrentPlan" = "現在の計画";
+
+"FreemiumKit.RestorePurchasesButton.Title" = "購入した商品を復元する";

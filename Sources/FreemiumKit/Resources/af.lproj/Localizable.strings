@@ -13,3 +13,5 @@
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Gaan voort";
 
 "FreemiumKit.PickerProductsStyle.CurrentPlan" = "Huidige Plan";
+
+"FreemiumKit.RestorePurchasesButton.Title" = "Herstel Aankope";

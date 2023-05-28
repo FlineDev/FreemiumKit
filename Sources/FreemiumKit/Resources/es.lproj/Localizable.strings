@@ -13,3 +13,5 @@
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Continúa en";
 
 "FreemiumKit.PickerProductsStyle.CurrentPlan" = "Plan actual";
+
+"FreemiumKit.RestorePurchasesButton.Title" = "Restaurar compras";

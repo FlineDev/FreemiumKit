@@ -156,6 +156,20 @@ AsyncProducts(style: ..., productIDs: ..., inAppPurchase: ..., onPurchase: { _ i
 <p>Typically, you need to execute some code to provide the purchased consumable thing to your user, and often this code involves sending requests to a server. To ensure a user actually gets the purchased consumable, StoreKit requires you to call the `finish()` method on the purchased `Transaction`. FreemiumKit defaults to automatically calling `finish()` right after a transaction was successfully made, but for consumables, it's better you handle this manually. To do that, make sure to set the optional parameter `autoFinishPurchases` to `false` on the `AsyncProducts` initializer. Then, use the `transaction` parameter passed to the optional `onPurchase` closure of the same initializer to call `finish()` once you provided your user with the purchased consumable item(s). Any consumable items you neve called `finish()` on will be delivered to the app on each app start and can be handled by using the `onPurchase` closure of the `InAppPurchase` initializer.</p>
 </details>
 
+### Step 6: Provide a 'Restore Purchases' button to pass App Store Review
+
+While FreemiumKit implements the latest proactive in-app purchase restore best practice, [Apple still recommends](https://developer.apple.com/videos/play/wwdc2022/110404/?time=1145) adding a 'Restore Purchases' button to your app. It's also explicitly mentioned in the App Store Review guidelines (see [section 3.1.1 In-App Purchase](https://developer.apple.com/app-store/review/guidelines/#in-app-purchase)). To give you full flexibility of deciding where to put your 'Restore Purchases' button and to allow you placing it among other buttons like 'Terms of Service' or 'Privacy Policy', FreemiumKit does not place a 'Restore Purchases' button into the `AsyncProducts` view.
+
+Instead, a separate `RestorePurchasesButton` view is provided that encapsulates a button with loading logic & even a loading state which you can place anywhere you see fit and it will just work. Note that the view isn't styled in any way though, so you need to style it the way you want, allowing you to provide a custom `.buttonStyle()`, for example. Most apps probably want to keep the style to the default (`.plain`) though, but "down-pop" the button to make it less prominent like so:
+
+```Swift
+RestorePurchasesButton()
+   .font(.footnote)
+   .foregroundColor(.secondary)
+```
+
+And that's it! You've added support for in-app purchases to your app. :tada:
+
 ## Provided UI Components
 
 To get you up and running fast, FreemiumKit ships with a set of community-provided UI components that you can use in your SwiftUI paywall: 

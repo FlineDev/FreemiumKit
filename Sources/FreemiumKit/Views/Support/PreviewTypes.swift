@@ -4,8 +4,8 @@ import IdentifiedCollections
 
 #warning("🧑‍💻 find a better way to develop with SwiftUI previews, this commenting in/out isn't great")
 // To instantiate fake products during development for SwiftUI previews, simply change the right hand side to `PreviewProduct` & `PreviewTransaction`.
-public typealias FKProduct = StoreKit.Product
-public typealias FKTransaction = StoreKit.Transaction
+public typealias FKProduct = PreviewProduct
+public typealias FKTransaction = PreviewTransaction
 
 #if DEBUG
 /// A replica of ``StoreKit.Product`` to instantiate fake products during development for SwiftUI previews.

@@ -13,3 +13,5 @@
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Halt/Haldið fram";
 
 "FreemiumKit.PickerProductsStyle.CurrentPlan" = "Current Plan";
+
+"FreemiumKit.RestorePurchasesButton.Title" = "Restore Purchases";

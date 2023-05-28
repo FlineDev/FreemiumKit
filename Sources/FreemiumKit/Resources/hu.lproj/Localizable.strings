@@ -13,3 +13,5 @@
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Folytatás";
 
 "FreemiumKit.PickerProductsStyle.CurrentPlan" = "Jelenlegi terv";
+
+"FreemiumKit.RestorePurchasesButton.Title" = "Vásárlások visszaállítása";

@@ -13,3 +13,5 @@
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "ဆက်လက်";
 
 "FreemiumKit.PickerProductsStyle.CurrentPlan" = "လက်ရှိအစီအစဉ်";
+
+"FreemiumKit.RestorePurchasesButton.Title" = "ဝယ်ယူမှုများကိုပြန်လည်ပြုပြင်ခြင်း";

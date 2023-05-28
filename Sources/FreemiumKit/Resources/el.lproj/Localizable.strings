@@ -13,3 +13,5 @@
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Συνεχίστε";
 
 "FreemiumKit.PickerProductsStyle.CurrentPlan" = "Τρέχον σχέδιο";
+
+"FreemiumKit.RestorePurchasesButton.Title" = "Επαναφορά αγορών";

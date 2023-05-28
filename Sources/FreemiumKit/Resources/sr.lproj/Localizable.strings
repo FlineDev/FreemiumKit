@@ -13,3 +13,5 @@
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Настави";
 
 "FreemiumKit.PickerProductsStyle.CurrentPlan" = "Тренутни план";
+
+"FreemiumKit.RestorePurchasesButton.Title" = "Опоравак куповине";

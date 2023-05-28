@@ -13,3 +13,5 @@
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Nadaljuj";
 
 "FreemiumKit.PickerProductsStyle.CurrentPlan" = "Trenutni načrt";
+
+"FreemiumKit.RestorePurchasesButton.Title" = "Obnovitev nakupov";

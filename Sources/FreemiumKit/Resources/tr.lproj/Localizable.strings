@@ -13,3 +13,5 @@
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Devam et";
 
 "FreemiumKit.PickerProductsStyle.CurrentPlan" = "Mevcut Plan";
+
+"FreemiumKit.RestorePurchasesButton.Title" = "Satın Almaları Geri Yükle";

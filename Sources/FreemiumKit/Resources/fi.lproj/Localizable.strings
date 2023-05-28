@@ -13,3 +13,5 @@
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "Jatka";
 
 "FreemiumKit.PickerProductsStyle.CurrentPlan" = "Nykyinen suunnitelma";
+
+"FreemiumKit.RestorePurchasesButton.Title" = "Palauta ostokset";

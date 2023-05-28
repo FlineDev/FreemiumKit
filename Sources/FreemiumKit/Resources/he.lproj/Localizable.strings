@@ -13,3 +13,5 @@
 "FreemiumKit.PickerProductsStyle.ContinueButtonTitle" = "המשך";
 
 "FreemiumKit.PickerProductsStyle.CurrentPlan" = "תוכנית נוכחית";
+
+"FreemiumKit.RestorePurchasesButton.Title" = "שחזור רכישות";
