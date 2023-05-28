@@ -17,10 +17,12 @@ public struct VerticalPickerProductsStyle<ProductID: RawRepresentableProductID>:
 
    private let preselectedProductID: ProductID?
    private let tintColor: Color
+   private let verticalSpacing: CGFloat
 
-   public init(preselectedProductID: ProductID?, tintColor: Color = .blue) {
+   public init(preselectedProductID: ProductID?, tintColor: Color = .blue, verticalSpacing: CGFloat = 10) {
       self.preselectedProductID = preselectedProductID
       self.tintColor = tintColor
+      self.verticalSpacing = verticalSpacing
    }
 
    public func productsLoadingPlaceholder() -> some View {
@@ -51,6 +53,7 @@ public struct VerticalPickerProductsStyle<ProductID: RawRepresentableProductID>:
       ProductsView(
          preselectedProductID: self.preselectedProductID?.rawValue,
          tintColor: self.tintColor,
+         verticalSpacing: self.verticalSpacing,
          products: products,
          productIDsEligibleForIntroductoryOffer: productIDsEligibleForIntroductoryOffer,
          purchasedTransactions: purchasedTransactions,
@@ -67,6 +70,7 @@ public struct VerticalPickerProductsStyle<ProductID: RawRepresentableProductID>:
 
       var preselectedProductID: FKProduct.ID?
       let tintColor: Color
+      let verticalSpacing: CGFloat
 
       let products: [FKProduct]
       let productIDsEligibleForIntroductoryOffer: Set<FKProduct.ID>
@@ -133,7 +137,7 @@ public struct VerticalPickerProductsStyle<ProductID: RawRepresentableProductID>:
                   .font(.footnote)
                }
 
-               Spacer().frame(height: 10)
+               Spacer().frame(height: self.verticalSpacing)
             }
 
             Spacer()
