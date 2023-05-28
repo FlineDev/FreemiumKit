@@ -213,6 +213,11 @@ If you find any issues with this project, make sure to report them in the Issues
 
 If you want to share your custom UI component with the community, that's also highly encouraged!
 It can even be a cool SwiftUI programming challenge to find a paywall design you like (e.g. from [here](https://www.paywallscreens.com/)) and trying to implement it & sharing with the community.
+Corrections to the machine-translated localized texts are welcome, too. Send in a pull request with your corrections.
+
+Note that in order to provide localized texts to over 150 languages in fast & simple way, this library is makes use of [RemafoX](https://remafox.app).
+If you want to use it for your custom UI component, download it there – it's fully featured without limits for for open-source projects like this.
+To set it up quickly for this project, watch [this short onboarding video](https://to.remafox.app/onboarding).
 
 
 ## FAQ
