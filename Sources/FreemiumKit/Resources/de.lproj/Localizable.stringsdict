@@ -13,9 +13,9 @@
 			<key>NSStringFormatValueTypeKey</key>
 			<string>d</string>
 			<key>one</key>
-			<string>%d Tag umsonst</string>
+			<string>%d Tag kostenlos</string>
 			<key>other</key>
-			<string>%d Tage umsonst</string>
+			<string>%d Tage kostenlos</string>
 		</dict>
 	</dict>
 	<key>FreemiumKit.SubscriptionPeriod.FreeTrialMonths(count: %d)</key>
@@ -29,9 +29,9 @@
 			<key>NSStringFormatValueTypeKey</key>
 			<string>d</string>
 			<key>one</key>
-			<string>%d Monat umsonst</string>
+			<string>%d Monat kostenlos</string>
 			<key>other</key>
-			<string>%d Monate umsonst</string>
+			<string>%d Monate kostenlos</string>
 		</dict>
 	</dict>
 	<key>FreemiumKit.SubscriptionPeriod.FreeTrialWeeks(count: %d)</key>
@@ -45,9 +45,9 @@
 			<key>NSStringFormatValueTypeKey</key>
 			<string>d</string>
 			<key>one</key>
-			<string>%d Woche umsonst</string>
+			<string>%d Woche kostenlos</string>
 			<key>other</key>
-			<string>%d Wochen umsonst</string>
+			<string>%d Wochen kostenlos</string>
 		</dict>
 	</dict>
 	<key>FreemiumKit.SubscriptionPeriod.FreeTrialYears(count: %d)</key>
@@ -61,9 +61,9 @@
 			<key>NSStringFormatValueTypeKey</key>
 			<string>d</string>
 			<key>one</key>
-			<string>%d Jahr umsonst</string>
+			<string>%d Jahr kostenlos</string>
 			<key>other</key>
-			<string>%d Jahre umsonst</string>
+			<string>%d Jahre kostenlos</string>
 		</dict>
 	</dict>
 </dict>
