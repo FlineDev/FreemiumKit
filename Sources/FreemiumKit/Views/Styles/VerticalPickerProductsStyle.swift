@@ -117,6 +117,7 @@ public struct VerticalPickerProductsStyle<ProductID: RawRepresentableProductID>:
                   .padding(.horizontal, self.compactMode ? 12 : 18)
                   .padding(.vertical, self.compactMode ? 10 : 12)
                   .background(product.id == self.selectedProductID ? self.tintColor.opacity(0.1) : .clear)
+                  .cornerRadius(12)
                   .overlay {
                      RoundedRectangle(cornerRadius: 12)
                         .stroke(
