@@ -10,7 +10,7 @@ public struct VerticalPickerProductsStyle<ProductID: RawRepresentableProductID>:
 
       func makeBody(configuration: Configuration) -> some View {
          configuration.label.background { RoundedRectangle(cornerRadius: 100).fill(self.tintColor) }
-            .font(.title3.weight(.medium))
+            .font(.headline.weight(.medium))
             .opacity(configuration.isPressed ? 0.7 : 1)
       }
    }
@@ -76,13 +76,13 @@ public struct VerticalPickerProductsStyle<ProductID: RawRepresentableProductID>:
       let startPurchase: (FKProduct, Set<Product.PurchaseOption>) -> Void
 
       var body: some View {
-         VStack {
+         VStack(spacing: 3) {
             ForEach(products) { product in
                Button {
                   self.selectedProductID = product.id
                } label: {
                   HStack {
-                     VStack(alignment: .leading, spacing: 4) {
+                     VStack(alignment: .leading, spacing: 3) {
                         Text(product.displayName)
 
                         if
@@ -100,17 +100,17 @@ public struct VerticalPickerProductsStyle<ProductID: RawRepresentableProductID>:
                         Text(product.displayPricePerPeriodIfSubscription)
                      }
                   }
-                  .font(.title3.weight(.light))
+                  .font(.headline.weight(.light))
                   .opacity(product.id == self.selectedProductID ? 1 : 0.7)
-                  .padding(.horizontal, 18)
-                  .padding(.vertical, 14)
+                  .padding(.horizontal, 12)
+                  .padding(.vertical, 10)
                   .background(product.id == self.selectedProductID ? self.tintColor.opacity(0.1) : .clear)
                   .overlay {
                      RoundedRectangle(cornerRadius: 12)
                         .stroke(
                            purchasedTransactions.contains(where: \.productID, equalsTo: product.id) || product.id == self.selectedProductID
                               ? self.tintColor
-                              : .gray.opacity(0.3), lineWidth: 2.5
+                           : .gray.opacity(0.3), lineWidth: 1.5
                         )
                   }
                   .frame(minHeight: 44)
@@ -133,7 +133,7 @@ public struct VerticalPickerProductsStyle<ProductID: RawRepresentableProductID>:
                   .font(.footnote)
                }
 
-               Spacer().frame(height: 20)
+               Spacer().frame(height: 10)
             }
 
             Spacer()
@@ -157,8 +157,6 @@ public struct VerticalPickerProductsStyle<ProductID: RawRepresentableProductID>:
             .opacity(self.selectedProduct(products: products) == nil || purchaseInProgressProductID != nil ? 0.5 : 1)
             .disabled(self.selectedProduct(products: products) == nil || purchaseInProgressProductID != nil)
          }
-         .padding(.horizontal, 30)
-         .padding(.vertical, 20)
          .onAppear {
             self.selectedProductID = self.preselectedProductID
          }
@@ -200,6 +198,8 @@ struct VerticalPickerProductsStyle_Previews: PreviewProvider {
             purchaseInProgressProductID: FKProduct.mockedProducts.last!.id,
             startPurchase: { _, _ in }
          )
+         .padding(.vertical, 20)
+         .padding(.horizontal, 30)
          .previewDisplayName("Products")
       }
    }
