@@ -121,7 +121,7 @@ public struct VerticalPickerProductsStyle<ProductID: RawRepresentableProductID>:
                   .overlay {
                      RoundedRectangle(cornerRadius: 12)
                         .stroke(
-                           purchasedTransactions.contains(where: \.productID, equalsTo: product.id) || product.id == self.selectedProductID
+                           purchasedTransactions.contains(where: \.productID, equalTo: product.id) || product.id == self.selectedProductID
                               ? self.tintColor
                            : .gray.opacity(0.3), lineWidth: 1.5
                         )
@@ -129,7 +129,7 @@ public struct VerticalPickerProductsStyle<ProductID: RawRepresentableProductID>:
                   .frame(minHeight: 44)
                }
                .buttonStyle(.plain)
-               .disabled(purchasedTransactions.contains(where: \.productID, equalsTo: product.id) || purchaseInProgressProductID != nil)
+               .disabled(purchasedTransactions.contains(where: \.productID, equalTo: product.id) || purchaseInProgressProductID != nil)
 
                if let transaction = purchasedTransactions.first(where: \.productID, equalsTo: product.id) {
                   HStack {

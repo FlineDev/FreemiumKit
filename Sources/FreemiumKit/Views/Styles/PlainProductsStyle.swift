@@ -33,7 +33,7 @@ public struct PlainProductsStyle: AsyncProductsStyle {
       startPurchase: @escaping (FKProduct, Set<Product.PurchaseOption>) -> Void
    ) -> some View {
       List(products) { product in
-         if purchasedTransactions.contains(where: \.productID, equalsTo: product.id) {
+         if purchasedTransactions.contains(where: \.productID, equalTo: product.id) {
             Label(product.displayName, systemImage: "checkmark")
          } else {
             Button {

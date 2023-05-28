@@ -8,7 +8,12 @@ extension Sequence {
    }
 
    /// Returns a Boolean value indicating whether the sequence contains an element with an Equatable keypath value equal to the provided value.
-   public func contains<Value: Equatable>(where keyPath: KeyPath<Element, Value>, equalsTo otherValue: Value) -> Bool {
+   public func contains<Value: Equatable>(where keyPath: KeyPath<Element, Value>, equalTo otherValue: Value) -> Bool {
+      self.contains { $0[keyPath: keyPath] == otherValue }
+   }
+
+   /// Returns a Boolean value indicating whether the sequence contains an element with an Equatable keypath value not equal to the provided value.
+   public func contains<Value: Equatable>(where keyPath: KeyPath<Element, Value>, notEqualTo otherValue: Value) -> Bool {
       self.contains { $0[keyPath: keyPath] == otherValue }
    }
 
