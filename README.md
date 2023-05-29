@@ -72,6 +72,14 @@ import FreemiumKit
 
 final class AppDelegate: NSObject, UIApplicationDelegate {
    static let inAppPurchase = InAppPurchase<ProductID>()
+   
+   func application(
+      _ application: UIApplication,
+      willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
+   ) -> Bool {
+      Self.inAppPurchase.appLaunched()
+      return true
+   }
 }
 
 @main

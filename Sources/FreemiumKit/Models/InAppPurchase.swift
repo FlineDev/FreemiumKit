@@ -49,11 +49,14 @@ public final class InAppPurchase<ProductID: RawRepresentableProductID>: Observab
       self.updates = Task(priority: .background) {
          for await verificationResult in FKTransaction.updates { self.handle(verificationResult: verificationResult) }
       }
-
-      Task { await self.loadCurrentEntitlements() }
    }
 
    deinit { self.updates?.cancel() }
+
+   /// Call this when your app has launched, e.g. in `application(_:willFinishLaunchingWithOptions:)`.
+   public func appLaunched() {
+      Task { await self.loadCurrentEntitlements() }
+   }
 
    /// Returns the users current permission for the provided unlockable feature.
    public func permission<LockedFeature: Unlockable>(for feature: LockedFeature) -> Permission where LockedFeature.ProductID == ProductID {
