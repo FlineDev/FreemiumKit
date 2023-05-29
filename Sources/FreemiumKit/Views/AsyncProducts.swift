@@ -19,6 +19,7 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
    private let onPurchase: (FKTransaction) -> Void
    private let onPurchaseFailed: (PurchaseFailed) -> Void
    private let onLoadFailed: (StoreKitError) -> Void
+   private let onLoadCompleted: () -> Void
 
    @State
    private var products: [FKProduct] = []
@@ -48,7 +49,8 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
       autoFinishPurchases: Bool = true,
       onPurchase: @escaping (FKTransaction) -> Void = { _ in },
       onPurchaseFailed: @escaping (PurchaseFailed) -> Void = { _ in },
-      onLoadFailed: @escaping (StoreKitError) -> Void = { _ in }
+      onLoadFailed: @escaping (StoreKitError) -> Void = { _ in },
+      onLoadCompleted: @escaping () -> Void = {}
    ) {
       self.style = style
       self.productIDs = productIDs
@@ -58,6 +60,7 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
       self.onPurchase = onPurchase
       self.onPurchaseFailed = onPurchaseFailed
       self.onLoadFailed = onLoadFailed
+      self.onLoadCompleted = onLoadCompleted
    }
 
    public var body: some View {
@@ -104,6 +107,7 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
 
             self.loadingInProgress = false
             self.loadingProductsFailed = false
+            self.onLoadCompleted()
          } catch {
             self.loadingInProgress = false
             self.loadingProductsFailed = true
