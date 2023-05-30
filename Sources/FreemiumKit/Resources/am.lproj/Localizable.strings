@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/ዓመት";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "በመታወቂያ '%@ ' ምንም ምርት አልተገኘም።";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "ምርቶችን ከመተግበሪያ መደብር መጫን አልተሳካም።";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "እንደገና ጫን";

@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/year";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "Awukho umkhiqizo otholakele we-ID '%@'.";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Yehlulekile ukulayisha imikhiqizo kusuka ku-App Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Phinda ufake";

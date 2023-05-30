@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/gore";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "Hapana chigadzirwa chawanikwa cheID '%@'.";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Tatadza kurodha zvigadzirwa kubva kuApp Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Reload";

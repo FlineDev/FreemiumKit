@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "٪@/يىل";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "ID '٪@' ئۈچۈن بىرەر مەھسۇلات تېپىلمىدى.";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "App Storeدىن مەھسۇلات قاچىلاش مەغلۇپ بولدى";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "قايتا قاچىلاش";

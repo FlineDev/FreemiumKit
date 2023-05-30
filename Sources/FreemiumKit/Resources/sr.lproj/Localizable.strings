@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@ / година";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "Производ није пронађен према ИД-у'%@'.";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Преузимање производа из Апп Сторе-а није успело.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Рестарт";

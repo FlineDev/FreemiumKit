@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "٪@/سال";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "ID '%@' لاءِ ڪوبه پراڊڪٽ نه مليو.";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "ايپ اسٽور تان پروڊڪٽس لوڊ ڪرڻ ۾ ناڪام.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "ٻيهر لوڊ ڪريو";

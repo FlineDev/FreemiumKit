@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/ngwaga";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "Ga go setšweletšwa seo se hweditšwego bakeng sa ID ya '%@'.";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "E paletšwe ke go laetša ditšweletšwa go tšwa go App Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Laetša gape";

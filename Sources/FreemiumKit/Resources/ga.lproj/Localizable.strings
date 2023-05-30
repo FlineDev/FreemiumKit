@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@ / bliain";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "Níor aimsíodh táirge DON ID'%@'.";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Theip ar tháirgí a luchtú Ón App Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Athluchtaigh";

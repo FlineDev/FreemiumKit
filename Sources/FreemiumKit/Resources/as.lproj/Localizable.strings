@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/বছৰ";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "আইডি '%@'ৰ বাবে কোনো সামগ্ৰী পোৱা নগ'ল।";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "এপ্প ষ্টোৰৰ পৰা সামগ্ৰী লোড কৰিবলৈ ব্যৰ্থ হৈছে।";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "পুনৰ লোড কৰক";

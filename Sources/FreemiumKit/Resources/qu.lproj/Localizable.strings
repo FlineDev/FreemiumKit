@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/wata";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "ID '%@' nisqapaqqa manam ima rurupas tarisqachu.";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "App Storemanta rurukunata mana kargayta atirqanchu.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Recargar";

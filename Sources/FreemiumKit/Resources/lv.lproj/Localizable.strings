@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/gadā";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "Nav atrasts neviens produkts ID '%@'.";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Neizdevās ielādēt produktus no App Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Pārlādēt";

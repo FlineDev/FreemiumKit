@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/año";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "No se ha encontrado ningún producto para el ID '%@'.";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "No se han podido cargar los productos de la App Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Recarga";

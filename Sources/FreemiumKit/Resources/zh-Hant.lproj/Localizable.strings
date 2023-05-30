@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/年";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "未找到 ID%@的產品。";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "無法從應用商店載入產品。";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "重新載入";

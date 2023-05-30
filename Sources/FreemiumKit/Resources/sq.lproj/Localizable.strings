@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@ / vit";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "Nuk gjendet asnjë produkt PËR ID'%@'.";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Nuk arriti të ngarkojë produkte nga App Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Ringarkoni";

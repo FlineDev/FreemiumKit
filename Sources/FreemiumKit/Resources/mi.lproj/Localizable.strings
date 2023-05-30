@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@ / tau";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "Kāore he hua i kitea mō te ID '%@'.";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Kāore i taea te uta i ngā hua mai i Te App Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Whakakī anō";

@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/ལོ";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "ཐོབ་ཐང་ལག་ཁྱེར་'%@'ལ་ཐོན་རྫས་གང་ཡང་རྙེད་མེད།";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "ཉེར་སྤྱོད་ཚོང་ཁང་ནས་ཐོན་རྫས་དབོར་འདྲེན་བྱེད་མ་ཐུབ་པ།";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "བསྐྱར་དུ་ཕབ་ལེན་བྱ་དགོས";

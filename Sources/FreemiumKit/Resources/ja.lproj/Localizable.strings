@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "(%@/年)";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "ID '%@' に該当する製品は見つかりませんでした。";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "App Storeから製品を読み込むのに失敗しました。";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "リロード";

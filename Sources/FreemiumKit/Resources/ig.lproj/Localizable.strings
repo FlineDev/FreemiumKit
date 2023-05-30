@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/afọ";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "Enweghị ngwaahịa ahụrụ maka ID '%@'.";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Ịbunye ngwaahịa sitere na Ụlọ Ahịa ngw agaghị ebu.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Bugharịa";

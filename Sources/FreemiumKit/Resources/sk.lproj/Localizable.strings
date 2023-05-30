@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/rok";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "Pre ID '%@' nebol nájdený žiadny produkt.";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Nepodarilo sa načítať produkty z App Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Znovu načítať";

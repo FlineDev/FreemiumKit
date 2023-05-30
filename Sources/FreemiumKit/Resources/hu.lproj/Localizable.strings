@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/év";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "Nem találtunk terméket a '%@' azonosítóhoz.";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Nem sikerült termékeket betölteni az App Store-ból.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Újratöltés";

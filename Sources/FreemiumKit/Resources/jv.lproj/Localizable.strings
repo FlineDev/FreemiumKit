@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@ / taun";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "Ora ana produk sing ditemokake kanggo ID '%@'.";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Gagal kanggo mbukak produk Saka App Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Ngisi ulang";

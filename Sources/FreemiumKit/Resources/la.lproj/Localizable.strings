@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "% / annus";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "Nullum productum inventum pro ID'%@'.";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Res ex App Copia onerare non potuit.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Repellendus";

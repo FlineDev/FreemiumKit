@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/waggaa";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "ID '%@' tiif oomishni hin argamne.";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "App Store irraa oomisha fe'uu hin dandeenye.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Irra deebi'ii fe'i";

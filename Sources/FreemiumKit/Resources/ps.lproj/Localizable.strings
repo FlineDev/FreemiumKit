@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "٪@/year";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "د ID لپاره هیڅ محصول ونه موندل شو '٪@'";
+
 "FreemiumKit.LoadingProductsFailed.Message" = ".اپ سټور نه د محصولاتو په لېښلو کې پاتې راغی";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "بیالېښل";

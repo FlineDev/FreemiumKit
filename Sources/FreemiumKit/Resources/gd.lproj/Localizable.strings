@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@ / bliadhna";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "Cha deach toradh a lorg airson AN ID"%@".";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Dh'fhàillig luchdadh bathar bhon App Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Ath-luchdaich";

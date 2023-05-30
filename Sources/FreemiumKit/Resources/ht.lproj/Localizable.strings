@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@ / ane";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "Pa gen pwodwi KI jwenn POU ID '%@'.";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Pa t chaje pwodwi Nan App Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Reload";

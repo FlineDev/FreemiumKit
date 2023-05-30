@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/Jahr";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "Njeje so žadyn produkt za ID '%@' namakał.";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Zmylk při wobchodźe produktow z app Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Nakładować";

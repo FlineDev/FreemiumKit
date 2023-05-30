@@ -32,8 +32,21 @@ import IdentifiedCollections
 /// Button(...).disabled(iap.permission(for: LockedFeature.scheduledPosts).isAlwaysDenied)
 /// ```
 public final class InAppPurchase<ProductID: RawRepresentableProductID>: ObservableObject {
-   public enum Failure: Error {
-      case receivedProductsAreEmpty
+   public enum Failure: LocalizedError, Identifiable {
+      case productFetchFailedWithNoMatches(productID: String)
+
+      public var errorDescription: String? {
+         switch self {
+         case .productFetchFailedWithNoMatches(let productID):
+            return Loc.FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: productID).string
+         }
+      }
+
+      public var id: String {
+         switch self {
+         case .productFetchFailedWithNoMatches: return "P"
+         }
+      }
    }
 
    /// The currently active purchased transactions with duplicate transactions for same ``productID`` removed.
@@ -76,7 +89,7 @@ public final class InAppPurchase<ProductID: RawRepresentableProductID>: Observab
          return product
       } else {
          guard let product = try await FKProduct.products(for: [productID.rawValue]).first else {
-            throw Failure.receivedProductsAreEmpty
+            throw Failure.productFetchFailedWithNoMatches(productID: productID.rawValue)
          }
 
          self.cacheProducts([product])

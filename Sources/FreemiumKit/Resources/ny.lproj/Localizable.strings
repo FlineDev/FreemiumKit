@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/chaka";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "Palibe chopezeka pa ID '%@'.";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Zalephera kutsitsa zinthu kuchokera ku App Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Kwezaninso";

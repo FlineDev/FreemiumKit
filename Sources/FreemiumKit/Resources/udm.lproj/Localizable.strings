@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/ар";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "Бере уг шедьты идентификаторлэн вуз '%@'.";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Store App etkileşimli пӧлысь-юон.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Перезагружать";

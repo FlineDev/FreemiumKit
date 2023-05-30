@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/и";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "Сату идентификатор доно ат мо '%@'.";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Store App камака гӹц качкышым ак керд.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Перезагружать";

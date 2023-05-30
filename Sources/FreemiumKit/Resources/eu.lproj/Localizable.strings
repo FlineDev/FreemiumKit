@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/urtea";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "Ez da produkturik aurkitu '%@ ' ID-rentzat.";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Huts egin du produktuak App Store-tik kargatzean.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Berkargatu";

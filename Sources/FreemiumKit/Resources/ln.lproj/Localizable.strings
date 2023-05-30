@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/mbula";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "Produit moko te ezwami mpo na ID '%@'.";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Elongi te ko charger ba produits na App Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Recharger lisusu";

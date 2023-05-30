@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "٪@/ساڵ";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "هیچ بەرهەمێک نەدۆزرایەوە بۆ ID '٪@'.";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "سەرکەوتوو نەبوو لە بارکردنی بەرهەمەکان لە App Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "بارکردنەوە";

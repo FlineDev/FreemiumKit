@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@ / il";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "Maddə '%@ ' identifikatoru ilə tapılmadı.";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Məhsulları App Store-dan yükləmək mümkün olmayıb.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Yenidən başladın";

@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/mara";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "Janiw kuna yänakas ID '%@' ukatakix jikxataskiti.";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "App Store ukan yänak apkatañax janiw ch’amäkiti.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Recargar ukax mä juk’a pachanakanwa";

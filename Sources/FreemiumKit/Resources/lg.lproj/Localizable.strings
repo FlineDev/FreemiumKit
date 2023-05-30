@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/omwaka";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "Tewali kintu kizuuliddwa ku ID '%@'.";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Eremereddwa okutikka ebintu okuva mu App Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Ddamu okutikka";

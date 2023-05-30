@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@ / umwaka";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "Nta bicuruzwa biboneka kuri ID '%@'.";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Kunanirwa gupakira ibicuruzwa mububiko bwa App.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Ongera usubiremo";

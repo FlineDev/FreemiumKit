@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@ / sena";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "L-ebda prodott ma nstab għall-ID"%@".";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Naqas milli jgħabbi prodotti mill-App Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Tagħbija mill-ġdid";

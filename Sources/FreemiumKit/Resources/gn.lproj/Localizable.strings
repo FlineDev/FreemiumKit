@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/ary";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "Ndojejuhúi producto ID '%@'-pe g̃uarã.";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Ndoikói ojekarga hag̃ua umi mba’e’oka App Store-gui.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Recarga jey";

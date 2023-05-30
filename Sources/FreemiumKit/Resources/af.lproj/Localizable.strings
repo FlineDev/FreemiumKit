@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@ / jaar";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "Geen produk gevind VIR ID ' %@'nie.";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Kon nie produkte van Die App Store laai nie.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Herlaai";

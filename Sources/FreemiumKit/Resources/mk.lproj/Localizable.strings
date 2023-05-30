@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@ / година";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "Не е пронајден производ ЗА ЛИЧНА КАРТА"%@".";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Не успеа да вчита производи од Продавница За Апликации.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Вчитај повторно";

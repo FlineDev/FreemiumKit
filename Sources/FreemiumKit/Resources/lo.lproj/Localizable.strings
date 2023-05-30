@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/ປີ";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "ບໍ່ພົບສິນຄ້າສຳລັບ ID'%@'.";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "ລົ້ມເຫລວໃນການໂຫລດຜະລິດຕະພັນຈາກ App Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "ໂຫລດ";

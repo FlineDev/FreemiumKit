@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "unit-symbols";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "'%@' hşdiniň hili üçin önüm tapylmady.";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "App Store-dan önümleri ýüklemek başartmady.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Ýüklemek";

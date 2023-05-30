@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@ / mwaka";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "Hakuna bidhaa kupatikana KWA ID'%@'.";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Imeshindwa kupakia bidhaa Kutoka Duka La App.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Pakia upya";

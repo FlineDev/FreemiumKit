@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/sanadka";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "Ma jiro alaab la'aan lagama helin ID '%@'.";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Ku guuldareystay in ay shubaan waxyaabaha ka App Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Reload";

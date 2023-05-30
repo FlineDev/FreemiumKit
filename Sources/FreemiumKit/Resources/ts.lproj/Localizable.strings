@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/lembe";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "Ku hava xitirhisiwa lexi kumiweke xa ID '%@'.";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Ku tsandzekile ku layicha switirhisiwa ku suka eka App Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Layicha nakambe";

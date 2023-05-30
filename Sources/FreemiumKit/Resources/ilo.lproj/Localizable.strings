@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/tawen";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "Awan ti nasarakan a produkto para iti ID a '%@'.";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Napaay a mangikarga kadagiti produkto manipud iti App Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Ikarga manen";

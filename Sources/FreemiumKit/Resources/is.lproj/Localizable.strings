@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@ / ár";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "Engin vara fannst FYRIR ID'%@'.";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Tókst ekki að hlaða inn vörum Úr App Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Endurlesa";

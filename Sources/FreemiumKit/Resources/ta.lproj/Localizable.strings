@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@ / ஆண்டு";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "ஐடி '%@ ' க்கு எந்த தயாரிப்பும் கிடைக்கவில்லை.";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "ஆப் ஸ்டோரிலிருந்து தயாரிப்புகளை ஏற்ற முடியவில்லை.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "மீண்டும் ஏற்றவும்";

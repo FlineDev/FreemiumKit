@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@taona";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "Tsy misy vokatra hita HO AN'NY ID'%@'.";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Tsy nahavita nampiditra vokatra avy Amin'ny App Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Ampidiro indray";

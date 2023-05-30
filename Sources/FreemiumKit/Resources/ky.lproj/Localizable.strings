@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@ / жыл";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = ""%@"Үчүн эч кандай продукт табылган жок.";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Колдонмо дүкөнүнөн өнүмдөрдү жүктөй алган жок.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Кайра жүктөө";

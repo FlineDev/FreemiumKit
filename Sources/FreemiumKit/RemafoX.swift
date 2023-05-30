@@ -102,6 +102,29 @@ internal enum Res {
             }
          }
 
+         internal enum InAppPurchase {
+            /// 🇺🇸 English: "No product found for ID '%@'."
+            internal struct ProductFetchNoMatches {
+               internal let productID: String
+
+               internal init(productID: String) {
+                  self.productID = productID
+               }
+
+               /// The translated `String` instance.
+               internal var string: String {
+                  let localizedFormatString = Bundle.module.localizedString(forKey: self.tableLookupKey, value: nil, table: "Localizable")
+                  return String.localizedStringWithFormat(localizedFormatString, self.productID)
+               }
+
+               /// The SwiftUI `LocalizedStringKey` instance.
+               internal var locStringKey: LocalizedStringKey { LocalizedStringKey("FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: \(self.productID))") }
+
+               /// The lookup key in the translation table (= the key in the `.strings` or `.stringsdict` file).
+               internal var tableLookupKey: String { "FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" }
+            }
+         }
+
          internal enum LoadingProductsFailed {
             /// 🇺🇸 English: "Failed to load products from App Store."
             internal enum Message {

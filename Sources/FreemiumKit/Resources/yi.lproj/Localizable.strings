@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@ / יאָר";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "קיין פּראָדוקט געפֿונען פֿאַר ID'%@'.";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "ניט געקאָנט צו מאַסע פּראָדוקטן פון אַפּ סטאָר.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "רילאָאַד";

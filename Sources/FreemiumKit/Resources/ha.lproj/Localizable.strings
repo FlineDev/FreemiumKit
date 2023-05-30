@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/ shekara";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "Babu samfurin da aka samo don ID '%@'.";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "An kasa loda samfura daga App Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Sake kaya";

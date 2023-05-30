@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@ / տարի";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "Ապրանքը չի գտնվել '%@ ' ID-ով:";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "App Store-ից ապրանքները հնարավոր չէ ներբեռնել:";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Վերաբեռնել";

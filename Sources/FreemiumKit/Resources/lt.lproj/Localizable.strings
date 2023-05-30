@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/metai";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "ID '%@' prekės nerasta.";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Nepavyko įkelti produktų iš \"App Store\".";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Perkrauti";

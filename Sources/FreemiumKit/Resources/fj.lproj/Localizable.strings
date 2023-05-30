@@ -6,6 +6,8 @@
 
 "FreemiumKit.DisplayPriceIfSubscription.PerYear(displayPrice: %@)" = "%@/yabaki";
 
+"FreemiumKit.InAppPurchase.ProductFetchNoMatches(productID: %@)" = "E sega ni kune e dua na ivoli me baleta na ID '%@'.";
+
 "FreemiumKit.LoadingProductsFailed.Message" = "Sega ni rawa ni vakavodoki na ivoli mai na App Store.";
 
 "FreemiumKit.LoadingProductsFailed.ReloadButtonTitle" = "Vakavodoka tale";
