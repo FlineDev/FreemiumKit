@@ -91,6 +91,7 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
             self.loadingProductsFailed = false
 
             self.products = try await FKProduct.products(for: self.productIDs.map(\.rawValue))
+            self.inAppPurchase.cacheProducts(self.products)
 
             self.productIDsEligibleForIntroductoryOffer = []
             self.renewalInfoByProductID = [:]

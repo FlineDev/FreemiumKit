@@ -32,6 +32,10 @@ import IdentifiedCollections
 /// Button(...).disabled(iap.permission(for: LockedFeature.scheduledPosts).isAlwaysDenied)
 /// ```
 public final class InAppPurchase<ProductID: RawRepresentableProductID>: ObservableObject {
+   public enum Failure: Error {
+      case receivedProductsAreEmpty
+   }
+
    /// The currently active purchased transactions with duplicate transactions for same ``productID`` removed.
    @Published
    public var purchasedTransactions: IdentifiedArray<String, FKTransaction> = .init(uniqueElements: [], id: \.productID)
@@ -40,6 +44,8 @@ public final class InAppPurchase<ProductID: RawRepresentableProductID>: Observab
    public var purchasedProductIDs: Set<ProductID> {
       Set(self.purchasedTransactions.map(\.productID).compactMap(ProductID.init(rawValue:)))
    }
+
+   private var productsCache: IdentifiedArrayOf<FKProduct> = []
 
    private var updates: Task<Void, Never>?
 
@@ -61,6 +67,21 @@ public final class InAppPurchase<ProductID: RawRepresentableProductID>: Observab
    /// Returns the users current permission for the provided unlockable feature.
    public func permission<LockedFeature: Unlockable>(for feature: LockedFeature) -> Permission where LockedFeature.ProductID == ProductID {
       feature.permission(purchasedProductIDs: self.purchasedProductIDs)
+   }
+
+   /// Requests product data from the App Store or from the internal cache and returns it.
+   /// - Throws: Either a ``StoreKitError`` if fetching fails, or ``InAppPurchase.Failure.receivedProductsAreEmpty`` if the App Store response was empty.
+   public func product(productID: ProductID) async throws -> FKProduct {
+      if let product = self.productsCache[id: productID.rawValue] {
+         return product
+      } else {
+         guard let product = try await FKProduct.products(for: [productID.rawValue]).first else {
+            throw Failure.receivedProductsAreEmpty
+         }
+
+         self.cacheProducts([product])
+         return product
+      }
    }
 
    @MainActor
@@ -89,6 +110,12 @@ public final class InAppPurchase<ProductID: RawRepresentableProductID>: Observab
          for await verificationResult in FKTransaction.currentEntitlements {
             self.handle(verificationResult: verificationResult)
          }
+      }
+   }
+
+   func cacheProducts(_ products: [FKProduct]) {
+      for product in products {
+         self.productsCache[id: product.id] = product
       }
    }
 }
