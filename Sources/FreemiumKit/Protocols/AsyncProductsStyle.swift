@@ -21,6 +21,6 @@ public protocol AsyncProductsStyle {
       purchasedTransactions: IdentifiedArray<String, FKTransaction>,
       renewalInfoByProductID: Dictionary<FKProduct.ID, FKProduct.SubscriptionInfo.RenewalInfo>,
       purchaseInProgressProductID: FKProduct.ID?,
-      startPurchase: @escaping (FKProduct, Set<Product.PurchaseOption>) -> Void
+      startPurchase: @escaping (FKProduct) -> Void
    ) -> Products
 }

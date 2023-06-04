@@ -56,7 +56,7 @@ public struct VerticalPickerProductsStyle<ProductID: RawRepresentableProductID>:
       purchasedTransactions: IdentifiedArray<String, FKTransaction>,
       renewalInfoByProductID: Dictionary<FKProduct.ID, FKProduct.SubscriptionInfo.RenewalInfo>,
       purchaseInProgressProductID: FKProduct.ID?,
-      startPurchase: @escaping (FKProduct, Set<Product.PurchaseOption>) -> Void
+      startPurchase: @escaping (FKProduct) -> Void
    ) -> some View {
       ProductsView(
          preselectedProductID: self.preselectedProductID?.rawValue,
@@ -85,7 +85,7 @@ public struct VerticalPickerProductsStyle<ProductID: RawRepresentableProductID>:
       let purchasedTransactions: IdentifiedArray<String, FKTransaction>
       let renewalInfoByProductID: Dictionary<FKProduct.ID, FKProduct.SubscriptionInfo.RenewalInfo>
       let purchaseInProgressProductID: FKProduct.ID?
-      let startPurchase: (FKProduct, Set<Product.PurchaseOption>) -> Void
+      let startPurchase: (FKProduct) -> Void
 
       var body: some View {
          VStack(spacing: self.compactMode ? 3 : 5) {
@@ -153,7 +153,7 @@ public struct VerticalPickerProductsStyle<ProductID: RawRepresentableProductID>:
 
             Button {
                if let selectedProduct = self.selectedProduct(products: products) {
-                  startPurchase(selectedProduct, [])
+                  startPurchase(selectedProduct)
                }
             } label: {
                Group {
@@ -209,7 +209,7 @@ struct VerticalPickerProductsStyle_Previews: PreviewProvider {
             purchasedTransactions: FKTransaction.mockedTransactions,
             renewalInfoByProductID: [:],
             purchaseInProgressProductID: FKProduct.mockedProducts.last!.id,
-            startPurchase: { _, _ in }
+            startPurchase: { _ in }
          )
          .padding(.vertical, 20)
          .padding(.horizontal, 30)

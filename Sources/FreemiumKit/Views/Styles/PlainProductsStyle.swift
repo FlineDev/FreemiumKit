@@ -30,14 +30,14 @@ public struct PlainProductsStyle: AsyncProductsStyle {
       purchasedTransactions: IdentifiedArray<String, FKTransaction>,
       renewalInfoByProductID: Dictionary<FKProduct.ID, FKProduct.SubscriptionInfo.RenewalInfo>,
       purchaseInProgressProductID: FKProduct.ID?,
-      startPurchase: @escaping (FKProduct, Set<Product.PurchaseOption>) -> Void
+      startPurchase: @escaping (FKProduct) -> Void
    ) -> some View {
       List(products) { product in
          if purchasedTransactions.contains(where: \.productID, equalTo: product.id) {
             Label(product.displayName, systemImage: "checkmark")
          } else {
             Button {
-               startPurchase(product, [])
+               startPurchase(product)
             } label: {
                if purchaseInProgressProductID == product.id {
                   ProgressView()
@@ -75,7 +75,7 @@ struct PlainProductsStyle_Previews: PreviewProvider {
             purchasedTransactions: .init(uniqueElements: [], id: \.productID),
             renewalInfoByProductID: [:],
             purchaseInProgressProductID: nil,
-            startPurchase: { _, _ in }
+            startPurchase: { _ in }
          )
          .previewDisplayName("Products")
       }

@@ -81,7 +81,7 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
                purchasedTransactions: self.inAppPurchase.purchasedTransactions,
                renewalInfoByProductID: self.renewalInfoByProductID,
                purchaseInProgressProductID: self.purchaseInProgressProductID,
-               startPurchase: self.handlePurchase(product:options:)
+               startPurchase: self.handlePurchase(product:)
             )
          }
       }
@@ -123,12 +123,14 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
       }
    }
 
-   private func handlePurchase(product: FKProduct, options: Set<Product.PurchaseOption>) {
+   private func handlePurchase(product: FKProduct) {
       Task {
          do {
             withAnimation(.easeIn) {
                self.purchaseInProgressProductID = product.id
             }
+
+            let options = self.productIDs.first { $0.rawValue == product.id }?.purchaseOptions ?? []
             let purchaseResult = try await product.purchase(options: options)
             withAnimation(.easeOut) {
                self.purchaseInProgressProductID = nil
