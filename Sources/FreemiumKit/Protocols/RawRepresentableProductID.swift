@@ -15,11 +15,4 @@ import Foundation
 ///    case liteMonthly = "dev.fline.TwootIt.Lite.Monthly"
 /// }
 /// ```
-public protocol RawRepresentableProductID: Hashable, RawRepresentable<String> {
-   /// This is an opportunity to pass things like an `.appAccountToken` with the users `UUID` or `custom(key:value)` pairs of type `String`, `Double`, `Bool`, or `Data.`
-   var purchaseOptions: Set<Product.PurchaseOption> { get }
-}
-
-public extension RawRepresentableProductID {
-   var purchaseOptions: Set<Product.PurchaseOption> { [] }
-}
+public protocol RawRepresentableProductID: Hashable, RawRepresentable<String> {}

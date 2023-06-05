@@ -58,6 +58,11 @@ public final class InAppPurchase<ProductID: RawRepresentableProductID>: Observab
       Set(self.purchasedTransactions.map(\.productID).compactMap(ProductID.init(rawValue:)))
    }
 
+   /// A `UUID` passed to StoreKit on purchasing to recognize same paying user even after app reinstalls for more reliable usage limits in permission checking.
+   /// Make sure to store this `UUID` on your server when a user purchased a product and track usage server-side and fetch the current usage on app start for reliable limits.
+   /// - NOTE: Do not change this value after a purchase has been made. If you want to provide a custom value here, make sure to set it before any purchase is made, e.g. on app start.
+   public var appAccountToken: UUID = UUID()
+
    private var productsCache: IdentifiedArrayOf<FKProduct> = []
 
    private var updates: Task<Void, Never>?
@@ -112,6 +117,10 @@ public final class InAppPurchase<ProductID: RawRepresentableProductID>: Observab
       } else {
          self.purchasedTransactions[id: transaction.productID] = transaction
          self.purchasedTransactions.sort { $0.purchaseDate < $1.purchaseDate }
+
+         if let appAccountToken = transaction.appAccountToken {
+            self.appAccountToken = appAccountToken
+         }
       }
    }
 

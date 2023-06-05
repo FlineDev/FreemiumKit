@@ -130,8 +130,7 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
                self.purchaseInProgressProductID = product.id
             }
 
-            let options = self.productIDs.first { $0.rawValue == product.id }?.purchaseOptions ?? []
-            let purchaseResult = try await product.purchase(options: options)
+            let purchaseResult = try await product.purchase(options: [.appAccountToken(self.inAppPurchase.appAccountToken)])
             withAnimation(.easeOut) {
                self.purchaseInProgressProductID = nil
             }
