@@ -91,6 +91,7 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
             self.loadingProductsFailed = false
 
             self.products = try await FKProduct.products(for: self.productIDs.map(\.rawValue))
+               .matchOrder(to: self.productIDs.map(\.rawValue), on: \.id)
             self.inAppPurchase.cacheProducts(self.products)
 
             self.productIDsEligibleForIntroductoryOffer = []
@@ -219,6 +220,16 @@ extension Product.SubscriptionPeriod {
 
       @unknown default:
          return "\(self.value) \(String(describing: self.unit).lowercased())s free"
+      }
+   }
+}
+
+extension Array {
+   func matchOrder<T: Equatable>(to otherArray: [T], on keyPath: KeyPath<Element, T>) -> Self {
+      self.sorted { left, right in
+         let leftIndex = otherArray.firstIndex(of: left[keyPath: keyPath]) ?? .max
+         let rightIndex = otherArray.firstIndex(of: right[keyPath: keyPath]) ?? .max
+         return leftIndex < rightIndex
       }
    }
 }
