@@ -131,7 +131,9 @@ public struct AsyncProducts<ProductID: RawRepresentableProductID, Style: AsyncPr
                self.purchaseInProgressProductID = product.id
             }
 
-            let purchaseResult = try await product.purchase(options: [.appAccountToken(self.inAppPurchase.appAccountToken)])
+            guard let scene = UIApplication.shared.connectedScenes.first(where: \.activationState, equalsTo: .foregroundActive) else { return }
+
+            let purchaseResult = try await product.purchase(confirmIn: scene, options: [.appAccountToken(self.inAppPurchase.appAccountToken)])
             withAnimation(.easeOut) {
                self.purchaseInProgressProductID = nil
             }

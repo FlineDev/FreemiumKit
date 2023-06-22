@@ -16,7 +16,7 @@ public struct VerticalPickerProductsStyle<ProductID: RawRepresentableProductID>:
    }
 
    public static var defaultCompactMode: Bool {
-      #if os(iOS)
+      #if os(iOS) && !os(xrOS)
          return UIScreen.main.bounds.height < 700
       #else
          return false
