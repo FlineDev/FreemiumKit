@@ -1,6 +1,6 @@
 > ⚠️ While I use this framework in production for my app [Twoot it!](https://twoot-it.app), the paywall part got [sherlocked by Apple](https://developer.apple.com/documentation/storekit/in-app_purchase/storekit_views) and soon [also RevenueCat](https://twitter.com/RevenueCat/status/1697253094520967183) will ship a paywall framework. Therefore, currently, I'm not planning to continue working on this project. And if I do (e.g. because Apple's new UI is only iOS 17+), expect some redesign of the paywall view API part to follow Apple's new API design for an easy switch to their native components.
 
-TODO: add Swift Package Index badges
+![FreemiumKit Logo](https://github.com/FlineDev/FreemiumKit/blob/main/Logo.png?raw=true)
 
 # FreemiumKit
 
