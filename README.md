@@ -6,7 +6,7 @@
 
 Lightweight layer on top of [StoreKit 2](https://developer.apple.com/videos/play/wwdc2021/10114/) + built-in permission engine & built-in UI components for SwiftUI paywalls.
 
-Read [this introductory article](https://www.fline.dev/freemiumkit-learnings-from-analyzing-mobile-paywalls/) to learn about my motivation to create this framework and how I came up with the "Paywall Blueprint" designs this library ships with.
+Read [this introductory article](https://www.fline.dev/freemiumkit-learnings-from-analyzing-mobile-paywalls/?ref=github.com) to learn about my motivation to create this framework and how I came up with the "Paywall Blueprint" designs this library ships with.
 
 
 ## Getting Started
@@ -135,7 +135,7 @@ Note that FreemiumKit does not help persisting your current usage count, you nee
 
 Lastly, whenever you present your paywall, you can use one of the provided UI components so you don't have to fetch your products from App Store Connect and present them in a nice way yourself. The UI part is what really saves a lot of time when integrating in-app purchases, and thanks to the open `AsyncProductsStyle` protocol, the community can add new UI styles over time so you can quickly switch between different styles, following current trends or doing A/B testing easily.
 
-For a full list of all available UI components, see the next section. But after [some research](TODO) I created the `VerticalPickerProductsStyle` which is a good one to start with as it's clean, flexible, and proven to be succesful in many high-grossing apps:
+For a full list of all available UI components, see the next section. But after [some research](https://www.fline.dev/freemiumkit-learnings-from-analyzing-mobile-paywalls/?ref=github.com) I created the `VerticalPickerProductsStyle` which is a good one to start with as it's clean, flexible, and proven to be succesful in many high-grossing apps:
 
 ```Swift
 // in your paywall SwiftUI screen, place this view where you need it (for iOS, bottom half of the screen is recommended)
