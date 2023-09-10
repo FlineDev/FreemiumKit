@@ -185,17 +185,16 @@ And that's it! You've added support for in-app purchases to your app. :tada:
 
 To get you up and running fast, FreemiumKit ships with a set of community-provided UI components that you can use in your SwiftUI paywall: 
 
-TODO: table with a preview image fore each and which features are supported (like showing subscriptions, consumables, etc.) + original author
+TODO: table with a preview image for each and which features are supported (like showing subscriptions, consumables, etc.) + original author
 
 
 ## Implementing a Custom UI
 
 While FreemiumKit ships with the above UI components that you can use out of the box, you can provide your entirely custom UI:
 
-TODO: explain how to conform to `AsyncProductsStyle` and it's recommended to copy & adjust `PlainAsyncProdcutsStyle` which is its whhole purpose
+TODO: explain how to conform to `AsyncProductsStyle` and that it's recommended to copy & adjust [`PlainAsyncProdcutsStyle`](https://github.com/FlineDev/FreemiumKit/blob/main/Sources/FreemiumKit/Views/Styles/PlainProductsStyle.swift) which is its whole purpose
 
 Note: If you implemented a somewhat different UI and have the chance to share it with the community, I'm happy to review your PR!    
-
 
 ## Project Scope
 
