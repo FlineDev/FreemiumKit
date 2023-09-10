@@ -1,4 +1,4 @@
-> ⚠️ While I use this framework in production for my app [Twoot it!](https://twoot-it.app), the paywall part got [sherlocked by Apple](https://developer.apple.com/documentation/storekit/in-app_purchase/storekit_views) and soon [also RevenueCat](https://twitter.com/RevenueCat/status/1697253094520967183) will ship a paywall framework. Therefore, currently, I'm not planning to continue working on this project. And if I do (e.g. because Apple's new UI is only iOS 17+), expect some redesign of the paywall view API part to follow Apple's new API design for an easy switch to their native components.
+> ⚠️ While I use this framework in production for my app [Twoot it!](https://twoot-it.app), the paywall part got kinda [sherlocked by Apple](https://developer.apple.com/documentation/storekit/in-app_purchase/storekit_views) and soon [also RevenueCat](https://twitter.com/RevenueCat/status/1697253094520967183) will ship a paywall framework, so I'm planning to give these a try and might not continue working on this. Apple's solution lacks customizability though. For example, they don't allow hiding the description (FB12261973), showing the monthly price for a yearly subscription (FB12261899), placing the price horizontally (FB12262030), or showing badges on top of products (FB12262171). Also, they're only available in iOS 17+, while FreemiumKit supports iOS 15+ (like StoreKit 2).
 
 ![FreemiumKit Logo](https://github.com/FlineDev/FreemiumKit/blob/main/Logo.png?raw=true)
 
@@ -6,7 +6,7 @@
 
 Lightweight layer on top of [StoreKit 2](https://developer.apple.com/videos/play/wwdc2021/10114/) + built-in permission engine & built-in UI components for SwiftUI paywalls.
 
-Read [this introductory article](https://www.fline.dev/freemiumkit-learnings-from-analyzing-mobile-paywalls/) for a full step-by-step guide on how to setup in-app purchases for your app + some basic thoughts on pricing.
+Read [this introductory article](https://www.fline.dev/freemiumkit-learnings-from-analyzing-mobile-paywalls/?ref=github.com) to learn about my motivation to create this framework and how I came up with the "Paywall Blueprint" designs this library ships with.
 
 
 ## Getting Started
@@ -135,7 +135,7 @@ Note that FreemiumKit does not help persisting your current usage count, you nee
 
 Lastly, whenever you present your paywall, you can use one of the provided UI components so you don't have to fetch your products from App Store Connect and present them in a nice way yourself. The UI part is what really saves a lot of time when integrating in-app purchases, and thanks to the open `AsyncProductsStyle` protocol, the community can add new UI styles over time so you can quickly switch between different styles, following current trends or doing A/B testing easily.
 
-For a full list of all available UI components, see the next section. But after [some research](TODO) I created the `VerticalPickerProductsStyle` which is a good one to start with as it's clean, flexible, and proven to be succesful in many high-grossing apps:
+For a full list of all available UI components, see the next section. But after [some research](https://www.fline.dev/freemiumkit-learnings-from-analyzing-mobile-paywalls/?ref=github.com) I created the `VerticalPickerProductsStyle` which is a good one to start with as it's clean, flexible, and proven to be succesful in many high-grossing apps:
 
 ```Swift
 // in your paywall SwiftUI screen, place this view where you need it (for iOS, bottom half of the screen is recommended)
