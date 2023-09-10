@@ -6,7 +6,7 @@
 
 Lightweight layer on top of [StoreKit 2](https://developer.apple.com/videos/play/wwdc2021/10114/) + built-in permission engine & built-in UI components for SwiftUI paywalls.
 
-Read [this introductory article]() for a full step-by-step guide on how to setup in-app purchases for your app + some basic thoughts on pricing.
+Read [this introductory article](https://www.fline.dev/freemiumkit-learnings-from-analyzing-mobile-paywalls/) for a full step-by-step guide on how to setup in-app purchases for your app + some basic thoughts on pricing.
 
 
 ## Getting Started
