@@ -1,5 +1,7 @@
 > ⚠️ While I use this framework in production for my app [Twoot it!](https://twoot-it.app), the paywall part got [sherlocked by Apple](https://developer.apple.com/documentation/storekit/in-app_purchase/storekit_views) and soon [also RevenueCat](https://twitter.com/RevenueCat/status/1697253094520967183) will ship a paywall framework. Therefore, currently, I'm not planning to continue working on this project. And if I do (e.g. because Apple's new UI is only iOS 17+), expect some redesign of the paywall view API part to follow Apple's new API design for an easy switch to their native components.
 
+> ℹ️ It is not possible to create the "Blueprint Paywall" I ship in this library using Apple's new StoreKit views because they lack customizability. For example, they don't allow hiding the description (FB12261973), showing the monthly price for a yearly subscription (FB12261899), placing the price horizontally (FB12262030), or showing badges on top of products (FB12262171). FreemiumKit ships these features by default.
+
 ![FreemiumKit Logo](https://github.com/FlineDev/FreemiumKit/blob/main/Logo.png?raw=true)
 
 # FreemiumKit
