@@ -29,6 +29,8 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v4
+        with:
+          lfs: true
 
       - name: Install Swift
         uses: swift-actions/setup-swift@v2
