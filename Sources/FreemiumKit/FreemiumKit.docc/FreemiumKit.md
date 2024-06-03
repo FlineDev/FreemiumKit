@@ -1,138 +1,151 @@
 # FreemiumKit
 
-Learn how to set up your app for our paywalls and live push notifications.
+Simple In-App Purchases and Subscriptions for Apple Platforms:
+Automation, Paywalls, A/B Testing, Live Notifications, PPP, and more. 
 
 @Metadata {
    @TechnologyRoot
    @PageImage(purpose: icon, source: "FreemiumKit")
-   @TitleHeading("Setup Guide")
+   @TitleHeading("Welcome to")
    @PageKind(article)
+   @CallToAction(url: "https://apps.apple.com/app/apple-store/id6502914189?pt=549314&ct=freemiumkit.app&mt=8", purpose: link, label: "Get on App Store")
 }
 
 
-## Adding the SDK
+## Overview
 
-1. Open your app project in Xcode.
+![FreemiumKit Logo](path/to/logo.png)
 
-1. In the "File" menu select "Add Package Dependencies…"
+FreemiumKit is the ultimate solution for Apple platform developers to integrate and manage in-app purchases and subscriptions effortlessly. With support for all Apple platforms, FreemiumKit provides a seamless and efficient way to handle your app's monetization.
 
-   // TODO: add screenshot
+![Hero Image](path/to/hero-image.png)
 
-1. Paste this to the top right text field and press "Add Package":
-   ```
-   https://github.com/FlineDev/FreemiumKit.git
-   ```
+## Key Features
 
-   // TODO: add screenshot
+### Quick Setup
+- **Automated Creation:** FreemiumKit connects to App Store Connect on your behalf and automates all the steps in creating your products, saving you a lot of click & wait.
+- **Customizable Paywalls:** Our SDK contains a paywall UI engine for all Apple platforms with beautiful, proven and ready-to-use designs.
+- **Remote Configuration:** Manage and update paywalls remotely through our native app – on the Mac or even from your iPhone!
 
-1. Select your app target (if not already selected) and confirm by pressing "Add Package"
+![Feature Image 1](path/to/feature-image1.png)
+
+### Advanced Monetization Tools
+- **A/B Testing:** Optimize your paywalls and pricing with built-in A/B testing capabilities. Compare up to 4 paywall designs!
+- **Live Purchase Push Notifications:** Receive real-time notifications for user purchases to stay on top of your app's performance.
+- **Pricing by Purchase Power Parity:** Adjust pricing based on the user's location to maximize revenue and accessibility.
+
+![Feature Image 2](path/to/feature-image2.png)
+
+### Native Experience
+- **Full Apple Platform Support:** Seamlessly integrate with iOS, macOS, watchOS, visionOS, and tvOS.
+- **Simplified Usage:** Our native-first approach ensures an easy and efficient setup process, allowing you to focus on building your app.
+- **Privacy by Design:** Our SDK avoids sending personal user data to any servers. And we don't keep your purchase data on our servers.
+
+![Feature Image 3](path/to/feature-image3.png)
+
+
+## FreemiumKit vs. RevenueCat
+
+When choosing a solution for managing in-app purchases and subscriptions, it's important to understand the differences between FreemiumKit and RevenueCat.
+
+| Feature                        | FreemiumKit                                           | RevenueCat                     |
+|--------------------------------|-------------------------------------------------------|--------------------------------|
+| **Quick Setup**                | ✅ (automated creation of products on Connect)        | ❌                             |
+| **Real-Time Notifications**    | ✅ (push notifications sent to native iPhone app)     | ❌ (only webhooks)             |
+| **Skip Renewal Notifications** | ✅ (reports purchases & **new** subscriptions)        | ❌                             |
+| **Paywalls**                   | ✅ (on all Apple Platforms, even visionOS!)           | 🚧 (only iOS)                  |
+| **Receipt Validation**         | ✅ (using StoreKit 2)                                 | ✅                             |
+| **A/B Testing**                | ✅ (fast setup to test up to 4 designs in parallel)   | ✅ (but a lot of work)         |
+| **Native App**                 | ✅ (on all Apple Platforms)                           | ❌                             |
+| **Purchases Dashboard**        | ✅ (in native app)                                    | ✅ (only Web)                  |
+| **Purchase Power Parity**      | ✅ (adjustable slider to mix with Apple prices)       | ❌                             |
+| **Scalable**                   | ✅ (CDN for remote config, purchases in iCloud)       | ✅ (higher price)              |
+| **User Privacy**               | ✅ (no personal data sent, server temporary storage)  | ❌ (lots of data)              |
+| **Supports Apple Platforms**   | ✅ (including visionOS)                               | ✅ (including visionOS)        |
+| **Supports Android & Web**     | ❌                                                    | ✅                             |
+| **Pricing**                    | Freemium, paid tier **below 1%** of Revenue          | Freemium, paid tier exactly 1% of Revenue |
+
+> Tip: If you need RevenueCat for combined stats (with Android) or for their 3rd-party integrations, you can set RevenueCat to Observer mode and still use FreemiumKit for paywalls, live notifications etc.
+
+
+## Pricing
+
+FreemiumKit is **completely free to use** at the moment for everyone.
+
+In the future, only developers with more than $500 monthly income on App Store Connect will need to pay, and always less than 1% of their proceeds. The full planned pricing table:
+
+@Row {
+   @Column {
+      | Monthly Income        | Cost     |
+      |-----------------------|----------|
+      | $0 - $500             | Free     |
+      | $500 - $1k            | $5/mo    |
+      | $1k - $2k             | $10/mo   |
+      | $2k - $4.5k           | $20/mo   |
+      | $4.5k - $7.5k         | $45/mo   |
+   }
+
+   @Column {
+      | Monthly Income        | Cost      |
+      |-----------------------|---------- |
+      | $7.5k - $15k          | $75/mo    |
+      | $15k - $30k           | $150/mo   |
+      | $30k - $50k           | $300/mo   |
+      | $50k - $100k          | $500/mo   |
+      | $100k+                | $1,000/mo |
+   }
+}
+
+
+## Get Started
+
+Ready to take your app's monetization to the next level? Download FreemiumKit today and start experiencing the benefits of simplified and powerful in-app purchases & subscriptions.
+
+[Download Now](https://apps.apple.com/app/apple-store/id6502914189?pt=549314&mt=8&ct=freemiumkit.app)
+
+![Get Started Image](path/to/get-started-image.png)
+
+
+## SDK Setup Guide
+
+For a detailed walkthrough on how to integrate the FreemiumKit SDK into your app, check out our [SDK Setup Guide](doc:SetupGuide).
+
+
+## Testimonials
+
+@Row {
+   @Column {
+      ![Testimonial Image](path/to/testimonial-image.png)
+      
+      > Jane Doe, Developer: FreemiumKit has transformed the way we handle in-app purchases. The setup was incredibly easy, and the features are exactly what we needed!
+   }
    
-   // TODO: add screenshot
-
-
-## Configuring the SDK
-
-1. Make sure your app's Asset Catalog contains the `Paywall.config` file from the "Setup" tab for your app in FreemiumKit. If it doesn't, drag & drop it to your Asset Catalog now.
-
-1. Add a call to `.environmentObject(FreemiumKit.shared)` to every scene in the app entry point. For example:
-
-   ```swift
-   @main
-   struct MyApp: App {
-      var body: some Scene {
-         WindowGroup {
-            MainView()
-         }
-         .environmentObject(FreemiumKit.shared)
-      }
+   @Column {
+      ![Testimonial Image](path/to/testimonial-image.png)
+      
+      > Jane Doe, Developer: FreemiumKit has transformed the way we handle in-app purchases. The setup was incredibly easy, and the features are exactly what we needed!
    }
-   ```
-
-
-## Showing the Paywalls
-
-1. (Recommended) Lock your paid features for users who have not made a purchase yet by using one of the built-in views `PaidFeatureButton` or `PaidFeatureView`. For example:
-
-   ```swift
-   // opens paywall if user has not purchased, else works like a normal (stylable) button
-   PaidFeatureButton("Export", systemImage: "square.and.arrow.up") {
-      // your export logic – no check for a paid tier needed, only called if already purchased 
-   }
-
-   // this one behaves exactly the same as the one above, but gives you more flexibility to change the unlocked/locked views
-   PaidFeatureView {
-      Button("Export", systemImage: "square.and.arrow.up") {
-         // your export logic – no check for a paid tier needed, only called if already purchased
-      }
-   } lockedView: {
-      Label("Export", systemImage: "lock")
-   }
-   ```
-
-   Note that both `PaidFeatureButton` and `PaidFeatureView` accept an `unlocksAtTier` parameter of type `Int` (default: `1`) and a `showPaywallOnPressIfLocked` parameter of type `Bool` (default: `true`). This leads to a default behavior of unlocking the feature only if tier 1 is purchased and showing a paywall on press if tier 1 is not yet purchased. If `showPaywallOnPressIfLocked` is set to `false`, the locked view will not have any automatic interaction, just rendering locked view state as-is without any added behavior.
-   
-
-1. (Optional) Alternatively, if you want to control the presentation of the paywall manually, you can add the `.paywall(isPresented:)` modifier to your custom views where needed. For example:
-
-   ```swift
-   struct MyView: View {
-      @State var showPaywall: Bool = false
-
-      var body: some View {
-         Button("Unlock Pro") {
-            self.showPaywall = true
-         }
-         .paywall(isPresent: self.$showPaywall)
-      }
-   }
-   ```
-
-   If you want to conditionally hide views based on paid state (like hiding the unlock button if a user has already purchased), you can add the `FreemiumKit` object as an `@EnvironmentObject` and call `.purchasedTier` on it like so:
-
-   ```swift
-   struct MyView: View {
-      @EnvironmentObject var freemiumKit: FreemiumKit
-      @State var showPaywall: Bool = false
-
-      var body: some View {
-         if self.freemiumKit.purchasedTier == nil {
-            Button("Unlock Pro") {
-               self.showPaywall = true
-            }
-            .paywall(isPresent: self.$showPaywall)
-         }
-      }
-   }
-   ```
-
-1. (Optional) There's also a `PaidStatusView` which you can add to your app's settings to indicate to users what their current purchase state is. There are two styles:
-
-   ```swift
-   PaidStatusView(style: .plain)
-   PaidStatusView(style: .decorative(icon: .laurel))
-   ```
-
-   // TODO: add screenshot of both styles
-
-   The `.decorative` style has multiple `icon` parameter options and also accepts optional `foregroundColor` and `backgroundColor` parameters if you need to adjust the defaults. Note that the `PaidStatusView` will automatically open a paywall on press if there's no purchase yet. Else, it's rendered as just a label without interaction.
-
-
-## SwiftUI Previews
-
-For SwiftUI previews to work for views where you make use of the `.paywall` modifier, add a call to `.environmentObject(FreemiumKit.preview)` in your preview code like so:
-
-```swift
-#Preview {
-   YourView()
-      .environmentObject(FreemiumKit.preview)
 }
-```
 
-If you want to simulate a specific paid state in your previews, you can call the `withDebugOverrides(purchasedTier:)` function on `FreemiumKit.preview` and set your desired tier (set `1` for full access). The default `FreemiumKit.preview` shows in the "nothing purchased" state, showcasing how things will look from a Free user perspective. For example:
 
-```swift
-#Preview("Full Access") {
-   YourView()
-      .environmentObject(FreemiumKit.preview.withDebugOverrides(purchasedTier: 1))
+## FAQ
+
+The top 5 most frequently asked questions:
+
+@Links(visualStyle: list) {
+   - <doc:FAQ-One>
+   - <doc:FAQ-Two>
+   - <doc:FAQ-Three>
 }
-```
+
+Visit the [Frequently Asked Questions](doc:FAQs) page for the full list of questions & answers.
+
+## Contact
+
+Have questions or need support? Reach out to me at [freemiumkit@fline.dev](mailto:freemiumkit@fline.dev).
+
+---
+
+@Small {
+   Cihat Gündüz © 2024. All rights reserved.
+}
