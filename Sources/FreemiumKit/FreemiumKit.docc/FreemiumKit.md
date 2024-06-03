@@ -3,6 +3,7 @@
 Learn how to set up your app for our paywalls and live push notifications.
 
 @Metadata {
+   @TechnologyRoot
    @PageImage(purpose: icon, source: "FreemiumKit")
    @TitleHeading("Setup Guide")
    @PageKind(article)
@@ -50,7 +51,7 @@ Learn how to set up your app for our paywalls and live push notifications.
 
 ## Showing the Paywalls
 
-1. (Recommended) Lock your paid features for users who have not made a purchase yet by using one of the built-in views `PaidFeatureButton`/`PaidFeatureView`. For example:
+1. (Recommended) Lock your paid features for users who have not made a purchase yet by using one of the built-in views `PaidFeatureButton` or `PaidFeatureView`. For example:
 
    ```swift
    // opens paywall if user has not purchased, else works like a normal (stylable) button
