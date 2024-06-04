@@ -1,0 +1,9 @@
+{
+  "theme": {
+    "color": {
+      "header": "#0E1025",
+      "documentation-intro-fill": "radial-gradient(circle at top, var(--color-header) 30%, #000 100%)",
+      "documentation-intro-accent": "var(--color-header)"
+    }
+  }
+}
