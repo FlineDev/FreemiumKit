@@ -1,19 +1,14 @@
-// swift-tools-version: 5.8
+// swift-tools-version: 5.10
 import PackageDescription
 
 let package = Package(
     name: "FreemiumKit",
     defaultLocalization: "en",
-    platforms: [.iOS(.v15), .macOS(.v12), .tvOS(.v15), .watchOS(.v8)],
+    platforms: [.iOS(.v15), .macOS(.v12), .tvOS(.v15), .visionOS(.v1)],
     products: [.library(name: "FreemiumKit", targets: ["FreemiumKit"])],
-    dependencies: [
-      .package(url: "https://github.com/pointfreeco/swift-identified-collections.git", from: "0.7.1"),
-    ],
-    targets: [.target(
-      name: "FreemiumKit",
-      dependencies: [
-         .product(name: "IdentifiedCollections", package: "swift-identified-collections")
-      ],
-      resources: [.process("Resources")]
-    )]
+    dependencies: [.package(url: "https://github.com/apple/swift-docc-plugin", from: "1.3.0")],
+    targets: [
+      .target(name: "FreemiumKit", dependencies: ["FreemiumKitSDK"]),
+      .binaryTarget(name: "FreemiumKitSDK", path: "FreemiumKitSDK.xcframework.zip"),
+    ]
 )
