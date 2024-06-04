@@ -63,7 +63,7 @@ When choosing a solution for managing in-app purchases and subscriptions, it's i
 | **User Privacy**               | ✅ (no personal data sent, server temporary storage)  | ❌ (lots of data)              |
 | **Supports Apple Platforms**   | ✅ (including visionOS)                               | ✅ (including visionOS)        |
 | **Supports Android & Web**     | ❌                                                    | ✅                             |
-| **Pricing**                    | Freemium, paid tier **below 1%** of Revenue          | Freemium, paid tier exactly 1% of Revenue |
+| **Pricing**                    | Freemium, paid tier **below 1%** of Revenue           | Freemium, paid tier exactly 1% of Revenue |
 
 > Tip: If you need RevenueCat for combined stats (with Android) or for their 3rd-party integrations, you can set RevenueCat to Observer mode and still use FreemiumKit for paywalls, live notifications etc.
 

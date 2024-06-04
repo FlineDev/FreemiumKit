@@ -31,7 +31,7 @@ Learn how to set up your app for our paywalls and live push notifications.
 
 ## Configuring the SDK
 
-1. Make sure your app's Asset Catalog contains the `Paywall.config` file from the "Setup" tab for your app in FreemiumKit. If it doesn't, drag & drop it to your Asset Catalog now.
+1. Make sure your app's Asset Catalog contains the `FreemiumKit` data set from the "Setup" tab for your app in FreemiumKit. If it doesn't, drag & drop it from the Setup tab now.
 
 1. Add a call to `.environmentObject(FreemiumKit.shared)` to every scene in the app entry point. For example:
 
@@ -50,7 +50,7 @@ Learn how to set up your app for our paywalls and live push notifications.
 
 ## Showing the Paywalls
 
-1. (Recommended) Lock your paid features for users who have not made a purchase yet by using one of the built-in views `PaidFeatureButton` or `PaidFeatureView`. For example:
+1. Lock your paid features for users who have not made a purchase yet by using one of the built-in views `PaidFeatureButton` or `PaidFeatureView`. For example:
 
    ```swift
    // opens paywall if user has not purchased, else works like a normal (stylable) button
@@ -71,7 +71,7 @@ Learn how to set up your app for our paywalls and live push notifications.
    Note that both `PaidFeatureButton` and `PaidFeatureView` accept an `unlocksAtTier` parameter of type `Int` (default: `1`) and a `showPaywallOnPressIfLocked` parameter of type `Bool` (default: `true`). This leads to a default behavior of unlocking the feature only if tier 1 is purchased and showing a paywall on press if tier 1 is not yet purchased. If `showPaywallOnPressIfLocked` is set to `false`, the locked view will not have any automatic interaction, just rendering locked view state as-is without any added behavior.
    
 
-1. (Optional) Alternatively, if you want to control the presentation of the paywall manually, you can add the `.paywall(isPresented:)` modifier to your custom views where needed. For example:
+1. Alternatively, if you want to control the presentation of the paywall manually, you can add the `.paywall(isPresented:)` modifier to your custom views where needed. For example:
 
    ```swift
    struct MyView: View {
@@ -104,7 +104,7 @@ Learn how to set up your app for our paywalls and live push notifications.
    }
    ```
 
-1. (Optional) There's also a `PaidStatusView` which you can add to your app's settings to indicate to users what their current purchase state is. There are two styles:
+1. There's also a `PaidStatusView` which you can add to your app's settings to indicate to users what their current purchase state is. There are two styles:
 
    ```swift
    PaidStatusView(style: .plain)
@@ -118,7 +118,7 @@ Learn how to set up your app for our paywalls and live push notifications.
 
 ## SwiftUI Previews
 
-For SwiftUI previews to work for views where you make use of the `.paywall` modifier, add a call to `.environmentObject(FreemiumKit.preview)` in your preview code like so:
+For SwiftUI previews to work where you make use of the built-in views or modifier, add a call to `.environmentObject(FreemiumKit.preview)` in your preview code like so:
 
 ```swift
 #Preview {
@@ -127,7 +127,7 @@ For SwiftUI previews to work for views where you make use of the `.paywall` modi
 }
 ```
 
-If you want to simulate a specific paid state in your previews, you can call the `withDebugOverrides(purchasedTier:)` function on `FreemiumKit.preview` and set your desired tier (set `1` for full access). The default `FreemiumKit.preview` shows in the "nothing purchased" state, showcasing how things will look from a Free user perspective. For example:
+If you want to simulate a specific paid state in your previews, you can call the `withDebugOverrides(purchasedTier:)` function on `FreemiumKit.preview` and set your desired tier (set `1` for full access). The default `FreemiumKit.preview` shows in the "nothing purchased" state, showcasing how things will look from a Free users perspective. For example:
 
 ```swift
 #Preview("Full Access") {

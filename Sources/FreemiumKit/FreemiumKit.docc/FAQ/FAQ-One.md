@@ -2,6 +2,11 @@
 
 TODO
 
+@Metadata {
+   @TitleHeading("FAQs")
+   @PageKind(sampleCode)
+   @CallToAction(url: "https://developer.apple.com/videos/play/wwdc2023/101", purpose: link, label: "Watch Video")
+}
 
 ## Contact
 

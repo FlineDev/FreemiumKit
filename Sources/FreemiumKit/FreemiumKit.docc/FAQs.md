@@ -8,11 +8,11 @@ The most frequently asked questions about FreemiumKit.
    @PageKind(article)
 }
 
-@Links(visualStyle: list) {
-   - <doc:FAQ-One>
-   - <doc:FAQ-Two>
-   - <doc:FAQ-Three>
-}
+## Topics
+
+- <doc:FAQ-One>
+- <doc:FAQ-Two>
+- <doc:FAQ-Three>
 
 
 ## Contact
