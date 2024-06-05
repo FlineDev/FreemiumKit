@@ -33,6 +33,8 @@ Learn how to set up your app for our paywalls and live push notifications.
 
 ## Configuring the SDK
 
+> Tip: Don't forget to `import FreemiumKit` for any of the below calls to build.
+
 1. Make sure your app's Asset Catalog contains the `FreemiumKit` data set from the "Setup" tab for your app in FreemiumKit. If it doesn't, drag & drop it from the Setup tab now.
 
 1. Add a call to `.environmentObject(FreemiumKit.shared)` to every scene in the app entry point. For example:
