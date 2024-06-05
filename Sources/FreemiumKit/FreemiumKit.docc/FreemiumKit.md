@@ -1,13 +1,9 @@
 # FreemiumKit
 
-Simple In-App Purchases and Subscriptions for Apple Platforms:
-Automation, Paywalls, A/B Testing, Live Notifications, PPP, and more. 
+Simple In-App Purchases and Subscriptions for Apple Platforms: Automation, Paywalls, A/B Testing, Live Notifications, PPP, and more. 
 
 @Metadata {
    @TechnologyRoot
 }
-
-
-## Overview
 
 FreemiumKit is the ultimate solution for Apple platform developers to integrate and manage in-app purchases and subscriptions effortlessly. With support for all Apple platforms, FreemiumKit provides a seamless and efficient way to handle your app's monetization.
