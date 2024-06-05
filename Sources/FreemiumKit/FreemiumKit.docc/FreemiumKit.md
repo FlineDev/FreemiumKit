@@ -5,10 +5,6 @@ Automation, Paywalls, A/B Testing, Live Notifications, PPP, and more.
 
 @Metadata {
    @TechnologyRoot
-   @PageImage(purpose: icon, source: "FreemiumKit")
-   @TitleHeading("Welcome to")
-   @PageKind(article)
-   @CallToAction(url: "https://apps.apple.com/app/apple-store/id6502914189?pt=549314&ct=freemiumkit.app&mt=8", purpose: link, label: "Get on App Store")
 }
 
 
