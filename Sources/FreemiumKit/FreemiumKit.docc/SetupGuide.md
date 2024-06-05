@@ -22,6 +22,8 @@ Learn how to set up your app for our paywalls and live push notifications.
    https://github.com/FlineDev/FreemiumKit.git
    ```
 
+   > Warning: During the current Beta phase, you need to specify the `main` branch for it to work.
+
    // TODO: add screenshot
 
 1. Select your app target (if not already selected) and confirm by pressing "Add Package"
