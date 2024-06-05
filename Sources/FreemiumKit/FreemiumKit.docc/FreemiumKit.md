@@ -157,9 +157,3 @@ Have questions or need support? Reach out to me at [freemiumkit@fline.dev](mailt
    Privacy: No personal data is tracked on this site.
    [Imprint](https://www.fline.dev/imprint/)
 }
-
-
-## Topics
-
-- <doc:SetupGuide>
-- <doc:FAQs>
