@@ -10,9 +10,10 @@ The most frequently asked questions about FreemiumKit.
 
 ## Topics
 
-- <doc:FAQ-One>
-- <doc:FAQ-Two>
-- <doc:FAQ-Three>
+- <doc:FAQ-HowItWorks>
+- <doc:FAQ-Privacy>
+- <doc:FAQ-Validation>
+
 
 
 ## Contact
@@ -21,6 +22,10 @@ Have questions or need support? Reach out to me at [freemiumkit@fline.dev](mailt
 
 ---
 
+## Legal
+
 @Small {
    Cihat Gündüz © 2024. All rights reserved.
+   Privacy: No personal data is tracked on this site.
+   [Imprint](https://www.fline.dev/imprint/)
 }

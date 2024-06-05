@@ -7,7 +7,7 @@ Automation, Paywalls, A/B Testing, Live Notifications, PPP, and more.
    @TechnologyRoot
    @PageImage(purpose: icon, source: "FreemiumKit")
    @TitleHeading("Welcome to")
-   @PageKind(article)
+<!--   @PageKind(article)-->
    @CallToAction(url: "https://apps.apple.com/app/apple-store/id6502914189?pt=549314&ct=freemiumkit.app&mt=8", purpose: link, label: "Get on App Store")
 }
 
@@ -23,9 +23,9 @@ FreemiumKit is the ultimate solution for Apple platform developers to integrate 
 ## Key Features
 
 ### Quick Setup
-- **Automated Creation:** FreemiumKit connects to App Store Connect on your behalf and automates all the steps in creating your products, saving you a lot of click & wait.
-- **Customizable Paywalls:** Our SDK contains a paywall UI engine for all Apple platforms with beautiful, proven and ready-to-use designs.
-- **Remote Configuration:** Manage and update paywalls remotely through our native app – on the Mac or even from your iPhone!
+- **Automated Creation:** FreemiumKit connects to App Store Connect on your behalf and automates all the steps needed to create your products, saving you a lot of click & wait.
+- **Customizable Paywalls:** The SDK contains a paywall UI engine for all Apple platforms with beautiful, proven, and ready-to-use designs.
+- **Remote Configuration:** Manage and update paywalls remotely through the native app – on your Mac or even on your iPhone!
 
 ![Feature Image 1](path/to/feature-image1.png)
 
@@ -37,9 +37,9 @@ FreemiumKit is the ultimate solution for Apple platform developers to integrate 
 ![Feature Image 2](path/to/feature-image2.png)
 
 ### Native Experience
-- **Full Apple Platform Support:** Seamlessly integrate with iOS, macOS, watchOS, visionOS, and tvOS.
-- **Simplified Usage:** Our native-first approach ensures an easy and efficient setup process, allowing you to focus on building your app.
-- **Privacy by Design:** Our SDK avoids sending personal user data to any servers. And we don't keep your purchase data on our servers.
+- **Full Apple Platforms Support:** Seamlessly integrate the SDK with iOS, macOS, visionOS, and tvOS.
+- **Simplified Usage:** The native-first approach ensures an easy and efficient setup process, allowing you to focus on building your app.
+- **Privacy by Design:** The SDK avoids sending personal user data to any servers. And we don't keep your purchase data on our servers.
 
 ![Feature Image 3](path/to/feature-image3.png)
 
@@ -51,11 +51,11 @@ When choosing a solution for managing in-app purchases and subscriptions, it's i
 | Feature                        | FreemiumKit                                           | RevenueCat                     |
 |--------------------------------|-------------------------------------------------------|--------------------------------|
 | **Quick Setup**                | ✅ (automated creation of products on Connect)        | ❌                             |
+| **Paywalls**                   | ✅ (on all Apple Platforms, even visionOS!)           | 🚧 (only iOS)                  |
 | **Real-Time Notifications**    | ✅ (push notifications sent to native iPhone app)     | ❌ (only webhooks)             |
 | **Skip Renewal Notifications** | ✅ (reports purchases & **new** subscriptions)        | ❌                             |
-| **Paywalls**                   | ✅ (on all Apple Platforms, even visionOS!)           | 🚧 (only iOS)                  |
 | **Receipt Validation**         | ✅ (using StoreKit 2)                                 | ✅                             |
-| **A/B Testing**                | ✅ (fast setup to test up to 4 designs in parallel)   | ✅ (but a lot of work)         |
+| **A/B Testing**                | ✅ (fast setup, up to 4 designs in parallel)          | ✅ (but a lot of work)         |
 | **Native App**                 | ✅ (on all Apple Platforms)                           | ❌                             |
 | **Purchases Dashboard**        | ✅ (in native app)                                    | ✅ (only Web)                  |
 | **Purchase Power Parity**      | ✅ (adjustable slider to mix with Apple prices)       | ❌                             |
@@ -113,6 +113,8 @@ For a detailed walkthrough on how to integrate the FreemiumKit SDK into your app
 
 ## Testimonials
 
+Here's what customers are saying about FreemiumKit:
+
 @Row {
    @Column {
       ![Testimonial Image](path/to/testimonial-image.png)
@@ -140,12 +142,24 @@ The top 5 most frequently asked questions:
 
 Visit the [Frequently Asked Questions](doc:FAQs) page for the full list of questions & answers.
 
+
+
 ## Contact
 
 Have questions or need support? Reach out to me at [freemiumkit@fline.dev](mailto:freemiumkit@fline.dev).
 
 ---
 
+## Legal
+
 @Small {
    Cihat Gündüz © 2024. All rights reserved.
+   Privacy: No personal data is tracked on this site.
+   [Imprint](https://www.fline.dev/imprint/)
 }
+
+
+## Topics
+
+- <doc:SetupGuide>
+- <doc:FAQs>
