@@ -9,6 +9,6 @@ This repo serves as the provider for the FreemiumKit SDK to include in your apps
 
 ## Getting Started
 
-Read the [Setup Guide](https://flinedev.github.io/FreemiumKit/documentation/freemiumkit/setupguide/) to get started.
+Read the [Setup Guide](https://freemiumkit.app/documentation/freemiumkit/setupguide) to get started.
 
-If you have questions, please have a look at our [FAQs](https://flinedev.github.io/FreemiumKit/documentation/freemiumkit/faqs).
+If you have questions, please have a look at our [FAQs](https://freemiumkit.app/documentation/freemiumkit/faqs).
