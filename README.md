@@ -4,6 +4,8 @@
 
 The fastest & easiest way to provide in-app purchases & subscriptions in apps for iOS, macOS, tvOS, and visionOS.
 
+Check out [our website](https://freemiumkit.app) to learn more about FreemiumKit.
+
 This repo serves as the provider for the FreemiumKit SDK to include in your apps. The SDK takes away all the hard work to integrate with StoreKit and even provides configurable paywall UIs and convenient SwiftUI views to lock features in your app with low effort. 
 
 
