@@ -7,7 +7,7 @@ let package = Package(
     platforms: [.iOS(.v15), .macOS(.v12), .tvOS(.v15), .visionOS(.v1)],
     products: [.library(name: "FreemiumKit", targets: ["FreemiumKit"])],
     targets: [
-      .target(name: "FreemiumKit", dependencies: ["FreemiumKitSDK"]),
+      .target(name: "FreemiumKit", dependencies: ["FreemiumKitSDK"], resources: [.process("PrivacyInfo.xcprivacy")]),
       .binaryTarget(name: "FreemiumKitSDK", path: "FreemiumKitSDK.xcframework.zip"),
     ]
 )
