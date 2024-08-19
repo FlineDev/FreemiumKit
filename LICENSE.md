@@ -8,8 +8,9 @@ Copyright (c) 2024 FlineDev (Cihat Gündüz)
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to use
 the Software for the purpose of integrating it into applications that will be
-distributed via the App Store or similar platforms. Any common actions for these
-applications like testing or debugging it using the Software is permitted, too.
+distributed via the App Store or similar platforms. Any common actions while
+developing these applications, such as testing or debugging them with the
+Software, is permitted as well.
 
 
 ## Restrictions
