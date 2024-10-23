@@ -2,7 +2,7 @@
 
 # FreemiumKit
 
-The fastest & easiest way to provide in-app purchases & subscriptions in apps for iOS, macOS, tvOS, and visionOS.
+The fastest & easiest way to provide in-app purchases & subscriptions in apps for iOS, macOS, tvOS, and visionOS. Creates ready-to-submit purchases on Connect for you!
 
 Check out [our website](https://freemiumkit.app) to learn more about FreemiumKit.
 
